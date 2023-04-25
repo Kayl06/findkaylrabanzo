@@ -1,5 +1,4 @@
 import { VscMail } from "react-icons/vsc";
-import { FaLinkedinIn, FaGithub, FaFacebook } from "react-icons/fa";
 import Link from "next/link";
 import Head from "next/head";
 
@@ -11,39 +10,37 @@ export default function Header() {
         <link rel="shortcut icon" href="/images/profile1.png" />
       </Head>
 
-      <div className="z-10 w-full max-w-[1140px] py-7 items-center justify-between text-sm lg:flex text-gray-400 font-light border-b border-b-[#2d2d2d] p-[5px]">
-        <Link
-          href="mailto:frabanzoo@gmail.com"
-          className="__get_in_touch flex gap-5 items-center text-[14px] hover:text-[#fafafa]"
-        >
-          <span className="rounded-full p-5 border font-bold">
-            <VscMail className="text-[20px]" />
-          </span>
-          Get in touch
-        </Link>
-        <div className="__social_links flex gap-[35px]">
-          <Link
-            href="https://www.linkedin.com/in/frabanzo/"
-            target="_blank"
-            className="hover:text-[#fafafa] flex items-center"
-          >
-            <FaLinkedinIn className="text-[28px]" />
-          </Link>
+      <div className="z-10 w-full font-mono max-w-[1140px] py-7 items-center justify-between text-sm flex text-gray-400 font-light border-b border-b-[#2d2d2d] p-[5px]">
+        <div className="__logo"></div>
 
+        <div className="__menu flex gap-[20px]">
           <Link
-            href="https://github.com/Kayl06"
-            target="_blank"
-            className="hover:text-[#fafafa] flex items-center"
+            href="#about"
+            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
           >
-            <FaGithub className="text-[28px]" />
+            <span className="text-[#7e7e7e]">01.</span>
+            About
           </Link>
-
           <Link
-            href="https://www.facebook.com/kAyL06/"
-            target="_blank"
-            className="hover:text-[#fafafa] flex items-center"
+            href="#experience"
+            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
           >
-            <FaFacebook className="text-[28px]" />
+            <span className="text-[#7e7e7e]">02.</span>
+            Experience
+          </Link>
+          <Link
+            href="#work"
+            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
+          >
+            <span className="text-[#7e7e7e]">03.</span>
+            Work
+          </Link>
+          <Link
+            href="#contact"
+            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
+          >
+            <span className="text-[#7e7e7e]">04.</span>
+            Contact
           </Link>
         </div>
       </div>
