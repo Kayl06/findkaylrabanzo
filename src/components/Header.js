@@ -3,6 +3,38 @@ import Link from "next/link";
 import Head from "next/head";
 
 export default function Header() {
+  const menuList = [
+    {
+      path: "#about",
+      name: "About",
+    },
+    {
+      path: "#skillset",
+      name: "Skillset",
+    },
+    {
+      path: "#works",
+      name: "Works",
+    },
+    {
+      path: "#contact",
+      name: "Contact",
+    },
+  ];
+
+  const renderedMenuList = menuList.map((menuItem, index) => {
+    return (
+      <Link
+        key={index}
+        href={menuItem.path}
+        className="__menut-items hover:text-[#fff] hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center gap-2 p-1 px-2 rounded"
+      >
+        <span className="text-[#efefef]">0{index + 1}.</span>
+        {menuItem.name}
+      </Link>
+    );
+  });
+
   return (
     <>
       <Head>
@@ -10,38 +42,19 @@ export default function Header() {
         <link rel="shortcut icon" href="/images/profile1.png" />
       </Head>
 
-      <div className="z-10 w-full font-mono max-w-[1140px] py-7 items-center justify-between text-sm flex text-gray-400 font-light border-b border-b-[#2d2d2d] p-[5px]">
-        <div className="__logo"></div>
+      <div className="z-10 w-full py-7 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
+        <div className="__logo font-bold text-gray-300 border-2 border-gray-400 p-5 flex items-center bg-[#313131] cursor-pointer">
+          <span className="text-[1.2rem]">KR</span>
+        </div>
 
-        <div className="__menu flex gap-[20px]">
-          <Link
-            href="#about"
-            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
-          >
-            <span className="text-[#7e7e7e]">01.</span>
-            About
-          </Link>
-          <Link
-            href="#experience"
-            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
-          >
-            <span className="text-[#7e7e7e]">02.</span>
-            Experience
-          </Link>
-          <Link
-            href="#work"
-            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
-          >
-            <span className="text-[#7e7e7e]">03.</span>
-            Work
-          </Link>
-          <Link
-            href="#contact"
-            className="__menut-items hover:text-[#fafafa] flex items-center gap-2"
-          >
-            <span className="text-[#7e7e7e]">04.</span>
-            Contact
-          </Link>
+        <div className="__menu gap-[20px] hidden md:flex font-mono ">
+          {renderedMenuList}
+        </div>
+
+        <div className="__hamburger flex md:hidden cursor-pointer">
+          <div className="__hamburger_box">
+            <div className="__hamburger_box_inner"></div>
+          </div>
         </div>
       </div>
     </>

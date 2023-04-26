@@ -1,82 +1,96 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-import { FaLinkedin, FaGithub, FaFacebook, FaTwitter } from "react-icons/fa";
-import Header from "../components/Header";
+import {
+  SlSocialLinkedin,
+  SlSocialInstagram,
+  SlSocialTwitter,
+  SlSocialGithub,
+} from "react-icons/sl";
 import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
+import Header from "../components/Header";
+import BotCornerLinks from "@/components/BotCornerLinks";
 
 export default function Home() {
   const socialLinks = [
     {
       url: "https://www.linkedin.com/in/frabanzo/",
       name: "LinkedIn",
-      icon: <FaLinkedin className="text-[28px]" />,
+      icon: <SlSocialLinkedin className="text-[21px] font-bold" />,
     },
     {
       url: "https://github.com/Kayl06",
       name: "GitHub",
-      icon: <FaGithub className="text-[28px]" />,
+      icon: <SlSocialGithub className="text-[21px]" />,
     },
     {
-      url: "https://www.facebook.com/kAyL06/",
+      url: "https://www.instagram.com/kangkongkayl/",
       name: "Facebook",
-      icon: <FaFacebook className="text-[28px]" />,
+      icon: <SlSocialInstagram className="text-[21px]" />,
     },
     {
       url: "https://www.twitter.com/KangkongKayl",
       name: "Twitter",
-      icon: <FaTwitter className="text-[28px]" />,
+      icon: <SlSocialTwitter className="text-[21px]" />,
     },
   ];
 
   const renderedSocialLinks = socialLinks.map((link) => {
     return (
-      <Link
-        key={link.name}
-        href={link.url}
-        target="_blank"
-        className="hover:text-[#fafafa] flex items-center"
-      >
-        {link.icon}
-      </Link>
+      <li key={link.name}>
+        <Link
+          href={link.url}
+          target="_blank"
+          className="hover:text-[#fafafa] flex items-center p-[10px] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform"
+        >
+          {link.icon}
+        </Link>
+      </li>
     );
   });
+
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between pb-24 ${inter.className} __main`}
+      className={`flex min-h-screen flex-col items-center justify-between pb-24 __main`}
     >
       <Header />
 
-      <div className="relative flex text-gray-400 max-w-[1140px] w-full">
-        <div className="flex flex-col justify-between gap-10">
-          <div className="__greetings lg:w-[600px]">
-            <div className="text-[15px] text-white font-mono">
+      <BotCornerLinks
+        renderedSocialLinks={renderedSocialLinks}
+        email="frabanzoo@gmail.com"
+      />
+
+      <section className="relative flex text-gray-400 max-w-[1600px] w-full mx-auto xl:px-[150px] px-[50px] md:px-[100px]">
+        <div className="flex flex-col justify-between gap-10 __section_item max-w-[1000px] mx-auto w-full">
+          <div className="__greetings">
+            <div className="text-[15px] text-white font-mono mb-6">
               Hi, I&apos;m Fedimar Kayl 👋
             </div>
-            <h1 className="text-[3rem] font-bold text-start leading-snug mb-[20px]">
-              I design and develop things for the web.
+            <h1 className="font-bold text-start leading-tight mb-[20px] __big_heading">
+              <span className="text-[#e9e9e9] ">I design and develop </span>
+              <br /> things for the web.
             </h1>
 
-            <p className="lg:w-[500px]">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry&apos;s standard dummy
-              text ever since the 1500s, when an unknown printer took a galley
-              of type and scrambled it to make a type specimen book.
+            <p className="lg:w-[500px] font-medium">
+              As a full-stack web developer, I specialize in creating modern and
+              user-friendly websites and web applications. With experience in
+              front-end and back-end technologies such as &nbsp;
+              <span className="text-white">
+                HTML, CSS, JavaScript, React.JS, Next.JS, AngularJS, TypeScript,
+                Node.js, Express, Laravel, CodeIgniter, Python and MySQL
+              </span>
+              , I have the skills needed to bring your vision to life.
             </p>
           </div>
 
-          <div className="__social_links flex gap-[35px]">
-            {renderedSocialLinks}
-          </div>
+          <div className="__social_links flex gap-[30px]"></div>
 
           <div className="__check_my_work mt-[20px]">
-            <button className="border rounded-[8px] shadow__btn font-mono border-gray-400 hover:border-white hover:text-white p-3  w-[200px] text-[14px]">
-              View my works
+            <button className="border rounded shadow__btn font-mono border-gray-400 hover:border-white hover:text-white py-3 px-[3rem] text-[13px]">
+              View my works!
             </button>
           </div>
         </div>
-      </div>
+      </section>
 
       <div></div>
     </main>
