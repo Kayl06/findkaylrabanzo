@@ -59,13 +59,13 @@ export default function Home() {
         email="frabanzoo@gmail.com"
       />
 
-      <section className="relative flex text-gray-400 max-w-[1600px] w-full mx-auto xl:px-[150px] px-[50px] md:px-[100px]">
+      <section className="relative flex text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[150px]">
         <div className="flex flex-col justify-between gap-10 __section_item max-w-[1000px] mx-auto w-full">
           <div className="__greetings">
             <div className="text-[15px] text-white font-mono mb-6">
               Hi, I&apos;m Fedimar Kayl 👋
             </div>
-            <h1 className="font-bold text-start leading-tight mb-[20px] __big_heading">
+            <h1 className="font-bold text-start leading-none md:leading-[4.5rem] mb-[25px] __big_heading">
               <span className="text-[#e9e9e9] ">I design and develop </span>
               <br /> things for the web.
             </h1>
@@ -82,10 +82,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="__social_links flex gap-[30px]"></div>
-
           <div className="__check_my_work mt-[20px]">
-            <button className="border rounded shadow__btn font-mono border-gray-400 hover:border-white hover:text-white py-3 px-[3rem] text-[13px]">
+            <button className="border rounded shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]">
               View my works!
             </button>
           </div>
