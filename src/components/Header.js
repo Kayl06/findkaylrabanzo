@@ -1,8 +1,14 @@
-import { VscMail } from "react-icons/vsc";
+import Logo from "./Logo";
 import Link from "next/link";
 import Head from "next/head";
+import useToggle from "@/hooks/useToggle";
+import { useState, useEffect } from "react";
 
 export default function Header() {
+  const [isMenuOpen, handleBurgerMenuClick] = useToggle(false);
+
+  const [isMobile, setIsMobile] = useState(false);
+
   const menuList = [
     {
       path: "#about",
@@ -27,13 +33,37 @@ export default function Header() {
       <Link
         key={index}
         href={menuItem.path}
-        className="__menut-items hover:text-[#fff] hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center gap-2 p-1 px-2 rounded"
+        className="__menut-items hover:text-[#fff] hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center gap-2 p-5 md:p-1 px-2 rounded"
       >
         <span className="text-[#efefef]">0{index + 1}.</span>
         {menuItem.name}
       </Link>
     );
   });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const isMobileSize = window.innerWidth <= 768; // Change this value as needed
+      setIsMobile(isMobileSize);
+    };
+
+    handleResize(); // Call handleResize initially to set the `isMobile` state
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  let parentMenuClassName = "";
+  let childMenuClassName = "";
+  if (isMobile) {
+    parentMenuClassName = isMenuOpen && `fixed inset-0`;
+    childMenuClassName =
+      isMenuOpen &&
+      `p-10 top-[80px] right-0 flex-col fixed flex bg-black h-screen w-full`;
+  }
 
   return (
     <>
@@ -43,19 +73,30 @@ export default function Header() {
       </Head>
 
       <div className=" z-[11] __header fixed md:relative w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
-        <div className="__logo rounded font-bold text-gray-300 border-2 border-gray-400 p-5 flex items-center bg-[#313131] cursor-pointer">
-          <span className="text-[1.2rem]">KR</span>
+        <Logo />
+
+        <div
+          className={`__menu font-mono ${parentMenuClassName} hidden md:flex`}
+        >
+          <div
+            className={`__menu_inner gap-[20px] md:flex ${childMenuClassName}`}
+          >
+            {renderedMenuList}
+
+            <a
+              href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
+              target="_blank"
+              className="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-2 px-[1rem] text-[13px]"
+            >
+              Resume
+            </a>
+          </div>
         </div>
 
-        <div className="__menu gap-[20px] hidden md:flex font-mono ">
-          {renderedMenuList}
-
-          <a href="/files/CV - FEDIMAR KAYL RABANZO.pdf" target="_blank" className="border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-2 px-[1rem] text-[13px]">
-            Resume
-          </a>
-        </div>
-
-        <div className="__hamburger flex md:hidden cursor-pointer">
+        <div
+          className="__hamburger flex md:hidden cursor-pointer"
+          onClick={handleBurgerMenuClick}
+        >
           <div className="__hamburger_box">
             <div className="__hamburger_box_inner"></div>
           </div>

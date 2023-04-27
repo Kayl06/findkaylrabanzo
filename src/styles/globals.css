@@ -71,8 +71,9 @@ body {
   font-size: clamp(40px, 8vw, 4rem);
 }
 
-.__logo {
-  clip-path: inset(10% 20% 20% 5%);
+.__logo:hover {
+  box-shadow: 0 0 1px rgb(135, 135, 135), 0 0 10px rgb(109, 109, 109),
+    0 0 20px rgb(126, 124, 124), 0 0 40px rgb(90, 90, 90);
 }
 
 .__hamburger {

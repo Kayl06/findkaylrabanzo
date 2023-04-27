@@ -8,6 +8,7 @@ import {
 import Link from "next/link";
 import Header from "../components/Header";
 import BotCornerLinks from "@/components/BotCornerLinks";
+import { Fragment } from "react";
 
 export default function Home() {
   const socialLinks = [
@@ -127,9 +128,8 @@ export default function Home() {
     }
 
     return (
-      <>
+      <Fragment key={index}>
         <Link
-          key={index}
           href={techStack.link}
           className="hover:underline hover:underline-offset-4 transition hover:-translate-y-1 hover:scale-110 duration-300 "
           target="_blank"
@@ -137,7 +137,7 @@ export default function Home() {
           {techStack.name}
         </Link>
         {separator}
-      </>
+      </Fragment>
     );
   });
 
