@@ -42,13 +42,17 @@ export default function Header() {
         <link rel="shortcut icon" href="/images/profile1.png" />
       </Head>
 
-      <div className="z-10 w-full py-7 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
-        <div className="__logo font-bold text-gray-300 border-2 border-gray-400 p-5 flex items-center bg-[#313131] cursor-pointer">
+      <div className=" z-[11] __header fixed md:relative w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
+        <div className="__logo rounded font-bold text-gray-300 border-2 border-gray-400 p-5 flex items-center bg-[#313131] cursor-pointer">
           <span className="text-[1.2rem]">KR</span>
         </div>
 
         <div className="__menu gap-[20px] hidden md:flex font-mono ">
           {renderedMenuList}
+
+          <button className="border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-2 px-[1rem] text-[13px]">
+            Resume
+          </button>
         </div>
 
         <div className="__hamburger flex md:hidden cursor-pointer">

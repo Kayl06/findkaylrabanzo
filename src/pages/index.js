@@ -1,11 +1,10 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
 import {
-  SlSocialLinkedin,
-  SlSocialInstagram,
-  SlSocialTwitter,
-  SlSocialGithub,
-} from "react-icons/sl";
+  FiGithub,
+  FiLinkedin,
+  FiInstagram,
+  FiTwitter,
+  FiFacebook,
+} from "react-icons/fi";
 import Link from "next/link";
 import Header from "../components/Header";
 import BotCornerLinks from "@/components/BotCornerLinks";
@@ -15,22 +14,90 @@ export default function Home() {
     {
       url: "https://www.linkedin.com/in/frabanzo/",
       name: "LinkedIn",
-      icon: <SlSocialLinkedin className="text-[21px] font-bold" />,
+      icon: <FiLinkedin className="text-[24px] font-bold" />,
     },
     {
       url: "https://github.com/Kayl06",
       name: "GitHub",
-      icon: <SlSocialGithub className="text-[21px]" />,
+      icon: <FiGithub className="text-[24px]" />,
     },
     {
       url: "https://www.instagram.com/kangkongkayl/",
-      name: "Facebook",
-      icon: <SlSocialInstagram className="text-[21px]" />,
+      name: "Instagram",
+      icon: <FiInstagram className="text-[24px]" />,
     },
     {
       url: "https://www.twitter.com/KangkongKayl",
       name: "Twitter",
-      icon: <SlSocialTwitter className="text-[21px]" />,
+      icon: <FiTwitter className="text-[24px]" />,
+    },
+    {
+      url: "https://www.facebook.com/kayl06",
+      name: "Facebook",
+      icon: <FiFacebook className="text-[24px]" />,
+    },
+  ];
+
+  const techStacks = [
+    {
+      name: "HTML",
+      link: "https://",
+    },
+    {
+      name: "CSS",
+      link: "https://",
+    },
+    {
+      name: "TailwindCSS",
+      link: "https://",
+    },
+    {
+      name: "Bootstrap",
+      link: "https://",
+    },
+    {
+      name: "JavaScript",
+      link: "https://",
+    },
+    {
+      name: "React.JS",
+      link: "https://",
+    },
+    {
+      name: "Next.JS",
+      link: "https://",
+    },
+    {
+      name: "AngularJS",
+      link: "https://",
+    },
+    {
+      name: "TypeScript",
+      link: "https://",
+    },
+    {
+      name: "ExpressJS",
+      link: "https://",
+    },
+    {
+      name: "PHP Native",
+      link: "https://",
+    },
+    {
+      name: "Laravel",
+      link: "https://",
+    },
+    {
+      name: "CodeIgniter",
+      link: "https://",
+    },
+    {
+      name: "Python",
+      link: "https://",
+    },
+    {
+      name: "MySQL",
+      link: "https://",
     },
   ];
 
@@ -48,6 +115,32 @@ export default function Home() {
     );
   });
 
+  const renderedTechStacks = techStacks.map((techStack, index) => {
+    let separator = ", ";
+
+    if (index == techStacks.length - 2) {
+      separator = " and ";
+    }
+
+    if (index == techStacks.length - 1) {
+      separator = " ";
+    }
+
+    return (
+      <>
+        <Link
+          key={index}
+          href={techStack.link}
+          className="hover:underline hover:underline-offset-4 transition hover:-translate-y-1 hover:scale-110 duration-300 "
+          target="_blank"
+        >
+          {techStack.name}
+        </Link>
+        {separator}
+      </>
+    );
+  });
+
   return (
     <main
       className={`flex min-h-screen flex-col items-center justify-between pb-24 __main`}
@@ -59,8 +152,8 @@ export default function Home() {
         email="frabanzoo@gmail.com"
       />
 
-      <section className="relative flex text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[150px]">
-        <div className="flex flex-col justify-between gap-10 __section_item max-w-[1000px] mx-auto w-full">
+      <section className="__main_section mt-[100px] lg:mt-0  relative flex flex-col justify-center text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[100px] lg:px-[150px]">
+        <div className="flex flex-col justify-between gap-10 __hero_section max-w-[1000px] mx-auto w-full">
           <div className="__greetings">
             <div className="text-[15px] text-white font-mono mb-6">
               Hi, I&apos;m Fedimar Kayl 👋
@@ -75,22 +168,25 @@ export default function Home() {
               user-friendly websites and web applications. With experience in
               front-end and back-end technologies such as &nbsp;
               <span className="text-white">
-                HTML, CSS, JavaScript, React.JS, Next.JS, AngularJS, TypeScript,
-                Node.js, Express, Laravel, CodeIgniter, Python and MySQL
+                {/* HTML, CSS, TailwindCSS, Bootstrap, JavaScript, React.JS,
+                Next.JS, AngularJS, TypeScript, Node.JS, Express, PHP Native,
+                Laravel, CodeIgniter, Python and MySQL */}
+
+                {renderedTechStacks}
               </span>
               , I have the skills needed to bring your vision to life.
             </p>
           </div>
 
           <div className="__check_my_work mt-[20px]">
-            <button className="border rounded shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]">
+            <button className="border uppercase rounded shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]">
               View my works!
             </button>
           </div>
         </div>
       </section>
 
-      <div></div>
+      <section></section>
     </main>
   );
 }

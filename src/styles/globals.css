@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --header-height: 80px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -27,6 +28,21 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.__header {
+  height: var(--header-height);
+  -webkit-backdrop-filter: blur(10.5px);
+  backdrop-filter: blur(10.5px);
+  background: linear-gradient(
+    112.83deg,
+    hsla(0, 0%, 9%, 0.489),
+    hsla(0, 0%, 0%, 0.523) 110.84%
+  );
+}
+
+.__main_section {
+  /* margin-top: calc(var(--header-height) + 20px); */
+}
+
 .__main {
   background-image: url(/images/multi-lines-vert1.png),
     url(/images/multi-lines-vert2.png);
@@ -36,7 +52,6 @@ body {
 }
 
 .shadow__btn {
-  text-transform: uppercase;
   transition: 0.5s;
   transition-property: box-shadow;
   letter-spacing: 2.5px;
