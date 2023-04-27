@@ -50,9 +50,9 @@ export default function Header() {
         <div className="__menu gap-[20px] hidden md:flex font-mono ">
           {renderedMenuList}
 
-          <button className="border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-2 px-[1rem] text-[13px]">
+          <a href="/files/CV - FEDIMAR KAYL RABANZO.pdf" target="_blank" className="border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-2 px-[1rem] text-[13px]">
             Resume
-          </button>
+          </a>
         </div>
 
         <div className="__hamburger flex md:hidden cursor-pointer">
