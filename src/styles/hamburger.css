@@ -1,0 +1,113 @@
+.__close.__hamburger {
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  border: 0px;
+  background-color: transparent;
+}
+
+.__close.__hamburger .__hamburger_box {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 25px;
+}
+
+.__close.__hamburger .__hamburger_box_inner {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 30px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: white;
+  transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+  transform: rotate(0deg);
+}
+
+.__close .__hamburger_box_inner::before {
+  width: 50%;
+  top: -10px;
+  opacity: 1;
+  transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+}
+
+.__close .__hamburger_box_inner::after {
+  width: 50%;
+  top: 10px;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+}
+
+.__close .__hamburger_box_inner::before,
+.__close .__hamburger_box_inner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: auto;
+  right: 0px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: white;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+  transition-property: transform;
+}
+
+.__open.__hamburger {
+  align-items: center;
+  position: relative;
+  z-index: 10;
+  border: 0px;
+  background-color: transparent;
+}
+
+.__open.__hamburger .__hamburger_box {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 24px;
+}
+
+.__open.__hamburger .__hamburger_box_inner {
+  position: absolute;
+  top: 50%;
+  right: 0px;
+  width: 25px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: white;
+  transition: transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19) 0s;
+  transform: rotate(225deg);
+}
+
+.__open .__hamburger_box_inner::before {
+  width: 120%;
+  top: 0;
+  opacity: 0;
+  transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+}
+
+.__open .__hamburger_box_inner::after {
+  width: 100%;
+  bottom: 0px;
+  opacity: 1;
+  transform: rotate(-90deg);
+  transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
+}
+
+.__open .__hamburger_box_inner::before,
+.__open .__hamburger_box_inner::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: auto;
+  right: 0px;
+  height: 2px;
+  border-radius: 4px;
+  background-color: white;
+  transition-timing-function: ease;
+  transition-duration: 0.15s;
+  transition-property: transform;
+}
