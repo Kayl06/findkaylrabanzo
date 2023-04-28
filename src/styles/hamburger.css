@@ -26,14 +26,14 @@
 }
 
 .__close .__hamburger_box_inner::before {
-  width: 50%;
+  width: 60%;
   top: -10px;
   opacity: 1;
   transition: top 0.1s ease-in 0.25s, opacity 0.1s ease-in;
 }
 
 .__close .__hamburger_box_inner::after {
-  width: 50%;
+  width: 60%;
   top: 10px;
   opacity: 1;
   transform: rotate(0deg);

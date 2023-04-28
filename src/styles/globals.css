@@ -44,8 +44,7 @@ body {
   );
 }
 
-.__main_section {
-}
+.__main_section {}
 
 .__main {
   background-image: url(/images/multi-lines-vert1.png),
@@ -85,7 +84,7 @@ li:last-of-type {
 }
 
 .__numbered_heading {
-  font-size: clamp(26px, 5vw, 32px);
+  font-size: clamp(20px, 5vw, 32px);
   white-space: nowrap;
   margin: 10px 0px 40px;
   width: 100%;
@@ -101,4 +100,5 @@ li:last-of-type {
   font-size: clamp(16px, 3vw, 20px);
   font-family: var(--font-mono);
   font-weight: 400;
+  color: rgb(156 163 175 / var(--tw-text-opacity));
 }

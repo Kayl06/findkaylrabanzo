@@ -4,6 +4,7 @@ import {
   FiInstagram,
   FiTwitter,
   FiFacebook,
+  FiZap,
 } from "react-icons/fi";
 import Link from "next/link";
 import Header from "../components/Header";
@@ -41,35 +42,23 @@ export default function Home() {
 
   const techStacks = [
     {
-      name: "HTML",
+      name: "React",
       link: "https://",
     },
     {
-      name: "CSS",
+      name: "Laravel",
       link: "https://",
     },
     {
-      name: "TailwindCSS",
+      name: "JavaScript ( ES6+ )",
       link: "https://",
     },
     {
-      name: "Bootstrap",
+      name: "Express.js",
       link: "https://",
     },
     {
-      name: "JavaScript",
-      link: "https://",
-    },
-    {
-      name: "React.JS",
-      link: "https://",
-    },
-    {
-      name: "Next.JS",
-      link: "https://",
-    },
-    {
-      name: "AngularJS",
+      name: "Next.js",
       link: "https://",
     },
     {
@@ -77,7 +66,15 @@ export default function Home() {
       link: "https://",
     },
     {
-      name: "ExpressJS",
+      name: "TailwindCSS",
+      link: "https://",
+    },
+    {
+      name: "AngularJS",
+      link: "https://",
+    },
+    {
+      name: "HTML",
       link: "https://",
     },
     {
@@ -85,7 +82,7 @@ export default function Home() {
       link: "https://",
     },
     {
-      name: "Laravel",
+      name: "CSS",
       link: "https://",
     },
     {
@@ -117,26 +114,14 @@ export default function Home() {
   });
 
   const renderedTechStacks = techStacks.map((techStack, index) => {
-    let separator = ", ";
-
-    if (index == techStacks.length - 2) {
-      separator = " and ";
-    }
-
-    if (index == techStacks.length - 1) {
-      separator = " ";
-    }
-
     return (
       <Fragment key={index}>
-        <Link
-          href={techStack.link}
-          className="hover:underline hover:underline-offset-4 transition hover:-translate-y-1 hover:scale-110 duration-300 "
-          target="_blank"
-        >
-          {techStack.name}
-        </Link>
-        {separator}
+        <div className="__tech_stack_item flex gap-2 items-center self-center cursor-pointer hover:underline hover:underline-offset-4">
+          <FiZap className=" text-gray-400 font-bold" />
+          <span className=" font-medium text-[13px] text-white">
+            {techStack.name}
+          </span>
+        </div>
       </Fragment>
     );
   });
@@ -152,7 +137,7 @@ export default function Home() {
         email="frabanzoo@gmail.com"
       />
 
-      <section className="__main_section relative flex flex-col justify-center text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[100px] lg:px-[150px]">
+      <section className="__main_section text-md relative flex flex-col justify-center text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[100px] lg:px-[150px]">
         <div className="flex flex-col justify-center gap-10 __hero_section max-w-[1000px] min-h-screen mx-auto w-full">
           <div className="__greetings">
             <div className="text-[15px] text-white font-mono mb-6">
@@ -168,7 +153,10 @@ export default function Home() {
               modern, user-friendly websites and web applications. With
               proficiency in front-end and back-end technologies, I can bring
               your vision to life with attention to detail and a focus on
-              quality. <span className="text-white">Let me help you achieve your business objectives!</span>
+              quality.{" "}
+              <span className="text-white">
+                Let me help you achieve your business objectives!
+              </span>
               <span className="text-white">
                 {/* HTML, CSS, TailwindCSS, Bootstrap, JavaScript, React.JS,
                 Next.JS, AngularJS, TypeScript, Node.JS, Express, PHP Native,
@@ -188,11 +176,31 @@ export default function Home() {
 
         <div
           id="about"
-          className="__about flex flex-col pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
+          className="__about pt-20 max-w-[1000px] min-h-screen mx-auto w-full grid grid-cols-1 lg:grid-cols-2"
         >
-          <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9d9d9dbb] after:h-[1px]">
-            About Me
-          </h2>
+          <div className="flex flex-col">
+            <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+              About Me
+            </h2>
+
+            <div>
+              <p className="mb-[15px]">
+                Hi! I'm Fedimar Kayl M. Rabanzo from Olongapo City, Philippines.
+                For the past 3 years, I've been working as a Full-Stack Web
+                Developer. I have the same background in both Front-end and
+                Back-end development.
+              </p>
+
+              <p className="mb-[15px]">
+                Here are a few technologies I’ve been working with recently:
+              </p>
+            </div>
+
+            <div className="__tech_stacks grid grid-cols-2 gap-4 mt-[15px]">
+              {renderedTechStacks}
+            </div>
+            <div></div>
+          </div>
         </div>
       </section>
 
