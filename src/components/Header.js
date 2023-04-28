@@ -1,8 +1,7 @@
+import { useState, useEffect } from "react";
 import Logo from "./Logo";
-import Link from "next/link";
 import Head from "next/head";
 import useToggle from "@/hooks/useToggle";
-import { useState, useEffect } from "react";
 
 export default function Header() {
   const [isMenuOpen, handleBurgerMenuClick] = useToggle(false);
@@ -30,19 +29,20 @@ export default function Header() {
 
   const renderedMenuList = menuList.map((menuItem, index) => {
     return (
-      <Link
+      <a
         key={index}
         href={menuItem.path}
-        className="__menut-items hover:text-[#fff] hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 md:p-1 px-2 rounded"
+        onClick={() => handleBurgerMenuClick()}
+        className="__menut-items hover:text-[#fff] hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 md:p-1 md:px-2 px-2 rounded"
       >
         <span className="text-[#efefef]"> 0{index + 1}. </span> {menuItem.name}
-      </Link>
+      </a>
     );
   });
 
   useEffect(() => {
     const handleResize = () => {
-      const isMobileSize = window.innerWidth <= 768; // Change this value as needed
+      const isMobileSize = window.innerWidth < 1024; // Change this value as needed
       setIsMobile(isMobileSize);
     };
 
@@ -70,7 +70,7 @@ export default function Header() {
   return (
     <>
       <Head>
-        <title> Fedimar Kayl Rabanzo & #8212; Full Stack Web Developer</title>
+        <title> Fedimar Kayl Rabanzo - Full Stack Web Developer</title>
 
         <link rel="shortcut icon" href="/images/profile1.png" />
       </Head>
@@ -94,7 +94,9 @@ export default function Header() {
           </div>
         </div>
         <div
-          className={`${isMenuOpen ? "__open" : "__close"} __hamburger flex lg:hidden cursor-pointer`}
+          className={`${
+            isMenuOpen ? "__open" : "__close"
+          } __hamburger flex lg:hidden cursor-pointer`}
           onClick={handleBurgerMenuClick}
         >
           <div className="__hamburger_box">

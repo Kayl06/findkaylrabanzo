@@ -152,8 +152,8 @@ export default function Home() {
         email="frabanzoo@gmail.com"
       />
 
-      <section className="__main_section mt-[100px] lg:mt-0  relative flex flex-col justify-center text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[100px] lg:px-[150px]">
-        <div className="flex flex-col justify-between gap-10 __hero_section max-w-[1000px] mx-auto w-full">
+      <section className="__main_section relative flex flex-col justify-center text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[100px] lg:px-[150px]">
+        <div className="flex flex-col justify-center gap-10 __hero_section max-w-[1000px] min-h-screen mx-auto w-full">
           <div className="__greetings">
             <div className="text-[15px] text-white font-mono mb-6">
               Hi, I&apos;m Fedimar Kayl 👋
@@ -163,18 +163,19 @@ export default function Home() {
               <br /> things for the web.
             </h1>
 
-            <p className="lg:w-[500px] font-medium">
-              As a full-stack web developer, I specialize in creating modern and
-              user-friendly websites and web applications. With experience in
-              front-end and back-end technologies such as &nbsp;
+            <p className="lg:w-[500px]">
+              I am an experienced full-stack web developer specializing in
+              modern, user-friendly websites and web applications. With
+              proficiency in front-end and back-end technologies, I can bring
+              your vision to life with attention to detail and a focus on
+              quality. <span className="text-white">Let me help you achieve your business objectives!</span>
               <span className="text-white">
                 {/* HTML, CSS, TailwindCSS, Bootstrap, JavaScript, React.JS,
                 Next.JS, AngularJS, TypeScript, Node.JS, Express, PHP Native,
                 Laravel, CodeIgniter, Python and MySQL */}
 
-                {renderedTechStacks}
+                {/* {renderedTechStacks} */}
               </span>
-              , I have the skills needed to bring your vision to life.
             </p>
           </div>
 
@@ -183,6 +184,15 @@ export default function Home() {
               View my works!
             </button>
           </div>
+        </div>
+
+        <div
+          id="about"
+          className="__about flex flex-col pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
+        >
+          <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9d9d9dbb] after:h-[1px]">
+            About Me
+          </h2>
         </div>
       </section>
 
