@@ -38,12 +38,11 @@ body {
   height: var(--header-height);
   -webkit-backdrop-filter: blur(10.5px);
   backdrop-filter: blur(10.5px);
-  /* background: linear-gradient(
+  background: linear-gradient(
     112.83deg,
     hsla(0, 0%, 9%, 0.489),
     hsla(0, 0%, 0%, 0.523) 110.84%
-  ); */
-  background-color: black;
+  );
 }
 
 .__main_section {
