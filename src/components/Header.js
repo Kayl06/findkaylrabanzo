@@ -11,19 +11,19 @@ export default function Header() {
   const menuList = [
     {
       path: "#about",
-      name: "About",
+      name: "about",
     },
     {
-      path: "#skillset",
-      name: "Skillset",
+      path: "#experience",
+      name: "experience",
     },
     {
-      path: "#works",
-      name: "Works",
+      path: "#work",
+      name: "work",
     },
     {
       path: "#contact",
-      name: "Contact",
+      name: "contact",
     },
   ];
 
@@ -33,7 +33,7 @@ export default function Header() {
         key={index}
         href={menuItem.path}
         onClick={() => handleBurgerMenuClick()}
-        className="__menut-items hover:text-[#fff] hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 md:p-1 md:px-2 px-2 rounded"
+        className="__menut-items hover:text-[#fff] capitalize hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 md:p-1 md:px-2 px-2 rounded"
       >
         <span className="text-[#efefef]"> 0{index + 1}. </span> {menuItem.name}
       </a>
@@ -96,7 +96,7 @@ export default function Header() {
         <div
           className={`${
             isMenuOpen ? "__open" : "__close"
-          } __hamburger flex lg:hidden cursor-pointer`}
+          } __hamburger lg:hidden flex cursor-pointer`}
           onClick={handleBurgerMenuClick}
         >
           <div className="__hamburger_box">

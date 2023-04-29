@@ -7,7 +7,8 @@
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
   --header-height: 80px;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,7 +45,8 @@ body {
   );
 }
 
-.__main_section {}
+.__main_section {
+}
 
 .__main {
   background-image: url(/images/multi-lines-vert1.png),
@@ -91,6 +93,10 @@ li:last-of-type {
   position: relative;
 }
 
+.__main_section {
+  counter-reset: section 0;
+}
+
 .__numbered_heading::before {
   position: relative;
   bottom: -4px;
@@ -101,4 +107,18 @@ li:last-of-type {
   font-family: var(--font-mono);
   font-weight: 400;
   color: rgb(156 163 175 / var(--tw-text-opacity));
+}
+
+.__over-line {
+  display: block;
+  margin-bottom: 20px;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.__over-line::before{
+  font-size: 14px;
+  bottom: 0px;
 }

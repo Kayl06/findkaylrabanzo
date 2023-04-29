@@ -128,7 +128,7 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between pb-24 __main`}
+      className={`relative flex min-h-screen flex-col items-center justify-between pb-24 __main`}
     >
       <Header />
 
@@ -168,9 +168,12 @@ export default function Home() {
           </div>
 
           <div className="__check_my_work mt-[20px]">
-            <button className="border uppercase rounded shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]">
+            <a
+              href="#work"
+              className="border uppercase rounded shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]"
+            >
               View my works!
-            </button>
+            </a>
           </div>
         </div>
 
@@ -202,9 +205,63 @@ export default function Home() {
             <div></div>
           </div>
         </div>
+
+        <div
+          id="experience"
+          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full grid grid-cols-1 lg:grid-cols-2"
+        >
+          <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            Where I've Worked
+          </h2>
+        </div>
+
+        <div
+          id="work"
+          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full grid grid-cols-1 lg:grid-cols-2"
+        >
+          <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            Some Things I’ve Built
+          </h2>
+        </div>
+
+        <div
+          id="contact"
+          className="__contact max-w-[600px] mb-[100px] mx-auto block text-center py-20"
+        >
+          <h4 className="__numbered_heading __over-line text-[16px] flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            What's Next?
+          </h4>
+
+          <h2 className=" font-[900] text-[3em] text-white">Get In Touch</h2>
+
+          <p className="mb-[5rem]">
+            Thanks for visiting my portfolio! If you have any questions or want
+            to discuss a project, please get in touch via my email/socials
+            listed below. Looking forward to hearing from you soon!
+          </p>
+
+          <a
+            href="mailto:frabanzoo@gmail.com"
+            target="_blank"
+            class="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-5 px-[1.5rem] text-[13px]"
+          >
+            Say, Hello!
+          </a>
+        </div>
       </section>
 
       <section></section>
+
+      <footer className="text-center flex flex-col absolute bottom-4 text-gray-300">
+        <div className="__social_links_mob flex md:hidden">
+          <ul className="flex gap-[15px] text-gray-400">
+            {renderedSocialLinks}
+          </ul>
+        </div>
+        <a href="" className="text-[14px] font-mono hover:text-white">
+          Built by Fedimar Kayl Rabanzo
+        </a>
+      </footer>
     </main>
   );
 }
