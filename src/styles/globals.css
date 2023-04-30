@@ -118,7 +118,12 @@ li:last-of-type {
   text-align: center;
 }
 
-.__over-line::before{
+.__over-line::before {
   font-size: 14px;
   bottom: 0px;
+}
+
+
+.__about_me_pic {
+  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }

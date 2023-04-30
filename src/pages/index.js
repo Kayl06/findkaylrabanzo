@@ -128,7 +128,7 @@ export default function Home() {
 
   return (
     <main
-      className={`relative flex min-h-screen flex-col items-center justify-between pb-24 __main`}
+      className={`relative flex min-h-screen flex-col items-center justify-between pb-10 __main`}
     >
       <Header />
 
@@ -179,30 +179,45 @@ export default function Home() {
 
         <div
           id="about"
-          className="__about pt-20 max-w-[1000px] min-h-screen mx-auto w-full grid grid-cols-1 lg:grid-cols-2"
+          className="__about pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
         >
-          <div className="flex flex-col">
-            <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
-              About Me
-            </h2>
+          <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            About Me
+          </h2>
 
-            <div>
-              <p className="mb-[15px]">
-                Hi! I'm Fedimar Kayl M. Rabanzo from Olongapo City, Philippines.
-                For the past 3 years, I've been working as a Full-Stack Web
-                Developer. I have the same background in both Front-end and
-                Back-end development.
-              </p>
+          <div className="__inner grid grid-cols-1 lg:grid-cols-2 gap-7">
+            <div className="flex flex-col">
+              <div>
+                <p className="mb-[15px]">
+                  Hi! I'm Fedimar Kayl M. Rabanzo from Olongapo City,
+                  Philippines. For the past 3 years, I've been working as a
+                  Full-Stack Web Developer. I have the same background in both
+                  Front-end and Back-end development.
+                </p>
 
-              <p className="mb-[15px]">
-                Here are a few technologies I’ve been working with recently:
-              </p>
+                <p className="mb-[15px]">
+                  Here are a few technologies I’ve been working with recently:
+                </p>
+              </div>
+
+              <div className="__tech_stacks grid grid-cols-2 gap-4 mt-[15px]">
+                {renderedTechStacks}
+              </div>
+
+              <div></div>
             </div>
 
-            <div className="__tech_stacks grid grid-cols-2 gap-4 mt-[15px]">
-              {renderedTechStacks}
+            <div className="__wrapper flex cursor-pointer w-full h-full max-w-[500px] max-h-[450px] relative">
+              <div className="__image_wrapper flex relative">
+                <div className=" flex">
+                  <img
+                    src="/images/my_about_pic.jpg"
+                    alt="ABOUT ME PICTURE"
+                    className="__about_me_pic hover:scale-105  transition duration-300 ease-in mix-blend-luminosity hover:mix-blend-normal"
+                  />
+                </div>
+              </div>
             </div>
-            <div></div>
           </div>
         </div>
 
@@ -252,7 +267,7 @@ export default function Home() {
 
       <section></section>
 
-      <footer className="text-center flex flex-col absolute bottom-4 text-gray-300">
+      <footer className="text-center flex flex-col text-gray-300">
         <div className="__social_links_mob flex md:hidden">
           <ul className="flex gap-[15px] text-gray-400">
             {renderedSocialLinks}
