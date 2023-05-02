@@ -99,7 +99,7 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
         className={`
         ${
           activeTab == header.href
-            ? "bg-[#484848] text-white border-l-2 border-white"
+            ? "bg-[#484848] text-white md:border-l-2 border-white"
             : ""
         }
         cursor-pointer
