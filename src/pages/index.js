@@ -240,6 +240,8 @@ export default function Home() {
           <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
             Some Things I’ve Built
           </h2>
+
+          <h1 className="text-lg text-white">Sorry, this section is currently work in progress...</h1>
         </div>
 
         <div
