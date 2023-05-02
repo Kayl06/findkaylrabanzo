@@ -10,6 +10,7 @@ import Link from "next/link";
 import Header from "../components/Header";
 import BotCornerLinks from "@/components/BotCornerLinks";
 import { Fragment } from "react";
+import Tabs from "@/components/Tabs";
 
 export default function Home() {
   const socialLinks = [
@@ -207,9 +208,9 @@ export default function Home() {
               <div></div>
             </div>
 
-            <div className="__wrapper flex cursor-pointer w-full h-full max-w-[500px] max-h-[450px] relative">
+            <div className="__wrapper flex cursor-pointer w-full h-full lg:max-w-[500px] max-h-[450px] relative mt-10 lg:mt-0">
               <div className="__image_wrapper flex relative">
-                <div className=" flex">
+                <div className=" flex justify-center">
                   <img
                     src="/images/my_about_pic.jpg"
                     alt="ABOUT ME PICTURE"
@@ -223,16 +224,18 @@ export default function Home() {
 
         <div
           id="experience"
-          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full grid grid-cols-1 lg:grid-cols-2"
+          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full flex flex-col"
         >
           <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
             Where I've Worked
           </h2>
+
+          <Tabs />
         </div>
 
         <div
           id="work"
-          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full grid grid-cols-1 lg:grid-cols-2"
+          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
         >
           <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
             Some Things I’ve Built
@@ -258,7 +261,7 @@ export default function Home() {
           <a
             href="mailto:frabanzoo@gmail.com"
             target="_blank"
-            class="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-5 px-[1.5rem] text-[13px]"
+            className="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-5 px-[1.5rem] text-[13px]"
           >
             Say, Hello!
           </a>
