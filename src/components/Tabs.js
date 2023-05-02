@@ -23,6 +23,7 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
     {
       id: "play_asia",
       companyName: `Playasia`,
+      website: `https://playasia.com/`,
       title: `Web Developer`,
       dateOfEmployment: `Jun 2022`,
       employementUntil: `Present`,
@@ -40,6 +41,7 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
     },
     {
       id: "dunbrae",
+      website: `https://dunbraesubic.ph/`,
       companyName: `Dunbrae Subic Inc`,
       title: `Full-Stack Web Developer`,
       dateOfEmployment: `Oct 2022`,
@@ -63,6 +65,7 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
     },
     {
       id: "idess",
+      website: `https://www.idessit.com/`,
       companyName: `IDESS IT`,
       title: `Full-Stack Web Developer`,
       dateOfEmployment: `Aug 2019`,
@@ -96,11 +99,11 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
         className={`
         ${
           activeTab == header.href
-            ? "bg-[#484848] text-white border-l-2 border-white pl-3"
+            ? "bg-[#484848] text-white border-l-2 border-white"
             : ""
         }
         cursor-pointer
-        px-[20px] py-3 duration-200 hover:text-md hover:bg-[#484848] hover:pl-3 hover:text-white hover:underline-offset-4 hover:underline hover:border-white border-l-2 border-[#8c8c8c90] 
+        px-[20px] py-3 duration-300 hover:text-md hover:bg-[#484848] hover:text-white hover:underline-offset-4 hover:underline hover:border-white md:border-l-2 md:border-b-0 border-[#8c8c8c90] border-l-0 border-b-2
         `}
         onClick={() => handleOnTabChange(header.href)}
       >
@@ -131,7 +134,8 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
           {body.title}
           &nbsp;
           <a
-            href="playasia.com"
+            href={body.website}
+            target="_blank"
             className="hover:underline hover:underline-offset-4 text-gray-400"
           >
             @{body.companyName}
