@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FiCheck } from "react-icons/fi";
 
 export default function Tabs({ tabHeaders = [], tabBody = [] }) {
   const [activeTab, setActiveTab] = useState("play_asia");
@@ -67,15 +68,18 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
       dateOfEmployment: `Aug 2019`,
       employementUntil: `Oct 2022`,
       responsibilities: [
-        `Responsible for maintaining an e-commerce website and also
-        responsible for creating a mobile application for e-commerce.`,
-        `Plans, design, develops and test website according to business
-        needs.`,
-        `Analyze requirements and implement new feature in ecommerce and/or
-        in-house system.`,
-        `Protects operations by keeping the information confidential.`,
-        `Perform other responsibilities associated with this position as
-        maybe appropriate.`,
+        `Responsible for maintaining consistency across the brand by
+        ensuring all online content such as e-Learning and computerbased testing tool adhered to guidelines.`,
+        `Collaborated with team to analyze pre-project plans and
+        assess technical requirements to develop functioning and
+        user-friendly computer interfaces according to business
+        goals.`,
+        `Migrate and upgrade the old system to the new and modern
+        design system.`,
+        `Analysis, design, and develop website according to
+        business/client needs.`,
+        `Implements design for new website or reconstruction of new
+        website.`,
       ],
     },
   ];
@@ -109,8 +113,11 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
     const renderedResponsibilities = body.responsibilities.map((resp, idx) => {
       return (
         <>
-          <li className="" key={idx}>
-            <p>{resp}</p>
+          <li
+            className=" before:content-['▹'] before:absolute before:top-0 before:left-0 relative before:text-[16px] before:text-white pl-[30px]"
+            key={idx}
+          >
+            {resp}
           </li>
         </>
       );
@@ -120,23 +127,24 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
         key={body.id}
         className={`__tab_body_item ${activeTab == body.id ? "" : "hidden"} `}
       >
-        <h1 className="font-bold text-[16px]">
-          {body.title}{" "}
+        <h1 className="font-bold text-[22px]">
+          {body.title}
+          &nbsp;
           <a
             href="playasia.com"
             className="hover:underline hover:underline-offset-4 text-gray-400"
           >
-            @ {body.companyName}
+            @{body.companyName}
           </a>
         </h1>
-        <div className="flex items-center text-[13px] mt-1">
+        <div className="flex items-center text-[14px] mt-1">
           <span className=" __range">
             {body.dateOfEmployment} - {body.employementUntil}
           </span>
         </div>
 
-        <div className="__responsibilities mt-5 ml-5 max-w-[500px] text-gray-400">
-          <ul className="list-disc flex flex-col gap-2">
+        <div className="__responsibilities mt-5 max-w-[500px] text-gray-400">
+          <ul className=" flex flex-col gap-3 relative ">
             {renderedResponsibilities}
           </ul>
         </div>
