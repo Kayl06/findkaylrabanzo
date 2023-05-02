@@ -154,9 +154,9 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
 
   return (
     <>
-      <div className="__tabs flex gap-5">
+      <div className="__tabs flex flex-col gap-5 md:flex-row">
         <div className="__tabs_header">
-          <div className="flex flex-col text-[13px] font-[500] w-max">
+          <div className="flex flex-col text-[13px] font-[500] w-max sm:flex-row">
             {renderedTabHeaders}
           </div>
         </div>
