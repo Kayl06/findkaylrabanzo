@@ -2,43 +2,12 @@ import { useState, useEffect } from "react";
 import Logo from "./Logo";
 import Head from "next/head";
 import useToggle from "@/hooks/useToggle";
+import HeaderMenuList from "./HeaderMenuList";
 
 export default function Header() {
   const [isMenuOpen, handleBurgerMenuClick] = useToggle(false);
 
   const [isMobile, setIsMobile] = useState(false);
-
-  const menuList = [
-    {
-      path: "#about",
-      name: "about",
-    },
-    {
-      path: "#experience",
-      name: "experience",
-    },
-    {
-      path: "#work",
-      name: "work",
-    },
-    {
-      path: "#contact",
-      name: "contact",
-    },
-  ];
-
-  const renderedMenuList = menuList.map((menuItem, index) => {
-    return (
-      <a
-        key={index}
-        href={menuItem.path}
-        onClick={() => handleBurgerMenuClick()}
-        className="__menut-items hover:text-[#fff] capitalize hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 md:p-1 md:px-2 px-2 rounded"
-      >
-        <span className="text-[#efefef]"> 0{index + 1}. </span> {menuItem.name}
-      </a>
-    );
-  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -55,7 +24,7 @@ export default function Header() {
     };
   }, []);
 
-  let parentMenuClassName = "hidden lg:flex";
+  let parentMenuClassName = "";
   let childMenuClassName = "";
 
   if (isMobile) {
@@ -77,22 +46,11 @@ export default function Header() {
       <div className=" z-[11] __header fixed md:relative w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
         <Logo />
 
-        <div
-          className={`__menu font-mono transition duration-300 ${parentMenuClassName}`}
-        >
-          <div
-            className={`__menu_inner gap-[20px] md:flex ${childMenuClassName}`}
-          >
-            {renderedMenuList}
-            <a
-              href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
-              target="_blank"
-              className="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-2 px-[1rem] text-[13px]"
-            >
-              Resume
-            </a>
-          </div>
-        </div>
+        <HeaderMenuList
+          parentMenuClassName={parentMenuClassName}
+          childMenuClassName={childMenuClassName}
+        />
+
         <div
           className={`${
             isMenuOpen ? "__open" : "__close"
