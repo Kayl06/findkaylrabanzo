@@ -127,3 +127,75 @@ li:last-of-type {
 .__about_me_pic {
   clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
 }
+
+
+.__project_card:nth-of-type(2n + 1) .__project-tech-list {
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+}
+
+.__project_card .__project-tech-list li {
+  margin: 0px 20px 5px 0px;
+  color: var(--light-slate);
+  font-family: var(--font-mono);
+  font-size: var(--fz-xs);
+  white-space: nowrap;
+  z-index: 2;
+  color: white;
+  /* background: #111926; */
+  /* border-radius: 44% 56% 78% 22% / 26% 33% 67% 74%; */
+}
+
+.__project_card:nth-of-type(2n + 1) .__project_content {
+  grid-column: 7 / -1;
+  text-align: right;
+}
+
+.__project_card .__project_image {
+  box-shadow: 0 10px 30px -15px var(--navy-shadow);
+  transition: var(--transition);
+  grid-area: 1 / 6 / -1 / -1;
+  position: relative;
+  z-index: 1;
+}
+
+.__project_card .__project_image .__image_wrapper::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0px;
+  z-index: 3;
+  transition: var(--transition);
+  background-color: black;
+  mix-blend-mode: screen;
+}
+
+.__project_card:nth-of-type(2n + 1) .__project_image {
+  grid-column: 1 / 8;
+}
+
+.__project_card .__project_content {
+  grid-area: 1 / 1 / -1 / 7;
+}
+
+.__project_card:nth-of-type(2n+1) .__project-links {
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  margin-left: 0px;
+  margin-right: -10px;
+}
+
+.__project_card .__project-links a {
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.__project_card .__project-links a svg {
+  width: 20px;
+  height: 20px;
+}

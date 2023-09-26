@@ -11,6 +11,8 @@ import Header from "../components/Header";
 import BotCornerLinks from "@/components/BotCornerLinks";
 import { Fragment } from "react";
 import Tabs from "@/components/Tabs";
+import Works from "@/components/Works";
+
 
 export default function Home() {
   const socialLinks = [
@@ -242,6 +244,8 @@ export default function Home() {
           </h2>
 
           <h1 className="text-lg text-white">Sorry, this section is currently work in progress...</h1>
+          <Works />
+
         </div>
 
         <div
