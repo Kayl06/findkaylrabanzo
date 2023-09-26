@@ -243,8 +243,9 @@ export default function Home() {
             Some Things I’ve Built
           </h2>
 
-          <h1 className="text-lg text-white">Sorry, this section is currently work in progress...</h1>
           <Works />
+          
+          <h1 className="text-lg text-white">Sorry, this section is currently work in progress...</h1>
 
         </div>
 
