@@ -8,7 +8,7 @@ export default function Works() {
       thumbnailUrl:
         "https://findkaylrabanzo.netlify.app/css/images/pariserve.JPG",
       description:
-        "A Web and Mobile Event Scheduling Application for St. Columban Parish Using Ionic Framework",
+        "Web & Mobile Event Scheduler: Crafted for St. Columban Parish using Ionic Framework, this app streamlines event planning and community engagement.",
       techs: [
         {
           name: "Ionic 3",
@@ -51,7 +51,48 @@ export default function Works() {
           icon: <FiExternalLink />,
         },
       ],
-    }
+    },
+    {
+      name: "Custom Template using ReactJS",
+      thumbnailUrl:
+        "/images/my-work-2.png",
+      description:
+      `"React-Based HTML and CSS Theme Template" is a modern and versatile web development resource designed to streamline your web development process.`,
+      techs: [
+        {
+          name: "ReactJS",
+          icon: "",
+        },
+        {
+          name: "TailwindCSS",
+          icon: "",
+        },
+        {
+          name: "HTML5",
+          icon: "",
+        },
+        {
+          name: "CSS3",
+          icon: "",
+        },
+        {
+          name: "JavaScript",
+          icon: "",
+        }
+      ],
+      links: [
+        {
+          url: "https://github.com/Kayl06/figma-to-react",
+          name: "GitHub",
+          icon: <FiGithub width={20} height={20} />,
+        },
+        {
+          url: "https://figma-to-react-murex.vercel.app/",
+          name: "External",
+          icon: <FiExternalLink />,
+        },
+      ],
+    },
   ];
 
   const renderedProjects = myProjects.map((project, index) => {
@@ -94,8 +135,8 @@ export default function Works() {
                   {project.name}
                 </h1>
               </div>
-              <div className="__project_description bg-slate-800 p-5 rounded z-[2] relative shadow-lg">
-                <p className="text-gray-300 text-sm font-normal">
+              <div className="__project_description p-[25px] rounded z-[2] relative shadow-lg">
+                <p className="text-white text-sm font-normal">
                   {project.description}
                 </p>
               </div>
@@ -111,7 +152,7 @@ export default function Works() {
             style={{}}
           >
             <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
-              <div className="h-[300px] max-w-[700px] block">
+              <div className="max-w-[700px] block">
                 <img
                   src={`${project.thumbnailUrl}`}
                   className="h-full max-w-full static object-cover"
@@ -126,7 +167,7 @@ export default function Works() {
 
   return (
     <>
-      <div className="__project_cards mb-20">{renderedProjects}</div>
+      <div className="__project_cards mb-20 grid">{renderedProjects}</div>
     </>
   );
 }

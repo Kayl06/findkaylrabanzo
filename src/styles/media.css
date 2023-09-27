@@ -1,0 +1,10 @@
+@media (max-width: 1080px) {
+    .__project_card .__project_content {
+      grid-column: 1 / 9;
+    }
+  
+    .__project_card:nth-of-type(2n + 1) .__project_content {
+      grid-column: 5 / -1;
+    }
+  }
+  

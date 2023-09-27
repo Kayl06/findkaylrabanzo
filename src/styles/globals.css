@@ -201,3 +201,11 @@ li:last-of-type {
   width: 20px;
   height: 20px;
 }
+
+.__project_card .__project_description {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  background: linear-gradient(112.83deg,#101318b4,#131822 110.84%);
+  /* border: 1.5px solid rgb(211, 211, 211); */
+  /* box-shadow: 0 7px 23px rgba(17, 17, 17, 0.217); */
+}

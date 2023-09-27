@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { FiCheck } from "react-icons/fi";
+import { Fragment } from "react";
+
 
 export default function Tabs({ tabHeaders = [], tabBody = [] }) {
   const [activeTab, setActiveTab] = useState("play_asia");
