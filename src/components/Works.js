@@ -54,10 +54,8 @@ export default function Works() {
     },
     {
       name: "Custom Template using ReactJS",
-      thumbnailUrl:
-        "/images/my-work-2.png",
-      description:
-      `"React-Based HTML and CSS Theme Template" is a modern and versatile web development resource designed to streamline your web development process.`,
+      thumbnailUrl: "/images/my-work-2.png",
+      description: `"React-Based HTML and CSS Theme Template" is a modern and versatile web development resource designed to streamline your web development process.`,
       techs: [
         {
           name: "ReactJS",
@@ -78,7 +76,7 @@ export default function Works() {
         {
           name: "JavaScript",
           icon: "",
-        }
+        },
       ],
       links: [
         {
@@ -88,6 +86,49 @@ export default function Works() {
         },
         {
           url: "https://figma-to-react-murex.vercel.app/",
+          name: "External",
+          icon: <FiExternalLink />,
+        },
+      ],
+    },
+    {
+      name: "Only Sweater",
+      thumbnailUrl: "/images/my-work-3.png",
+      description: `React & TypeScript E-Commerce Front-End: Explore my work on a sleek and responsive e-commerce website design.`,
+      techs: [
+        {
+          name: "ReactJS",
+          icon: "",
+        },
+        {
+          name: "TailwindCSS",
+          icon: "",
+        },
+        {
+          name: "TypeScript",
+          icon: "",
+        },
+        {
+          name: "JSX",
+          icon: "",
+        },
+        {
+          name: "HTML5",
+          icon: "",
+        },
+        {
+          name: "CSS3",
+          icon: "",
+        },
+      ],
+      links: [
+        {
+          url: "https://github.com/Kayl06/only-sweater",
+          name: "GitHub",
+          icon: <FiGithub width={20} height={20} />,
+        },
+        {
+          url: "https://only-sweater.vercel.app/",
           name: "External",
           icon: <FiExternalLink />,
         },
@@ -125,17 +166,17 @@ export default function Works() {
         <div
           className={`__project_card grid grid-cols-12 gap-[10px] items-center mb-[100px]`}
         >
-          <div className={`__project_content relative`}>
+          <div className={`__project_content rounded-[10px] relative`}>
             <div>
               <div className="leading-5 mb-[2em]">
-                <p className="__project_overline text-[.8em] mb-[.5em] text-slate-400">
+                <p className="__project_overline text-[.8em] mb-[.5em] text-slate-300 lg:text-slate-400">
                   Featured Project
                 </p>
                 <h1 className="font-bold text-[1.4em] text-white">
                   {project.name}
                 </h1>
               </div>
-              <div className="__project_description p-[25px] rounded z-[2] relative shadow-lg">
+              <div className="__project_description p-[25px] rounded z-[2] relative shadow-0 lg:shadow-lg">
                 <p className="text-white text-sm font-normal">
                   {project.description}
                 </p>
@@ -148,11 +189,11 @@ export default function Works() {
           </div>
 
           <div
-            className="__project_image z-[1] bg-slate-400 rounded-[10px] "
+            className="__project_image z-[1] h-full bg-slate-400 rounded-[10px] "
             style={{}}
           >
-            <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
-              <div className="max-w-[700px] block">
+            <div className="__image_wrapper h-full rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
+              <div className="max-w-[700px] h-full block">
                 <img
                   src={`${project.thumbnailUrl}`}
                   className="h-full max-w-full static object-cover"
