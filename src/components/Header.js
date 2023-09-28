@@ -43,12 +43,13 @@ export default function Header() {
 
         <link rel="shortcut icon" href="/images/profile1.png" />
       </Head>
-      <div className="sticky top-0 z-[11] __header fixed md:relative w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
+      <div className="sticky top-0 z-[11] __header w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
         <Logo />
 
         <HeaderMenuList
           parentMenuClassName={parentMenuClassName}
           childMenuClassName={childMenuClassName}
+          handleBurgerMenuClick={handleBurgerMenuClick}
         />
 
         <div
