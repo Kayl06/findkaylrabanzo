@@ -48,6 +48,12 @@
     opacity: 0.25;
   }
 
+  .__project_card .__project_image .__image_wrapper {
+    width: auto;
+    object-fit: cover;
+    height: 100%;
+  }
+
   .__project_card .__project_content {
     height: 100%;
   }

@@ -189,14 +189,15 @@ export default function Works() {
           </div>
 
           <div
-            className="__project_image z-[1] h-full bg-slate-400 rounded-[10px] "
+            className="__project_image z-[1] w-full h-full align-middle rounded-[10px] relative "
             style={{}}
           >
-            <div className="__image_wrapper h-full rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
-              <div className="max-w-[700px] h-full block">
+            <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
+              <div className="max-w-[700px] block h-full">
                 <img
                   src={`${project.thumbnailUrl}`}
-                  className="h-full max-w-full static object-cover"
+                  className=""
+                  style={{ maxWidth: '100%', position: 'static', display: 'block' }}
                 />
               </div>
             </div>
