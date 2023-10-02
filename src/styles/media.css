@@ -22,7 +22,8 @@
     text-align: start;
     z-index: 2;
     padding: 40px 40px 30px;
-    background: linear-gradient(5deg, #101318b4, #11161f 110.84%);
+    /* background: linear-gradient(5deg, #101318b4, #11161f 110.84%); */
+    background: linear-gradient(0deg, #ffffff00, #21354cc7 110.84%);
   }
 
   .__project_card .__project_description {
