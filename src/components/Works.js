@@ -164,7 +164,7 @@ export default function Works() {
     return (
       <Fragment key={index}>
         <div
-          className={`__project_card grid grid-cols-12 gap-[10px] items-center mb-[100px]`}
+          className={`__project_card grid grid-cols-12 gap-[10px] items-center mb-[35px] md:mb-[100px]`}
         >
           <div className={`__project_content rounded-[10px] relative`}>
             <div>
