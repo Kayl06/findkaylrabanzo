@@ -137,7 +137,7 @@ export default function Works() {
     {
       name: "NewsHub",
       thumbnailUrl: "https://fedimarkaylrabanzo-react-news-app.vercel.app/assets/undraw_Newspaper_re_syf5-187ad46a.png",
-      description: `"NewsHub" – a React, Redux, and Laravel-powered news website with user login. Explore my portfolio for a glimpse into seamless, secure, and engaging web development!`,
+      description: `"NewsHub" – a React, Redux, and Laravel-powered news website with user login.`,
       techs: [
         {
           name: "ReactJS",
