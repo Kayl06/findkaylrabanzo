@@ -134,6 +134,61 @@ export default function Works() {
         },
       ],
     },
+    {
+      name: "NewsHub",
+      thumbnailUrl: "https://fedimarkaylrabanzo-react-news-app.vercel.app/assets/undraw_Newspaper_re_syf5-187ad46a.png",
+      description: `"NewsHub" – a React, Redux, and Laravel-powered news website with user login. Explore my portfolio for a glimpse into seamless, secure, and engaging web development!`,
+      techs: [
+        {
+          name: "ReactJS",
+          icon: "",
+        },
+        {
+          name: "Laravel",
+          icon: "",
+        },
+        {
+          name: "Redux",
+          icon: "",
+        },
+        {
+          name: "MySQL Database",
+          icon: "",
+        },
+        {
+          name: "Docker",
+          icon: "",
+        },
+        {
+          name: "TailwindCSS",
+          icon: "",
+        },
+        {
+          name: "JavaScript",
+          icon: "",
+        },
+        {
+          name: "HTML5",
+          icon: "",
+        },
+        {
+          name: "CSS3",
+          icon: "",
+        },
+      ],
+      links: [
+        {
+          url: "https://github.com/Kayl06/fedimarkaylrabanzo-react-news-app",
+          name: "GitHub",
+          icon: <FiGithub width={20} height={20} />,
+        },
+        {
+          url: "https://fedimarkaylrabanzo-react-news-app.vercel.app/signin",
+          name: "External",
+          icon: <FiExternalLink />,
+        },
+      ],
+    },
   ];
 
   const renderedProjects = myProjects.map((project, index) => {
