@@ -183,7 +183,7 @@ export default function Works() {
           icon: <FiGithub width={20} height={20} />,
         },
         {
-          url: "https://fedimarkaylrabanzo-react-news-app.vercel.app/signin",
+          url: "https://fedimarkaylrabanzo-react-news-app.vercel.app",
           name: "External",
           icon: <FiExternalLink />,
         },
