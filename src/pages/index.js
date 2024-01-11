@@ -245,7 +245,7 @@ export default function Home() {
 
           <Works />
           
-          <h1 className="text-lg text-white">Sorry, this section is currently work in progress...</h1>
+          {/* <h1 className="text-lg text-white">Sorry, this section is currently work in progress...</h1> */}
 
         </div>
 
