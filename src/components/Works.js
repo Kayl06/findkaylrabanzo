@@ -1,5 +1,7 @@
 import { Fragment } from "react";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
+import { Variants, motion } from "framer-motion";
+
 
 export default function Works() {
   const myProjects = [
@@ -191,6 +193,21 @@ export default function Works() {
     },
   ];
 
+  const worksVariant = {
+    offscreen: {
+      x: 1500
+    },
+    onscreen: {
+      x: 0,
+      rotate: 0,
+      transition: {
+        type: "spring",
+        bounce: .3,
+        duration: 1,
+      },
+    },
+  };
+
   const renderedProjects = myProjects.map((project, index) => {
     const renderedTechs = project.techs.map((tech, indx) => {
       return (
@@ -218,10 +235,13 @@ export default function Works() {
     });
     return (
       <Fragment key={index}>
-        <div
+        <motion.section
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.2 }}
           className={`__project_card grid grid-cols-12 gap-[10px] items-center mb-[35px] md:mb-[100px]`}
         >
-          <div className={`__project_content rounded-[10px] relative`}>
+          <motion.div variants={worksVariant} className={`__project_content rounded-[10px] relative`}>
             <div>
               <div className="leading-5 mb-[2em]">
                 <p className="__project_overline text-[.8em] mb-[.5em] text-slate-300 lg:text-slate-400">
@@ -241,12 +261,10 @@ export default function Works() {
               </ul>
               <div className="__project-links flex">{renderedLinks}</div>
             </div>
-          </div>
+          </motion.div>
 
-          <div
-            className="__project_image z-[1] w-full h-full align-middle rounded-[10px] relative "
-            style={{}}
-          >
+          <motion.div variants={worksVariant}
+            className="__project_image z-[1] w-full h-full align-middle rounded-[10px] relative ">
             <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
               <div className="max-w-[700px] block h-full">
                 <img
@@ -256,15 +274,15 @@ export default function Works() {
                 />
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.section>
       </Fragment>
     );
   });
 
   return (
     <>
-      <div className="__project_cards mb-20 grid">{renderedProjects}</div>
+      <motion.section className="__project_cards mb-20 grid">{renderedProjects}</motion.section>
     </>
   );
 }

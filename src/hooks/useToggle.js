@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function useToggle(initialValue) {
-    const [isOpen, setIsOpen] = useState(initialValue);
+  const [isOpen, setIsOpen] = useState(initialValue);
 
-    const handleChange = () => {
-        setIsOpen(!isOpen);
-    };
+  const handleChange = () => {
+    setIsOpen(!isOpen);
+  };
 
-    return [isOpen, handleChange];
+  return [isOpen, handleChange];
 }

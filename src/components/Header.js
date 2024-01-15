@@ -3,8 +3,16 @@ import Logo from "./Logo";
 import Head from "next/head";
 import useToggle from "@/hooks/useToggle";
 import HeaderMenuList from "./HeaderMenuList";
+import { motion, useScroll } from "framer-motion";
+
+const variants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: "-100%" },
+};
 
 export default function Header() {
+  const { scrollYProgress } = useScroll();
+
   const [isMenuOpen, handleBurgerMenuClick] = useToggle(false);
 
   const [isMobile, setIsMobile] = useState(false);
@@ -43,7 +51,17 @@ export default function Header() {
 
         <link rel="shortcut icon" href="/images/profile1.png" />
       </Head>
-      <div className="sticky top-0 z-[11] __header w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]">
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          duration: 0.4,
+          delay: 0.5,
+          ease: [0, 0.71, 0.2, 1.01],
+        }}
+        className="sticky top-0 z-[11] __header w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px]"
+      >
         <Logo />
 
         <HeaderMenuList
@@ -62,7 +80,11 @@ export default function Header() {
             <div className="__hamburger_box_inner"> </div>
           </div>
         </div>
-      </div>
+      </motion.div>
+      <motion.div
+        className="progress-bar"
+        style={{ scaleX: scrollYProgress }}
+      />
     </>
   );
 }

@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "transition-style";
 
 :root {
   /* --foreground-rgb: 0, 0, 0; */
@@ -98,6 +99,26 @@ li:last-of-type {
   counter-reset: section 0;
 }
 
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgb(80, 80, 80);
+  transform-origin: 0%;
+  z-index: 9999;
+}
+
+.progress {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: red;
+  bottom: 0;
+}
+
 .__numbered_heading::before {
   position: relative;
   bottom: -4px;
@@ -125,7 +146,7 @@ li:last-of-type {
 }
 
 .__about_me_pic {
-  clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+  /* clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%); */
 }
 
 .__project_card:nth-of-type(2n + 1) .__project-tech-list {
@@ -219,4 +240,18 @@ li:last-of-type {
   background: linear-gradient(112.83deg,#101318b4,#131822 110.84%);
   /* border: 1.5px solid rgb(211, 211, 211); */
   /* box-shadow: 0 7px 23px rgba(17, 17, 17, 0.217); */
+}
+
+@keyframes in-circle-swoop {
+  from {
+    clip-path: var(--circle-top-right-out);
+  }
+  to {
+    clip-path: var(--circle-bottom-right-in);
+  }
+}
+
+[transition-style="in:custom:circle-swoop"] {
+  --transition__duration: 5s;
+  animation-name: in-circle-swoop;
 }

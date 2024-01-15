@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FiCheck } from "react-icons/fi";
 import { Fragment } from "react";
 
-
 export default function Tabs({ tabHeaders = [], tabBody = [] }) {
   const [activeTab, setActiveTab] = useState("play_asia");
 
@@ -30,15 +29,16 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
       dateOfEmployment: `Jun 2022`,
       employementUntil: `Present`,
       responsibilities: [
-        `Responsible for maintaining an e-commerce website and also
-        responsible for creating a mobile application for e-commerce.`,
-        `Plans, design, develops and test website according to business
-        needs.`,
-        `Analyze requirements and implement new feature in ecommerce and/or
-        in-house system.`,
-        `Protects operations by keeping the information confidential.`,
-        `Perform other responsibilities associated with this position as
-        maybe appropriate.`,
+        "Maintain and enhance an e-commerce website, and admin system.",
+        "Integrate new functions and features to meet client goals and enhance internal efficiency.",
+        "Planned, designed, developed, and maintained both the front-end and back-end of the e-commerce website and admin system.",
+        "Understand client requirements and business needs, and plan the development of systems and applications accordingly.",
+        "Provide technical support via calls or chats and offer assistance to the internal team as needed.",
+        "Proactively identify issues and improvement opportunities, and communicate findings through appropriate channels.",
+        "Collaborate with the product team or CEO to brainstorm and create new features.",
+        "Discover and fix programming bugs to ensure smooth application functionality.",
+        "Protect business operations by maintaining the confidentiality of information.",
+        "Optimize applications for maximum speed, scalability, and performance."
       ],
     },
     {
@@ -49,20 +49,17 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
       dateOfEmployment: `Oct 2022`,
       employementUntil: `Jun 2022`,
       responsibilities: [
-        `Met with clients to discuss project requirements and
-        workflow.`,
-        `Planned, designed and developed in-house websites, from
-        layout to function, according to client specifications.`,
-        `Provide assistance to the team for data integration and
-        system programming.`,
-        `Plans, designs, test, and develops website according to
-        business/client needs.`,
-        `Implements design for new website or reconstruction of new
-        website.`,
-        `Responsible for studying information needs; studying system
-        flow, data usage and work processes`,
-        `Protects operations by keeping the information confidential.`,
-        `Implementing third party API's ( 7/11 API )`,
+        "Conducted meetings with the president and managers to discuss project requirements and workflow.",
+        "Implemented new functions, features, and development techniques in the production process to achieve client goals, creative objectives, and enhance internal efficiencies.",
+        "Collaborated with the Team Lead and President to brainstorm and create client web application systems.",
+        "Designed and implemented a custom Customer Satisfaction Survey with employee dashboards.",
+        "Executed the design for new websites or the reconstruction of existing ones.",
+        "Implemented third-party APIs (e.g., 7/11 API) to automate manual processes.",
+        "Planned, designed, and developed in-house websites from layout to function, aligning with business specifications.",
+        "Provided assistance to the team for data integration and system programming.",
+        "Identified and resolved programming bugs to ensure the smooth functionality of applications.",
+        "Studied information needs, system flow, data usage, and work processes to improve efficiency.",
+        "Protected operations by maintaining confidentiality of information."
       ],
     },
     {
@@ -73,18 +70,13 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
       dateOfEmployment: `Aug 2019`,
       employementUntil: `Oct 2022`,
       responsibilities: [
-        `Responsible for maintaining consistency across the brand by
-        ensuring all online content such as e-Learning and computerbased testing tool adhered to guidelines.`,
-        `Collaborated with team to analyze pre-project plans and
-        assess technical requirements to develop functioning and
-        user-friendly computer interfaces according to business
-        goals.`,
-        `Migrate and upgrade the old system to the new and modern
-        design system.`,
-        `Analysis, design, and develop website according to
-        business/client needs.`,
-        `Implements design for new website or reconstruction of new
-        website.`,
+        "Ensured brand consistency by overseeing adherence to guidelines in all online content, including e-Learning materials and computer-based testing tools.",
+        "Collaborated with the team to analyze pre-project plans and assess technical requirements, developing functioning and user-friendly computer interfaces aligned with business goals.",
+        "Migrate and upgrade the old system to the new and modern design system.",
+        "Analyzed, designed, and developed websites according to business/client needs.",
+        "Executed the design for new websites or the reconstruction of existing ones, maintaining alignment with brand and business objectives.",
+        "Implemented online synchronization between web applications and desktop applications, enhancing accessibility and user experience."
+
       ],
     },
   ];
@@ -99,11 +91,10 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
       <a
         key={header.href}
         className={`
-        ${
-          activeTab == header.href
+        ${activeTab == header.href
             ? "bg-[#484848] text-white md:border-l-2 border-white"
             : ""
-        }
+          }
         cursor-pointer
         px-[20px] py-3 duration-300 hover:text-md hover:bg-[#484848] hover:text-white hover:underline-offset-4 hover:underline hover:border-white md:border-l-2 md:border-b-0 border-[#8c8c8c90] border-l-0 border-b-2
         `}
@@ -117,14 +108,11 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
   const renderedTabBody = tabBody.map((body) => {
     const renderedResponsibilities = body.responsibilities.map((resp, idx) => {
       return (
-        <>
-          <li
-            className=" before:content-['▹'] before:absolute before:top-0 before:left-0 relative before:text-[16px] before:text-white pl-[30px]"
-            key={idx}
-          >
+        <Fragment key={idx}>
+          <li className=" before:content-['▹'] before:absolute before:top-0 before:left-0 relative before:text-[16px] before:text-white pl-[30px]">
             {resp}
           </li>
-        </>
+        </Fragment>
       );
     });
     return (
