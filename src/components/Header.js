@@ -18,8 +18,10 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+
     const handleResize = () => {
-      const isMobileSize = window.innerWidth < 1024; // Change this value as needed
+      // const isMobileSize = window.innerWidth < 1024; // Change this value as needed
+      const isMobileSize = window.matchMedia('(max-width: 1024px)').matches; // Change this value as needed
       setIsMobile(isMobileSize);
     };
 
@@ -41,7 +43,7 @@ export default function Header() {
       : "invisible opacity-0";
     childMenuClassName =
       isMenuOpen &&
-      `p-10 top-[80px] right-0 flex-col fixed flex bg-black h-screen w-full`;
+      `p-10 top-[80px] gap-[30px] right-0 flex-col fixed flex bg-black h-screen w-full`;
   }
 
   return (

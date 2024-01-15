@@ -195,15 +195,15 @@ export default function Works() {
 
   const worksVariant = {
     offscreen: {
-      x: 1500
+      y: 1500,
     },
     onscreen: {
-      x: 0,
+      y: 0,
       rotate: 0,
       transition: {
         type: "spring",
-        bounce: .3,
-        duration: 1,
+        bounce: .5,
+        duration: .5,
       },
     },
   };

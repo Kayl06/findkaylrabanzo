@@ -40,7 +40,7 @@ export default function HeaderMenuList({
           className={`__menu font-mono transition duration-300 ${parentMenuClassName}`}
       >
           <div
-              className={`__menu_inner gap-[30px] lg:gap-[20px] md:flex items-center ${childMenuClassName}`}
+              className={`__menu_inner lg:gap-[20px] md:flex items-center ${childMenuClassName}`}
           >
               {renderedMenuList}
               <a
