@@ -12,12 +12,35 @@ import BotCornerLinks from "@/components/BotCornerLinks";
 import { Fragment, useRef } from "react";
 import Tabs from "@/components/Tabs";
 import Works from "@/components/Works";
+import FadeInView from "@/components/FadeInView";
 import "transition-style";
 import { Variants, motion } from "framer-motion";
 
 const aboutMeVariant = {
   offscreen: {
-    x: 1500
+    x: 1500,
+    width: 0, // Set width to 0 to avoid affecting the layout
+    position: 'absolute', // Set position to absolute to remove from document flow
+    opacity: 0, // Optionally set opacity to 0 for a fade-in effect
+  },
+  onscreen: {
+    x: 0,
+    width: '100%', // Set width to 100% to fill the container
+    position: 'relative', // Reset position to relative or any appropriate value
+    opacity: 1, // Optionally set opacity to 1 for a fade-in effect
+    rotate: 0,
+    transition: {
+      type: 'spring',
+      bounce: 0.5,
+      duration: 1,
+    },
+  },
+};
+
+
+const experienceVariant = {
+  offscreen: {
+    x: -1500,
   },
   onscreen: {
     x: 0,
@@ -30,20 +53,24 @@ const aboutMeVariant = {
   },
 };
 
-const experienceVariant = {
+const fadeInVariant = {
   offscreen: {
-    y: 1500,
+    opacity: 0,
   },
   onscreen: {
-    y: 0,
-    rotate: 0,
+    opacity: 1,
     transition: {
-      type: "spring",
-      bounce: .5,
-      duration: 1,
+      duration: 1, // Adjust the duration as needed
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 1, // Adjust the duration as needed
     },
   },
 };
+
 
 export default function Home() {
   const socialLinks = [
@@ -251,9 +278,9 @@ export default function Home() {
         <motion.section
           id="about"
           className="__about pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.2 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
         >
           <motion.div className="" variants={aboutMeVariant}>
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
@@ -309,9 +336,12 @@ export default function Home() {
         <motion.section
           id="experience"
           className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full flex flex-col"
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.2 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
+          // initial="offscreen"
+          // whileInView="onscreen"
+          // viewport={{ once: true, amount: 0.2 }}
         >
           <motion.div variants={experienceVariant}>
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
@@ -338,30 +368,37 @@ export default function Home() {
           <Works />
         </motion.section>
 
-        <section
-          id="contact"
-          className="__contact max-w-[600px] mb-[100px] mx-auto block text-center py-20"
-        >
-          <h4 className="__numbered_heading __over-line text-[16px] flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
-            What's Next?
-          </h4>
-
-          <h2 className=" font-[900] text-[3em] text-white">Get In Touch</h2>
-
-          <p className="mb-[5rem]">
-            Thanks for visiting my portfolio! If you have any questions or want
-            to discuss a project, please get in touch via my email/socials
-            listed below. Looking forward to hearing from you soon!
-          </p>
-
-          <a
-            href="mailto:frabanzoo@gmail.com"
-            target="_blank"
-            className="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-5 px-[1.5rem] text-[13px]"
+        <motion.section
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            id="contact"
           >
-            Say, Hello!
-          </a>
-        </section>
+            <motion.div
+              className="__contact max-w-[600px] mb-[100px] mx-auto block text-center py-20">
+                <h4 className="__numbered_heading __over-line text-[16px] flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+                  What's Next?
+                </h4>
+
+                <h2 className=" font-[900] text-[3em] text-white">Get In Touch</h2>
+
+                <p className="mb-[5rem]">
+                  Thanks for visiting my portfolio! If you have any questions or want
+                  to discuss a project, please get in touch via my email/socials
+                  listed below. Looking forward to hearing from you soon!
+                </p>
+
+                <a
+                  href="mailto:frabanzoo@gmail.com"
+                  target="_blank"
+                  className="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-5 px-[1.5rem] text-[13px]"
+                >
+                  Say, Hello!
+                </a>
+            </motion.div>
+            
+          </motion.section>
+        
       </section>
       <section></section>
 
