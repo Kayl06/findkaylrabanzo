@@ -18,20 +18,16 @@ import { Variants, motion } from "framer-motion";
 
 const aboutMeVariant = {
   offscreen: {
-    x: 1500,
-    width: 0, // Set width to 0 to avoid affecting the layout
-    position: 'absolute', // Set position to absolute to remove from document flow
+    y: 150,
     opacity: 0, // Optionally set opacity to 0 for a fade-in effect
   },
   onscreen: {
-    x: 0,
-    width: '100%', // Set width to 100% to fill the container
-    position: 'relative', // Reset position to relative or any appropriate value
+    y: 0,
     opacity: 1, // Optionally set opacity to 1 for a fade-in effect
     rotate: 0,
     transition: {
       type: 'spring',
-      bounce: 0.5,
+      bounce: 0.2,
       duration: 1,
     },
   },
@@ -278,11 +274,12 @@ export default function Home() {
         <motion.section
           id="about"
           className="__about pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.2 }}
         >
-          <motion.div className="" variants={aboutMeVariant}>
+          <motion.div className="" 
+            variants={aboutMeVariant}>
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               About Me
             </h2>
@@ -338,11 +335,7 @@ export default function Home() {
           className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full flex flex-col"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
-          // initial="offscreen"
-          // whileInView="onscreen"
-          // viewport={{ once: true, amount: 0.2 }}
-        >
+          viewport={{ once: false, amount: 0.3 }} >
           <motion.div variants={experienceVariant}>
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               Where I've Worked
