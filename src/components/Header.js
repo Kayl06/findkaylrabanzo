@@ -49,9 +49,19 @@ export default function Header() {
   return (
     <>
       <Head>
-        <title> Fedimar Kayl Rabanzo - Full Stack Web Developer</title>
+        <title>Fedimar Kayl Rabanzo - Full Stack Web Developer</title>
+        
+        <meta name="description" content="This website is built by Fedimar Kayl Rabanzo for his portfolio, showcasing examples of his work and experience as a Full-Stack Web Developer." />
 
-        <link rel="shortcut icon" href="/images/profile1.png" />
+        <meta name="keywords" content="Fedimar, Fedimar Kayl, Fedimar Kayl Rabanzo, Kayl Rabanzo, Kayl, Fedimar Rabanzo" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <meta property="og:title" content="Fedimar Kayl Rabanzo - Full Stack Web Developer" />
+        <meta property="og:description" content="This website is built by Fedimar Kayl Rabanzo for his portfolio, showcasing examples of his work and experience as a Full-Stack Web Developer." />
+        <meta property="og:image" content="" />
+
+
+        <link rel="icon" href="/images/profile1.png"  type="image/x-icon"/>
       </Head>
 
       <motion.div

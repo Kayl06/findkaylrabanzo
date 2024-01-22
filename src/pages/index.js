@@ -36,10 +36,12 @@ const aboutMeVariant = {
 
 const experienceVariant = {
   offscreen: {
-    x: -1500,
+    y: 150,
+    opacity: 0,
   },
   onscreen: {
-    x: 0,
+    y: 0,
+    opacity: 1,
     rotate: 0,
     transition: {
       type: "spring",
@@ -313,13 +315,14 @@ export default function Home() {
                   damping: 20,
                 }}
                 whileHover={{ scale: 1.1, rotate: 365 }}
+                exit={{ opacity: 0}}
               >
                 <div className="__wrapper flex cursor-pointer w-full h-full lg:max-w-[500px] max-h-[450px] relative mt-10 lg:mt-0">
                   <div className="__image_wrapper flex relative">
                     <div className=" flex justify-center">
                       <img
                         src="/images/my-about-pic-1.jpg"
-                        alt="ABOUT ME PICTURE"
+                        alt="FEDIMAR KAYL RABANZO"
                         className="__about_me_pic rounded-[26px] hover:scale-105  transition duration-300 ease-in mix-blend-luminosity hover:mix-blend-normal"
                       />
                     </div>
@@ -333,9 +336,11 @@ export default function Home() {
         <motion.section
           id="experience"
           className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full flex flex-col"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.3 }} >
+          // initial={{ opacity: 0 }}
+          // whileInView={{ opacity: 1 }}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: false, amount: 0.2 }} >
           <motion.div variants={experienceVariant}>
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               Where I've Worked
@@ -388,10 +393,10 @@ export default function Home() {
                 >
                   Say, Hello!
                 </a>
+              
             </motion.div>
             
           </motion.section>
-        
       </section>
       <section></section>
 
