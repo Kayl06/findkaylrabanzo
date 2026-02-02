@@ -50,7 +50,7 @@ export default function Header() {
     <>
       <Head>
         <title>Fedimar Kayl Rabanzo - Full Stack Web Developer</title>
-        
+
         <meta name="description" content="This website is built by Fedimar Kayl Rabanzo for his portfolio, showcasing examples of his work and experience as a Full-Stack Web Developer." />
 
         <meta name="keywords" content="Fedimar, Fedimar Kayl, Fedimar Kayl Rabanzo, Kayl Rabanzo, Kayl, Fedimar Rabanzo" />
@@ -61,7 +61,7 @@ export default function Header() {
         <meta property="og:image" content="" />
 
 
-        <link rel="icon" href="/images/profile1.png"  type="image/x-icon"/>
+        <link rel="icon" href="/images/profile1.png" type="image/x-icon" />
       </Head>
 
       <motion.div
@@ -83,9 +83,8 @@ export default function Header() {
         />
 
         <div
-          className={`${
-            isMenuOpen ? "__open" : "__close"
-          } __hamburger lg:hidden flex cursor-pointer`}
+          className={`${isMenuOpen ? "__open" : "__close"
+            } __hamburger lg:hidden flex cursor-pointer`}
           onClick={handleBurgerMenuClick}
         >
           <div className="__hamburger_box">

@@ -129,6 +129,26 @@ export default function Home() {
       link: "https://",
     },
     {
+      name: "ShadCN",
+      link: "https://",
+    },
+    {
+      name: "NativeWind",
+      link: "https://",
+    },
+    {
+      name: "AlpineJS",
+      link: "https://",
+    },
+    {
+      name: "Axios",
+      link: "https://",
+    },
+    {
+      name: "jQuery",
+      link: "https://",
+    },
+    {
       name: "AngularJS",
       link: "https://",
     },
@@ -145,7 +165,11 @@ export default function Home() {
       link: "https://",
     },
     {
-      name: "CodeIgniter",
+      name: "CodeIgniter 4",
+      link: "https://",
+    },
+    {
+      name: "Laravel",
       link: "https://",
     },
     {
@@ -262,12 +286,21 @@ export default function Home() {
               delay: 0.9,
             }}
           >
-            <div className="__check_my_work mt-[20px]">
+            <div className="__check_my_work mt-[20px] flex gap-2 items-center">
               <a
                 href="#work"
                 className="border uppercase rounded-full shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]"
               >
                 View my works!
+              </a>
+
+              {/* Resume Button */}
+              <a
+                href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
+                target="_blank"
+                className="border uppercase rounded-full shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px] lg:hidden block"
+              >
+                View Resume
               </a>
             </div>
           </motion.div>
@@ -290,7 +323,7 @@ export default function Home() {
               <div className="flex flex-col">
                 <div>
                   <p className="mb-[15px]">
-                    Skilled full-stack web developer with <strong className="text-white">5 years of experience</strong> designing, developing, and deploying enterprise-level applications. Proficient in
+                    Skilled full-stack web developer with <strong className="text-white">6 years of experience</strong> designing, developing, and deploying enterprise-level applications. Proficient in
                     multiple programming languages, software development methodologies, and database management systems. Strong problem-solving skills and ability to work effectively in a team-based or individual environment.
                   </p>
 

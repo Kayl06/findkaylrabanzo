@@ -7,6 +7,14 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
 
   tabHeaders = [
     {
+      href: "#chykalophia",
+      name: "Chykalophia",
+    },
+    {
+      href: "#freelancer",
+      name: "Freelancer",
+    },
+    {
       href: "#play_asia",
       name: "Playasia",
     },
@@ -21,6 +29,36 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
   ];
 
   tabBody = [
+    {
+      id: "chykalophia",
+      companyName: `Chykalophia`,
+      website: `https://chykalophia.com/`,
+      title: `Senior Front-end Developer`,
+      dateOfEmployment: `Feb 2024`,
+      employementUntil: `Present`,
+      responsibilities: [
+        "Build frontend, style, and ship high-quality websites, mobile apps, and cross-platform digital experiences using JavaScript, ReactJS, React Native, CSS, TailwindCSS, ShadCN, and NativeWind.",
+        "Consumed and integrated REST APIs and third-party APIs.",
+        "Work alongside product & project managers, designers, and other engineers to transform creative concepts into refined digital experiences (agile 2-week cadence).",
+        "Maintain existing web applications using Laravel, ReactJS, AlpineJS, Laravel Backpack, and Laravel Livewire.",
+      ],
+    },
+    {
+      id: "freelancer",
+      companyName: `Freelancer`,
+      website: `#`,
+      title: `E-Commerce & Full-Stack Development`,
+      dateOfEmployment: `Jan 2023`,
+      employementUntil: `Present`,
+      responsibilities: [
+        "Customized Shopify storefronts through theme development and advanced Liquid templating.",
+        "Developed a variety of projects tailored to client and business needs.",
+        "Built frontend and backend solutions: websites, mobile apps, and cross-platform digital experiences.",
+        "Utilized JavaScript, ReactJS, React Native, CSS, Shopify, TailwindCSS, ShadCN, Laravel, Docker, MySQL, MariaDB, PostgreSQL, NodeJS, ExpressJS.",
+        "Integrated third-party APIs (e.g. KIPU, CollabMD, QuickBooks).",
+        "Build and deploy applications using AWS tools and services.",
+      ],
+    },
     {
       id: "play_asia",
       companyName: `Playasia`,
