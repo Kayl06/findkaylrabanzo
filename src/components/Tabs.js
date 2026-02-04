@@ -37,10 +37,13 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
       dateOfEmployment: `Feb 2024`,
       employementUntil: `Present`,
       responsibilities: [
-        "Build frontend, style, and ship high-quality websites, mobile apps, and cross-platform digital experiences using JavaScript, ReactJS, React Native, CSS, TailwindCSS, ShadCN, and NativeWind.",
+        "Build frontend, style, and ship high-quality websites, mobile apps, and cross-platform digital experiences using JavaScript, ReactJS, React Native, CSS, TailwindCSS, ShadCN, Zustand, RTK Query, Expo, and NativeWind.",
         "Consumed and integrated REST APIs and third-party APIs.",
         "Work alongside product & project managers, designers, and other engineers to transform creative concepts into refined digital experiences (agile 2-week cadence).",
         "Maintain existing web applications using Laravel, ReactJS, AlpineJS, Laravel Backpack, and Laravel Livewire.",
+        "Consistently doing a weekly code review to improve code quality and best practices.",
+        "Implement new features and improvements to the existing codebase.",
+        "Work closely with the CEO and other engineers to brainstorm and create new features.",
       ],
     },
     {

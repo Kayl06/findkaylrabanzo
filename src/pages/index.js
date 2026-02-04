@@ -9,7 +9,7 @@ import {
 import Link from "next/link";
 import Header from "../components/Header";
 import BotCornerLinks from "@/components/BotCornerLinks";
-import { Fragment, useRef } from "react";
+import { useRef } from "react";
 import Tabs from "@/components/Tabs";
 import Works from "@/components/Works";
 import FadeInView from "@/components/FadeInView";
@@ -137,6 +137,18 @@ export default function Home() {
       link: "https://",
     },
     {
+      name: "Zustand",
+      link: "https://",
+    },
+    {
+      name: "RTK Query",
+      link: "https://",
+    },
+    {
+      name: "Expo",
+      link: "https://",
+    },
+    {
       name: "AlpineJS",
       link: "https://",
     },
@@ -198,14 +210,13 @@ export default function Home() {
 
   const renderedTechStacks = techStacks.map((techStack, index) => {
     return (
-      <Fragment key={index}>
-        <div className="__tech_stack_item flex gap-2 items-center self-center cursor-pointer hover:underline hover:underline-offset-4">
-          <FiZap className=" text-gray-400 font-bold" />
-          <span className=" font-medium text-[13px] text-white">
-            {techStack.name}
-          </span>
-        </div>
-      </Fragment>
+      <li
+        key={index}
+        className="__tech_stack_item flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[13px] font-medium text-white/90 transition-all duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white"
+      >
+        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" aria-hidden />
+        <span>{techStack.name}</span>
+      </li>
     );
   });
 
@@ -332,9 +343,9 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div className="__tech_stacks grid grid-cols-2 gap-4 mt-[15px]">
+                <ul className="__tech_stacks grid grid-cols-2 gap-3 mt-[15px] list-none">
                   {renderedTechStacks}
-                </div>
+                </ul>
 
                 <div></div>
               </div>
