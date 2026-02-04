@@ -166,8 +166,8 @@ const projects = [
     description: "Centralized Finance Dashboard and User Management System.",
   },
   {
-    name: "Oddpieces",
-    description: "A vibrant online puzzle shop built on Shopify, offering uniquely crafted jigsaw puzzles.",
+    name: "Odd Pieces",
+    description: "Shopify e-commerce store for mystery puzzles: story-driven jigsaw puzzles with hidden clues and secret endings, sold in 600+ US retail stores.",
   },
   {
     name: "findkaylrabanzo.vercel.app",

@@ -6,6 +6,27 @@ import Link from "next/link";
 
 export default function Works() {
   const myProjects = [
+
+    {
+      name: "Odd Pieces",
+      thumbnailUrl: "/images/ShopifyGiftingPage.png",
+      description:
+        "E-commerce store for Odd Pieces mystery puzzles—where the finished puzzle isn’t the image on the box. Story-driven puzzles with hidden clues, changing scenes, and secret endings. Sold in 600+ US retail stores; loved by 280k+ puzzlers; 5% of sales supports undiscovered artists. Built on Shopify.",
+      techs: [
+        { name: "Shopify", icon: "" },
+        { name: "Liquid", icon: "" },
+        { name: "JavaScript", icon: "" },
+        { name: "HTML5", icon: "" },
+        { name: "CSS3", icon: "" },
+      ],
+      links: [
+        {
+          url: "https://oddpieces.com/",
+          name: "External",
+          icon: <FiExternalLink />,
+        },
+      ],
+    },
     {
       name: "Recovery Calculators",
       thumbnailUrl: "/images/alcohol-withdrawal-calc.png",
@@ -242,7 +263,6 @@ export default function Works() {
     });
 
     const renderedLinks = project.links.map((link, indx) => {
-      console.log(link);
       return (
         <Fragment key={indx}>
           <a
@@ -282,7 +302,7 @@ export default function Works() {
                   {project.description}
                 </p>
               </div>
-              <div className="flex justify-end gap-2 ">
+              <div className={`flex ${index % 2 === 0 ? "justify-end" : "justify-start"} gap-2`}>
                 <ul className="__project-tech-list flex flex-wrap mt-[25px] mb-[10px] max-w-[400px]">
                   {renderedTechs}
                 </ul>
@@ -293,15 +313,18 @@ export default function Works() {
 
           <motion.div variants={worksVariant}
             className="__project_image z-[1] w-full h-full align-middle rounded-[10px] relative ">
-            <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
-              <div className="max-w-[700px] block h-full">
-                <img
-                  src={`${project.thumbnailUrl}`}
-                  className=""
-                  style={{ maxWidth: '100%', position: 'static', display: 'block' }}
-                />
+            <Link href={project.links[0].url} target="_blank" rel="noopener noreferrer">
+              <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
+
+                <div className="max-w-[700px] block h-full">
+                  <img
+                    src={`${project.thumbnailUrl}`}
+                    className=""
+                    style={{ maxWidth: '100%', position: 'static', display: 'block' }}
+                  />
+                </div>
               </div>
-            </div>
+            </Link>
           </motion.div>
         </motion.section>
       </Fragment>
