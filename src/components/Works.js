@@ -1,10 +1,34 @@
 import { Fragment } from "react";
 import { FiGithub, FiExternalLink } from "react-icons/fi";
-import { Variants, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
 
 export default function Works() {
   const myProjects = [
+    {
+      name: "Recovery Calculators",
+      thumbnailUrl: "/images/alcohol-withdrawal-calc.png",
+      description:
+        "Online resource for the Drug and Alcohol Addiction Recovery Community. Features the Prediction of Alcohol Withdrawal Severity Scale (PAWSS) to screen for complicated alcohol withdrawal (seizures, delirium tremens), plus education on medical calculators and recovery terminology.",
+      techs: [
+        { name: "NextJS", icon: "" },
+        { name: "ReactJS", icon: "" },
+        { name: "TailwindCSS", icon: "" },
+        { name: "WordPress", icon: "" },
+        { name: "JavaScript", icon: "" },
+        { name: "HTML5", icon: "" },
+        { name: "CSS3", icon: "" },
+        { name: "GitHub", icon: <FiGithub width={20} height={20} /> },
+      ],
+      links: [
+        {
+          url: "https://alcoholwithdrawalcalc.com/",
+          name: "External",
+          icon: <FiExternalLink />,
+        },
+      ],
+    },
     {
       name: "PariServe Application",
       thumbnailUrl:
@@ -190,7 +214,7 @@ export default function Works() {
           icon: <FiExternalLink />,
         },
       ],
-    },
+    }
   ];
 
   const worksVariant = {
@@ -247,8 +271,10 @@ export default function Works() {
                 <p className="__project_overline text-[.8em] mb-[.5em] text-slate-300 lg:text-slate-400">
                   Featured Project
                 </p>
-                <h1 className="font-bold text-[1.4em] text-white">
-                  {project.name}
+                <h1 className="font-bold text-[1.4em] text-white z-[2] relative">
+                  <Link href={project.links[0].url} target="_blank" rel="noopener noreferrer">
+                    {project.name}
+                  </Link>
                 </h1>
               </div>
               <div className="__project_description p-[25px] rounded z-[2] relative shadow-0 lg:shadow-lg">
@@ -256,9 +282,11 @@ export default function Works() {
                   {project.description}
                 </p>
               </div>
-              <ul className="__project-tech-list flex flex-wrap mt-[25px] mb-[10px]">
-                {renderedTechs}
-              </ul>
+              <div className="flex justify-end gap-2 ">
+                <ul className="__project-tech-list flex flex-wrap mt-[25px] mb-[10px] max-w-[400px]">
+                  {renderedTechs}
+                </ul>
+              </div>
               <div className="__project-links flex">{renderedLinks}</div>
             </div>
           </motion.div>

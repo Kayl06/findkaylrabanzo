@@ -185,6 +185,10 @@ const projects = [
     name: "TimeOff Management",
     description: "Open Source Time Off Management System.",
   },
+  {
+    name: "Recovery Calculators (Alcohol Withdrawal Calc)",
+    description: "Online resource for the addiction recovery community featuring the PAWSS alcohol withdrawal severity scale and education on medical calculators and recovery terminology.",
+  },
 ];
 
 export default function Resume() {
