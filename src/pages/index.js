@@ -12,6 +12,7 @@ import BotCornerLinks from "@/components/BotCornerLinks";
 import { useRef } from "react";
 import Tabs from "@/components/Tabs";
 import Works from "@/components/Works";
+import ContactForm from "@/components/ContactForm";
 import FadeInView from "@/components/FadeInView";
 import "transition-style";
 import { Variants, motion } from "framer-motion";
@@ -324,7 +325,7 @@ export default function Home() {
           whileInView="onscreen"
           viewport={{ once: false, amount: 0.2 }}
         >
-          <motion.div className="" 
+          <motion.div className=""
             variants={aboutMeVariant}>
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               About Me
@@ -359,7 +360,7 @@ export default function Home() {
                   damping: 20,
                 }}
                 whileHover={{ scale: 1.1, rotate: 365 }}
-                exit={{ opacity: 0}}
+                exit={{ opacity: 0 }}
               >
                 <div className="__wrapper flex cursor-pointer w-full h-full lg:max-w-[500px] max-h-[450px] relative mt-10 lg:mt-0">
                   <div className="__image_wrapper flex relative">
@@ -411,36 +412,51 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: false, amount: 0.5 }}
-            id="contact"
-          >
-            <motion.div
-              className="__contact max-w-[600px] mb-[100px] mx-auto block text-center py-20">
-                <h4 className="__numbered_heading __over-line text-[16px] flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
-                  What's Next?
-                </h4>
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
+          id="contact"
+          className="pt-20"
+        >
+          <motion.div className="__contact max-w-[640px] mb-[100px] mx-auto text-center py-16 px-6">
+            <h4 className="__numbered_heading __over-line text-[16px] flex items-center justify-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+              What's Next?
+            </h4>
 
-                <h2 className=" font-[900] text-[3em] text-white">Get In Touch</h2>
+            <h2 className="font-[900] text-[3em] text-white mb-4">Get In Touch</h2>
 
-                <p className="mb-[5rem]">
-                  Thanks for visiting my portfolio! If you have any questions or want
-                  to discuss a project, please get in touch via my email/socials
-                  listed below. Looking forward to hearing from you soon!
-                </p>
+            <p className="text-gray-400 mb-12 max-w-[480px] mx-auto">
+              Have a project in mind or want to collaborate? Send me a message
+              below or reach out via email and socials.
+            </p>
 
-                <a
-                  href="mailto:frabanzoo@gmail.com"
-                  target="_blank"
-                  className="text-center border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-5 px-[1.5rem] text-[13px]"
-                >
-                  Say, Hello!
-                </a>
-              
-            </motion.div>
-            
-          </motion.section>
+            <ContactForm />
+
+            <div className="mt-10 pt-8 border-t border-gray-800">
+              <a
+                href="mailto:frabanzoo@gmail.com"
+                className="text-sm font-mono text-gray-500 hover:text-white transition-colors"
+              >
+                frabanzoo@gmail.com
+              </a>
+              <ul className="flex justify-center gap-4 mt-4">
+                {socialLinks.map((link) => (
+                  <li key={link.name}>
+                    <Link
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-400 hover:text-white p-2 transition-colors hover:-translate-y-0.5"
+                      aria-label={link.name}
+                    >
+                      {link.icon}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        </motion.section>
       </section>
       <section></section>
 

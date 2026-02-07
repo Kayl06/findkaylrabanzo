@@ -1,12 +1,19 @@
-import { Fragment } from "react";
-import { FiGithub, FiExternalLink } from "react-icons/fi";
+import { Fragment, useState } from "react";
+import { FiGithub, FiExternalLink, FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
 
 export default function Works() {
-  const myProjects = [
 
+  const [showMore, setShowMore] = useState(false);
+
+  const handleShowMore = () => {
+    setShowMore(!showMore);
+    console.log(showMore);
+  };
+
+  const myProjects = [
     {
       name: "Odd Pieces",
       thumbnailUrl: "/images/ShopifyGiftingPage.png",
@@ -253,7 +260,9 @@ export default function Works() {
     },
   };
 
-  const renderedProjects = myProjects.map((project, index) => {
+
+  const projectsToShow = showMore ? myProjects : myProjects.slice(0, 3);
+  const renderedProjects = projectsToShow.map((project, index) => {
     const renderedTechs = project.techs.map((tech, indx) => {
       return (
         <Fragment key={indx}>
@@ -277,6 +286,7 @@ export default function Works() {
         </Fragment>
       );
     });
+
     return (
       <Fragment key={index}>
         <motion.section
@@ -333,7 +343,15 @@ export default function Works() {
 
   return (
     <>
-      <motion.section className="__project_cards mb-20 grid">{renderedProjects}</motion.section>
+      <motion.section className="__project_cards mb-20 grid">
+        {renderedProjects}
+
+        <button onClick={handleShowMore} className=" text-center mx-auto text-sm flex items-center gap-2 border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-3 px-[2rem]">
+          {showMore ? "Show Less Projects" : "Show More Projects"}
+          {showMore ? <FiChevronUp className="w-4 h-4" /> : <FiChevronDown className="w-4 h-4" />}
+        </button>
+
+      </motion.section>
     </>
   );
 }
