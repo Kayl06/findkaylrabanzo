@@ -298,7 +298,7 @@ export default function Home() {
               delay: 0.9,
             }}
           >
-            <div className="__check_my_work mt-[20px] flex gap-2 items-center">
+            <div className="__check_my_work mt-[20px] flex gap-2 items-center flex-wrap">
               <a
                 href="#work"
                 className="border uppercase rounded-full shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]"
@@ -362,7 +362,7 @@ export default function Home() {
                 whileHover={{ scale: 1.1, rotate: 365 }}
                 exit={{ opacity: 0 }}
               >
-                <div className="__wrapper flex cursor-pointer w-full h-full lg:max-w-[500px] max-h-[450px] relative mt-10 lg:mt-0">
+                <div className="__wrapper flex cursor-pointer w-full h-full lg:max-w-[500px] lg:max-h-[450px] max-h-[300px] relative mt-10 lg:mt-0">
                   <div className="__image_wrapper flex relative">
                     <div className=" flex justify-center">
                       <img
