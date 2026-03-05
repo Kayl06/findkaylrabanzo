@@ -44,9 +44,10 @@ export default function HeaderMenuList({
           >
               {renderedMenuList}
               <a
-                  href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
+                //   href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
+                  href="/files/FRONTEND ENGINEER CV - FEDIMAR KAYL RABANZO.pdf"
                   target="_blank"
-                  className="text-center border rounded shadow__btn font-normal w-1/4 lg:w-full border-gray-300 hover:border-white hover:text-white py-3 lg:py-2 px-[1rem] text-[13px]"
+                  className="text-center border rounded shadow__btn font-normal w-1/2 lg:w-full border-gray-300 hover:border-white hover:text-white py-3 lg:py-2 px-[1rem] text-[13px]"
               >
                   Resume
               </a>

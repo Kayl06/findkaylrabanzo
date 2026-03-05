@@ -57,7 +57,7 @@ export default function Tabs({ tabHeaders = [], tabBody = [] }) {
         "Customized Shopify storefronts through theme development and advanced Liquid templating.",
         "Developed a variety of projects tailored to client and business needs.",
         "Built frontend and backend solutions: websites, mobile apps, and cross-platform digital experiences.",
-        "Utilized JavaScript, ReactJS, React Native, CSS, Shopify, TailwindCSS, ShadCN, Laravel, Docker, MySQL, MariaDB, PostgreSQL, NodeJS, ExpressJS.",
+        "Utilized JavaScript, ReactJS, TypeScript, React Native, CSS, Shopify, TailwindCSS, ShadCN, Laravel, Docker, MySQL, MariaDB, PostgreSQL, NodeJS, ExpressJS.",
         "Integrated third-party APIs (e.g. KIPU, CollabMD, QuickBooks).",
         "Build and deploy applications using AWS tools and services.",
       ],
