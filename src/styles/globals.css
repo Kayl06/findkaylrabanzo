@@ -1,18 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "transition-style";
-
 :root {
-  /* --foreground-rgb: 0, 0, 0; */
-  /* --background-start-rgb: 214, 219, 220; */
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
   --header-height: 80px;
-  --transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
+  --accent: 34, 211, 238;
+  --surface: rgba(255, 255, 255, 0.03);
+  --border: rgba(255, 255, 255, 0.06);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -29,7 +28,6 @@ html {
 }
 
 body {
-  font-family: Manrope;
   overflow-x: hidden;
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -84,8 +82,88 @@ body {
     0 0 20px rgb(126, 124, 124), 0 0 40px rgb(90, 90, 90);
 }
 
-li:last-of-type {
-  margin-bottom: 20px;
+.__project-tech-list li:last-child,
+.__responsibilities li:last-child {
+  margin-bottom: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  z-index: 10000;
+  padding: 0.75rem 1rem;
+  background: #000;
+  color: #fff;
+  border: 1px solid rgb(var(--accent));
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* About section — double-sided flip card */
+.about-flip-card {
+  perspective: 1200px;
+}
+
+.about-flip-card__inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
+
+.about-flip-card:hover .about-flip-card__inner,
+.about-flip-card:focus-within .about-flip-card__inner {
+  transform: rotateY(180deg);
+}
+
+.about-flip-card__face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.about-flip-card__back {
+  transform: rotateY(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-flip-card:hover .about-flip-card__inner,
+  .about-flip-card:focus-within .about-flip-card__inner {
+    transform: none;
+  }
+
+  .about-flip-card__back {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 .__numbered_heading {
@@ -241,18 +319,4 @@ li:last-of-type {
   background: linear-gradient(112.83deg,#101318b4,#131822 110.84%);
   /* border: 1.5px solid rgb(211, 211, 211); */
   /* box-shadow: 0 7px 23px rgba(17, 17, 17, 0.217); */
-}
-
-@keyframes in-circle-swoop {
-  from {
-    clip-path: var(--circle-top-right-out);
-  }
-  to {
-    clip-path: var(--circle-bottom-right-in);
-  }
-}
-
-[transition-style="in:custom:circle-swoop"] {
-  --transition__duration: 5s;
-  animation-name: in-circle-swoop;
 }

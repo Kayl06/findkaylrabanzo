@@ -1,345 +1,175 @@
-import Head from "next/head";
 import Link from "next/link";
 import Header from "../components/Header";
+import SiteMeta from "@/components/SiteMeta";
 import { motion } from "framer-motion";
-import { FiDownload, FiMail, FiPhone, FiGlobe, FiGithub } from "react-icons/fi";
+import {
+  FiDownload,
+  FiMail,
+  FiGlobe,
+  FiGithub,
+  FiMapPin,
+  FiExternalLink,
+} from "react-icons/fi";
+import { SITE } from "@/data/site";
+import {
+  RESUME_SUMMARY,
+  RESUME_HIGHLIGHTS,
+  RESUME_EXPERTISE,
+  RESUME_ADDITIONAL_SKILLS,
+  RESUME_EXPERIENCE,
+  RESUME_EDUCATION,
+  RESUME_PROJECTS,
+} from "@/data/resume";
+import { defaultViewport } from "@/lib/motion";
 
 const sectionVariant = {
-  offscreen: { y: 40, opacity: 0 },
+  offscreen: { y: 24, opacity: 0 },
   onscreen: {
     y: 0,
     opacity: 1,
-    transition: { type: "spring", bounce: 0.2, duration: 0.8 },
+    transition: { type: "spring", bounce: 0.15, duration: 0.6 },
   },
 };
 
-const experiences = [
-  {
-    company: "Chykalophia",
-    role: "Senior Front-end Developer",
-    period: "February 2024 – Present",
-    bullets: [
-      "Build frontend, style, and ship high-quality websites, mobile apps, and cross-platform digital experiences using JavaScript, ReactJS, React Native, CSS, TailwindCSS, ShadCN, and NativeWind.",
-      "Consumed and integrated REST APIs and third-party APIs.",
-      "Work alongside product & project managers, designers, and other engineers to transform creative concepts into refined digital experiences (agile 2-week cadence).",
-      "Maintain existing web applications using Laravel, ReactJS, AlpineJS, Laravel Backpack, and Laravel Livewire.",
-      "Consistently doing a weekly code review to improve code quality and best practices.",
-      "Implement new features and improvements to the existing codebase.",
-    ],
-  },
-  {
-    company: "Playasia",
-    role: "Full-Stack Web Developer",
-    period: "2022 – April 2024",
-    bullets: [
-      "Maintain and enhance e-commerce website and admin system.",
-      "Integrate new functions and features to meet client goals and enhance internal efficiency.",
-      "Planned, designed, developed, and maintained front-end and back-end of e-commerce website and admin system.",
-      "Understand client requirements and business needs; plan development of systems and applications accordingly.",
-      "Provide technical support via calls or chats; offer assistance to the internal team as needed.",
-      "Proactively identify issues and improvement opportunities; communicate findings through appropriate channels.",
-      "Collaborate with product team or CEO to brainstorm and create new features.",
-      "Discover and fix programming bugs to ensure smooth application functionality.",
-      "Optimize applications for maximum speed, scalability, and performance.",
-    ],
-  },
-  {
-    company: "Freelancer (Part-Time)",
-    role: "E-Commerce & Full-Stack Development",
-    period: "2023 – Present",
-    bullets: [
-      "Customized Shopify storefronts through theme development and advanced Liquid templating.",
-      "Developed a variety of projects tailored to client and business needs.",
-      "Built frontend and backend solutions: websites, mobile apps, and cross-platform digital experiences.",
-      "Utilized JavaScript, ReactJS, React Native, CSS, Shopify, TailwindCSS, ShadCN, Laravel, Docker, MySQL, MariaDB, PostgreSQL, NodeJS, ExpressJS.",
-      "Integrated third-party APIs (e.g. KIPU, CollabMD, QuickBooks).",
-      "Build and deploy applications using AWS tools and services.",
-    ],
-  },
-  {
-    company: "Dunbrae Subic Incorporated",
-    role: "Full Stack Web Developer",
-    period: "October 2020 – May 2022",
-    bullets: [
-      "Conducted meetings with president and managers to discuss project requirements and workflow.",
-      "Implemented new functions, features, and development techniques to achieve client goals and enhance internal efficiencies.",
-      "Collaborated with Team Lead and President to brainstorm and create client web application systems.",
-      "Designed and implemented a custom Customer Satisfaction Survey with employee dashboards.",
-      "Executed design for new websites or reconstruction of existing ones.",
-      "Implemented third-party APIs (e.g. 7/11 API) to automate manual processes.",
-      "Planned, designed, and developed in-house websites from layout to function.",
-      "Identified and resolved programming bugs; protected operations by maintaining confidentiality of information.",
-    ],
-  },
-  {
-    company: "IDESS Interactive Technologies",
-    role: "Junior Full Stack Web Developer",
-    period: "2019 – 2020",
-    bullets: [
-      "Ensured brand consistency in online content, e-Learning materials, and computer-based testing tools.",
-      "Collaborated with the team to analyze pre-project plans and assess technical requirements.",
-      "Migrated and upgraded the old system to a new, modern design system.",
-      "Analyzed, designed, and developed websites according to business/client needs.",
-      "Implemented online synchronization between web applications and desktop applications.",
-    ],
-  },
-];
-
-const education = [
-  { degree: "Bachelor of Science in Information Technology", school: "Gordon College", period: "2017–2019" },
-  { degree: "Associate in Computer Technology", school: "Gordon College", period: "2015–2017" },
-];
-
-const certifications = [
-  { name: "Modern React and Redux", issuer: "Udemy", year: "2023" },
-];
-
-const skillCategories = [
-  {
-    title: "Core",
-    items: [
-      "Front-end & Back-end Coding",
-      "User Interface / User Experience",
-      "Design Thinking",
-      "Custom Databases",
-      "Mobile App Development",
-      "API Integration",
-      "Deployment and DNS Management",
-    ],
-  },
-  {
-    title: "Programming Languages",
-    items: ["JavaScript (ES6+)", "PHP", "TypeScript", "HTML5", "CSS3", "JSON", "OOP", "MVC", "SOLID"],
-  },
-  {
-    title: "Frameworks & Libraries",
-    items: [
-      "ReactJS",
-      "React Native",
-      "Redux",
-      "RTK Query",
-      "NextJS",
-      "TanStack Query",
-      "Node.js",
-      "TailwindCSS",
-      "ShadCN",
-      "NativeWind",
-      "AlpineJS",
-      "Axios",
-      "jQuery",
-      "CodeIgniter 4",
-      "Laravel",
-      "Livewire",
-      "Backpack",
-      "Ionic 3/4",
-      "Angular 8",
-      "Bootstrap",
-      "Shopify Liquid",
-      "Stripe",
-    ],
-  },
-  {
-    title: "Databases & APIs",
-    items: ["Web API / REST API", "MySQL", "MariaDB", "PostgreSQL"],
-  },
-  {
-    title: "Tools & Platforms",
-    items: [
-      "Visual Studio Code",
-      "PHPStorm",
-      "Postman",
-      "Vercel",
-      "WordPress",
-      "Figma",
-      "Git",
-      "GitHub",
-      "GitLab",
-      "Plesk",
-      "Docker",
-    ],
-  },
-];
-
-const projects = [
-  {
-    name: "TheHopeHouse Admin",
-    description: "Centralized Finance Dashboard and User Management System.",
-  },
-  {
-    name: "Odd Pieces",
-    description: "Shopify e-commerce store for mystery puzzles: story-driven jigsaw puzzles with hidden clues and secret endings, sold in 600+ US retail stores.",
-  },
-  {
-    name: "findkaylrabanzo.vercel.app",
-    description: "Personal website built with NextJS and ReactJS.",
-  },
-  {
-    name: "Themes Template",
-    description: "HTML/CSS Theme Template built with React JS.",
-  },
-  {
-    name: "CareDocs System",
-    description: "All-in-one Facility Operations, Staff Management System, and Billing System.",
-  },
-  {
-    name: "TimeOff Management",
-    description: "Open Source Time Off Management System.",
-  },
-  {
-    name: "Recovery Calculators (Alcohol Withdrawal Calc)",
-    description: "Online resource for the addiction recovery community featuring the PAWSS alcohol withdrawal severity scale and education on medical calculators and recovery terminology.",
-  },
-];
+function SectionTitle({ children }) {
+  return (
+    <h2 className="text-xs font-semibold text-cyan-400 uppercase tracking-[0.2em] mb-5 flex items-center gap-3">
+      <span className="h-px flex-1 max-w-[40px] bg-cyan-400/40" aria-hidden />
+      {children}
+    </h2>
+  );
+}
 
 export default function Resume() {
+  const featuredProjects = RESUME_PROJECTS.filter((p) => p.featured);
+  const otherProjects = RESUME_PROJECTS.filter((p) => !p.featured);
+
   return (
     <>
-      <Head>
-        <title>Resume — Fedimar Kayl Rabanzo</title>
-        <meta name="description" content="Resume and experience of Fedimar Kayl Rabanzo, Senior Front-end Developer." />
-      </Head>
-      <main className="relative flex min-h-screen flex-col items-center justify-between pb-10 __main" id="top">
+      <SiteMeta
+        title={`${SITE.resumeHeadline} — ${SITE.name}`}
+        description={RESUME_SUMMARY.slice(0, 155) + "…"}
+        path="/resume"
+      />
+      <main className="relative flex min-h-screen flex-col __main">
         <Header />
 
-        <section className="__main_section text-[15px] md:text-base relative flex flex-col justify-center text-gray-400 max-w-[1000px] w-full mx-auto px-5 sm:px-8 md:px-12 pt-24 pb-20">
-          {/* Hero — card style, easy to scan */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
+        {/* Sticky recruiter CTA */}
+        <div className="sticky top-[var(--header-height)] z-10 border-b border-white/[0.06] bg-black/80 backdrop-blur-md">
+          <div className="max-w-[1000px] mx-auto px-5 sm:px-8 md:px-12 py-3 flex flex-wrap items-center justify-between gap-3">
+            <p className="text-sm text-gray-400 hidden sm:block">
+              <span className="text-white font-medium">{SITE.name}</span>
+              <span className="mx-2 text-gray-600">·</span>
+              {SITE.resumeHeadline}
+            </p>
+            <a
+              href={SITE.resumePdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-cyan-500 text-black hover:bg-cyan-400 font-semibold py-2.5 px-5 text-xs uppercase tracking-wider transition-colors w-full sm:w-auto justify-center"
+            >
+              <FiDownload className="w-4 h-4" /> Download PDF
+            </a>
+          </div>
+        </div>
+
+        <section className="max-w-[1000px] w-full mx-auto px-5 sm:px-8 md:px-12 pt-10 pb-20 text-gray-400">
+          {/* Hero */}
+          <motion.header
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
-            className="rounded-2xl bg-white/[0.03] border border-white/[0.06] p-6 sm:p-8 mb-12"
+            className="mb-12"
           >
-            <div className="flex flex-col gap-6">
-              <div>
-                <div className="flex items-center justify-between gap-2">
-                  <h1 className="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-1">
-                    Fedimar Kayl Rabanzo
-                  </h1>
-                  {/* Download Resume Button */}
-                  <a
-                    href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-400/50 font-medium py-3 px-6 text-[13px] uppercase tracking-wider transition-colors"
-                  >
-                    <FiDownload />  Download Resume
-                  </a>
-                </div>
-                <p className="text-cyan-400/90 font-medium text-sm tracking-wide uppercase">
-                  Senior Front-end Developer
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm">
-                <a
-                  href="mailto:frabanzoo@gmail.com"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                >
-                  <FiMail className="flex-shrink-0 text-gray-500" /> frabanzoo@gmail.com
-                </a>
-                <a
-                  href="tel:+639760409290"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                >
-                  <FiPhone className="flex-shrink-0 text-gray-500" /> +63 976 040 9290
-                </a>
-                <a
-                  href="https://findkaylrabanzo.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                >
-                  <FiGlobe className="flex-shrink-0 text-gray-500" /> findkaylrabanzo.vercel.app
-                </a>
-                <a
-                  href="https://github.com/Kayl06"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors"
-                >
-                  <FiGithub className="flex-shrink-0 text-gray-500" /> github.com/Kayl06
-                </a>
-              </div>
-            </div>
-          </motion.div>
+            <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-3">
+              {SITE.resumeHeadline}
+            </p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-2">
+              {SITE.name}
+            </h1>
+            <p className="flex items-center gap-2 text-gray-500 text-sm mb-6">
+              <FiMapPin className="shrink-0" aria-hidden />
+              {SITE.location}
+            </p>
 
-          {/* Summary — constrained line length for readability */}
+            <div className="flex flex-wrap gap-2 mb-8">
+              {RESUME_HIGHLIGHTS.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-xs font-medium px-3 py-1.5 rounded-full border border-cyan-400/25 bg-cyan-500/10 text-cyan-300/90"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
+              <a
+                href={`mailto:${SITE.email}`}
+                className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
+              >
+                <FiMail className="text-gray-500" /> {SITE.email}
+              </a>
+              <a
+                href={SITE.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
+              >
+                <FiGlobe className="text-gray-500" /> Portfolio
+              </a>
+              <a
+                href={SITE.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
+              >
+                <FiGithub className="text-gray-500" /> GitHub
+              </a>
+              <Link
+                href="/#work"
+                className="inline-flex items-center gap-1 hover:text-cyan-400 transition-colors"
+              >
+                View live work <FiExternalLink className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+          </motion.header>
+
+          {/* Summary */}
           <motion.section
             variants={sectionVariant}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mb-12"
-            id="about"
+            viewport={defaultViewport}
+            className="mb-14 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-cyan-500/5 to-transparent p-6 sm:p-8"
           >
-            <h2 className="text-xs font-semibold text-cyan-400/90 uppercase tracking-widest mb-4">
-              Summary
-            </h2>
-            <p className="text-gray-400 leading-[1.75] max-w-[65ch]">
-              Skilled full-stack web developer with almost 6 years of experience designing, developing, and deploying enterprise-level applications. Proficient in multiple programming languages, software development methodologies, and database management systems. Strong problem-solving skills and ability to work effectively in a team-based or individual environment.
+            <SectionTitle>Professional summary</SectionTitle>
+            <p className="text-gray-300 leading-[1.8] text-[17px] max-w-[70ch]">
+              {RESUME_SUMMARY}
             </p>
           </motion.section>
 
-          {/* Work Experience — cards, easy to scan */}
+          {/* Expertise — scannable for ATS & humans */}
           <motion.section
             variants={sectionVariant}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.1 }}
-            className="mb-12"
-            id="experience"
+            viewport={defaultViewport}
+            className="mb-14"
           >
-            <h2 className="text-xs font-semibold text-cyan-400/90 uppercase tracking-widest mb-6">
-              Work Experience
-            </h2>
-            <div className="space-y-6">
-              {experiences.map((exp, i) => (
+            <SectionTitle>Area of expertise</SectionTitle>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {RESUME_EXPERTISE.map((group) => (
                 <div
-                  key={i}
-                  className="rounded-xl bg-white/[0.02] border border-white/[0.06] p-5 sm:p-6 hover:border-white/[0.1] transition-colors"
+                  key={group.title}
+                  className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4"
                 >
-                  <div className="flex flex-wrap items-baseline justify-between gap-2 mb-3">
-                    <div>
-                      <h3 className="text-white font-semibold text-lg">{exp.role}</h3>
-                      <p className="text-gray-500 text-sm mt-0.5">{exp.company}</p>
-                    </div>
-                    <span className="text-xs text-gray-500 font-medium tabular-nums">
-                      {exp.period}
-                    </span>
-                  </div>
-                  <ul className="space-y-2 text-gray-400 text-[15px] leading-[1.65]">
-                    {exp.bullets.map((bullet, j) => (
-                      <li key={j} className="flex gap-2 items-center">
-                        <span className="text-cyan-500/70 shrink-0">·</span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-          </motion.section>
-
-
-          {/* Skills — pills for quick scan */}
-          <motion.section
-            variants={sectionVariant}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={{ once: true, amount: 0.1 }}
-            className="mb-12"
-          >
-            <h2 className="text-xs font-semibold text-cyan-400/90 uppercase tracking-widest mb-5">
-              Skills
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {skillCategories.map((cat, i) => (
-                <div key={i} className="rounded-xl bg-white/[0.02] border border-white/[0.06] p-4">
-                  <h3 className="text-white font-medium text-sm mb-3">{cat.title}</h3>
-                  <div className="flex flex-wrap gap-2">
-                    {cat.items.map((item, j) => (
+                  <h3 className="text-white text-sm font-semibold mb-3">{group.title}</h3>
+                  <div className="flex flex-wrap gap-1.5">
+                    {group.items.map((item) => (
                       <span
-                        key={j}
-                        className="inline-block px-2.5 py-1 text-xs text-gray-400 bg-white/[0.04] border border-white/[0.06] rounded-md"
+                        key={item}
+                        className="text-xs px-2.5 py-1 rounded-md bg-white/[0.04] text-gray-300 border border-white/[0.06]"
                       >
                         {item}
                       </span>
@@ -350,59 +180,185 @@ export default function Resume() {
             </div>
           </motion.section>
 
-          {/* Selected Projects */}
+          {/* Experience */}
           <motion.section
             variants={sectionVariant}
             initial="offscreen"
             whileInView="onscreen"
-            viewport={{ once: true, amount: 0.2 }}
-            className="mb-12"
+            viewport={defaultViewport}
+            className="mb-14"
+            id="experience"
           >
-            <h2 className="text-xs font-semibold text-cyan-400/90 uppercase tracking-widest mb-5">
-              Selected Projects
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {projects.map((proj, i) => (
-                <div
+            <SectionTitle>Professional experience</SectionTitle>
+            <div className="space-y-5">
+              {RESUME_EXPERIENCE.map((exp, i) => (
+                <article
                   key={i}
-                  className="rounded-xl bg-white/[0.02] border border-white/[0.06] p-4 hover:border-white/[0.1] transition-colors"
+                  className={`rounded-xl border p-5 sm:p-6 transition-colors ${
+                    exp.current
+                      ? "border-cyan-400/35 bg-cyan-500/[0.06] ring-1 ring-cyan-400/10"
+                      : "border-[var(--border)] bg-[var(--surface)] hover:border-white/10"
+                  }`}
                 >
-                  <h3 className="text-white font-medium text-[15px] mb-1">{proj.name}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed">{proj.description}</p>
+                  <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                    <div>
+                      <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-white font-semibold text-lg">{exp.role}</h3>
+                        {exp.current && (
+                          <span className="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-cyan-400 text-black">
+                            Current
+                          </span>
+                        )}
+                      </div>
+                      <p className="text-gray-500 text-sm mt-0.5">{exp.company}</p>
+                    </div>
+                    <time className="text-xs text-gray-500 font-mono tabular-nums shrink-0 bg-black/30 px-2.5 py-1 rounded-md border border-white/[0.06]">
+                      {exp.period}
+                    </time>
+                  </div>
+                  <ul className="space-y-2.5 list-none">
+                    {exp.bullets.map((bullet, j) => (
+                      <li key={j} className="flex gap-3 text-[15px] leading-relaxed text-gray-400">
+                        <span className="text-cyan-400 mt-1.5 shrink-0 text-[8px]" aria-hidden>
+                          ●
+                        </span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Featured projects */}
+          <motion.section
+            variants={sectionVariant}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={defaultViewport}
+            className="mb-14"
+          >
+            <SectionTitle>Selected projects</SectionTitle>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+              {featuredProjects.map((proj) => (
+                <div
+                  key={proj.name}
+                  className="rounded-xl border border-cyan-400/20 bg-[var(--surface)] p-5 flex flex-col"
+                >
+                  <h3 className="text-white font-semibold mb-2">{proj.name}</h3>
+                  <p className="text-sm text-gray-400 leading-relaxed mb-4 flex-1">
+                    {proj.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {proj.techs.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[10px] uppercase tracking-wide px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400/90 border border-cyan-400/15"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+            {otherProjects.length > 0 && (
+              <details className="group rounded-xl border border-[var(--border)] bg-[var(--surface)]">
+                <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-gray-300 hover:text-white list-none flex items-center justify-between">
+                  More projects
+                  <span className="text-cyan-400/80 group-open:rotate-180 transition-transform text-xs">
+                    ▼
+                  </span>
+                </summary>
+                <div className="px-5 pb-5 grid grid-cols-1 sm:grid-cols-2 gap-4 border-t border-white/[0.06] pt-4">
+                  {otherProjects.map((proj) => (
+                    <div key={proj.name}>
+                      <h3 className="text-white text-sm font-medium mb-1">{proj.name}</h3>
+                      <p className="text-xs text-gray-500 mb-2">{proj.description}</p>
+                      <p className="text-[11px] text-gray-600 leading-relaxed">
+                        {proj.techs.join(" · ")}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </details>
+            )}
+          </motion.section>
+
+          {/* Additional skills */}
+          <motion.section
+            variants={sectionVariant}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={defaultViewport}
+            className="mb-14"
+          >
+            <SectionTitle>Additional skills</SectionTitle>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {RESUME_ADDITIONAL_SKILLS.map((group) => (
+                <div
+                  key={group.title}
+                  className="rounded-xl border border-[var(--border)] bg-[var(--surface)] p-4"
+                >
+                  <h3 className="text-gray-500 text-xs uppercase tracking-wider mb-3">
+                    {group.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 leading-relaxed">{group.items.join(" · ")}</p>
                 </div>
               ))}
             </div>
           </motion.section>
 
-          {/* CTA */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-10 border-t border-white/[0.08]"
+          {/* Education */}
+          <motion.section
+            variants={sectionVariant}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={defaultViewport}
+            className="mb-14"
           >
+            <SectionTitle>Education</SectionTitle>
+            <div className="space-y-4">
+              {RESUME_EDUCATION.map((edu, i) => (
+                <div
+                  key={i}
+                  className="flex flex-wrap justify-between gap-2 rounded-xl border border-[var(--border)] bg-[var(--surface)] px-5 py-4"
+                >
+                  <div>
+                    <h3 className="text-white font-medium">{edu.degree}</h3>
+                    <p className="text-sm text-gray-500">{edu.school}</p>
+                    <p className="text-xs text-gray-600 mt-0.5">{edu.location}</p>
+                  </div>
+                  {edu.period && (
+                    <span className="text-xs font-mono text-gray-500 tabular-nums">{edu.period}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.section>
+
+          {/* Footer CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-8 border-t border-white/[0.08]">
             <a
-              href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
+              href={SITE.resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-500/10 border border-cyan-400/30 text-cyan-400 hover:bg-cyan-500/20 hover:border-cyan-400/50 font-medium py-3 px-6 text-[13px] uppercase tracking-wider transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-cyan-500 text-black hover:bg-cyan-400 font-semibold py-3.5 px-8 text-sm uppercase tracking-wider transition-colors"
             >
-              <FiDownload /> Download Resume
+              <FiDownload /> Download full PDF
             </a>
             <Link
-              href="/resume#top"
+              href="/#contact"
               className="text-gray-400 hover:text-cyan-400 transition-colors text-sm font-medium"
             >
-              Get in touch →
+              Contact for opportunities →
             </Link>
-          </motion.div>
+            <Link href="/" className="text-gray-500 hover:text-white text-sm">
+              ← Portfolio home
+            </Link>
+          </div>
         </section>
-
-        <footer className="text-center py-6 text-gray-500 text-sm">
-          <Link href="/resume#top" className="hover:text-cyan-400 transition-colors">
-            ← Back to home
-          </Link>
-        </footer>
       </main>
     </>
   );

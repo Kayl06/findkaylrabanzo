@@ -4,472 +4,264 @@ import {
   FiInstagram,
   FiTwitter,
   FiFacebook,
-  FiZap,
 } from "react-icons/fi";
 import Link from "next/link";
+import { motion } from "framer-motion";
 import Header from "../components/Header";
 import BotCornerLinks from "@/components/BotCornerLinks";
-import { useRef } from "react";
-import Tabs from "@/components/Tabs";
 import Works from "@/components/Works";
 import ContactForm from "@/components/ContactForm";
-import FadeInView from "@/components/FadeInView";
-import "transition-style";
-import { Variants, motion } from "framer-motion";
+import SkillsSection from "@/components/SkillsSection";
+import AboutFlipCard from "@/components/AboutFlipCard";
+import ExperienceTimeline from "@/components/ExperienceTimeline";
+import SiteMeta from "@/components/SiteMeta";
+import { SOCIAL_LINKS, SITE } from "@/data/site";
+import useReducedMotion from "@/hooks/useReducedMotion";
+import {
+  defaultViewport,
+  getHeroAnimate,
+  getHeroInitial,
+  getHeroTransition,
+  getMotionVariant,
+} from "@/lib/motion";
 
-const aboutMeVariant = {
-  offscreen: {
-    y: 150,
-    opacity: 0, // Optionally set opacity to 0 for a fade-in effect
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1, // Optionally set opacity to 1 for a fade-in effect
-    rotate: 0,
-    transition: {
-      type: 'spring',
-      bounce: 0.2,
-      duration: 1,
-    },
-  },
+const ICON_MAP = {
+  LinkedIn: FiLinkedin,
+  GitHub: FiGithub,
+  Instagram: FiInstagram,
+  Twitter: FiTwitter,
+  Facebook: FiFacebook,
 };
 
-
-const experienceVariant = {
-  offscreen: {
-    y: 150,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    opacity: 1,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      bounce: .5,
-      duration: 1,
-    },
-  },
-};
-
-const fadeInVariant = {
-  offscreen: {
-    opacity: 0,
-  },
-  onscreen: {
-    opacity: 1,
-    transition: {
-      duration: 1, // Adjust the duration as needed
-    },
-  },
-  exit: {
-    opacity: 0,
-    transition: {
-      duration: 1, // Adjust the duration as needed
-    },
-  },
-};
-
+const SECTION_CLASS = "py-20 md:py-28 max-w-[1000px] mx-auto w-full";
 
 export default function Home() {
-  const socialLinks = [
-    {
-      url: "https://www.linkedin.com/in/frabanzo/",
-      name: "LinkedIn",
-      icon: <FiLinkedin className="text-[24px] font-bold" />,
-    },
-    {
-      url: "https://github.com/Kayl06",
-      name: "GitHub",
-      icon: <FiGithub className="text-[24px]" />,
-    },
-    {
-      url: "https://www.instagram.com/kangkongkayl/",
-      name: "Instagram",
-      icon: <FiInstagram className="text-[24px]" />,
-    },
-    {
-      url: "https://www.twitter.com/KangkongKayl",
-      name: "Twitter",
-      icon: <FiTwitter className="text-[24px]" />,
-    },
-    {
-      url: "https://www.facebook.com/kayl06",
-      name: "Facebook",
-      icon: <FiFacebook className="text-[24px]" />,
-    },
-  ];
+  const reducedMotion = useReducedMotion();
+  const sectionVariant = getMotionVariant(reducedMotion);
 
-  const techStacks = [
-    {
-      name: "React",
-      link: "https://",
-    },
-    {
-      name: "Laravel",
-      link: "https://",
-    },
-    {
-      name: "JavaScript ( ES6+ )",
-      link: "https://",
-    },
-    {
-      name: "Express.js",
-      link: "https://",
-    },
-    {
-      name: "Next.js",
-      link: "https://",
-    },
-    {
-      name: "TypeScript",
-      link: "https://",
-    },
-    {
-      name: "TailwindCSS",
-      link: "https://",
-    },
-    {
-      name: "ShadCN",
-      link: "https://",
-    },
-    {
-      name: "NativeWind",
-      link: "https://",
-    },
-    {
-      name: "Zustand",
-      link: "https://",
-    },
-    {
-      name: "RTK Query",
-      link: "https://",
-    },
-    {
-      name: "Expo",
-      link: "https://",
-    },
-    {
-      name: "AlpineJS",
-      link: "https://",
-    },
-    {
-      name: "Axios",
-      link: "https://",
-    },
-    {
-      name: "jQuery",
-      link: "https://",
-    },
-    {
-      name: "AngularJS",
-      link: "https://",
-    },
-    {
-      name: "HTML",
-      link: "https://",
-    },
-    {
-      name: "PHP Native",
-      link: "https://",
-    },
-    {
-      name: "CSS",
-      link: "https://",
-    },
-    {
-      name: "CodeIgniter 4",
-      link: "https://",
-    },
-    {
-      name: "Laravel",
-      link: "https://",
-    },
-    {
-      name: "Python",
-      link: "https://",
-    },
-    {
-      name: "MySQL",
-      link: "https://",
-    },
-  ];
-
-  const renderedSocialLinks = socialLinks.map((link) => {
+  const renderedSocialLinks = SOCIAL_LINKS.map((link) => {
+    const Icon = ICON_MAP[link.name];
     return (
       <li key={link.name}>
         <Link
           href={link.url}
           target="_blank"
+          rel="noopener noreferrer"
+          aria-label={link.name}
           className="hover:text-[#fafafa] flex items-center p-[10px] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform"
         >
-          {link.icon}
+          <Icon className="text-[24px]" />
         </Link>
       </li>
     );
   });
 
-  const renderedTechStacks = techStacks.map((techStack, index) => {
-    return (
-      <li
-        key={index}
-        className="__tech_stack_item flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-[13px] font-medium text-white/90 transition-all duration-200 hover:border-white/20 hover:bg-white/10 hover:text-white"
-      >
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-white/60" aria-hidden />
-        <span>{techStack.name}</span>
-      </li>
-    );
-  });
-
   return (
-    <main
-      className={`relative flex min-h-screen flex-col items-center justify-between pb-10 __main`}
-    >
-      <Header />
+    <>
+      <SiteMeta />
+      <main
+        id="main-content"
+        className="relative flex min-h-screen flex-col items-center justify-between pb-10 __main"
+      >
+        <Header />
 
-      <BotCornerLinks
-        renderedSocialLinks={renderedSocialLinks}
-        email="frabanzoo@gmail.com"
-      />
-      <section className="__main_section text-md relative flex flex-col justify-center text-gray-400 max-w-[1600px] w-full mx-auto px-[50px] md:px-[100px] lg:px-[150px]">
-        <section className="flex flex-col justify-center gap-10 __hero_section max-w-[1000px] min-h-screen mx-auto w-full">
-          <div
-            className="__greetings">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{
-                duration: 0.3,
-                delay: 0.4,
-                ease: [0, 0.71, 0.2, 1.01],
-              }}
-              className="text-[15px] text-white font-mono mb-6"
-            >
-              Hi, I&apos;m Fedimar Kayl 👋
-            </motion.div>
-            <motion.div
-              initial={{ x: -1200 }}
-              animate={{ x: 0 }}
-              transition={{
-                duration: 0.4,
-                delay: 0.5,
-                ease: [0, 0.71, 0.2, 1.01],
-              }}
-            >
-              <h1 className="font-bold text-start leading-none md:leading-[4.5rem] mb-[25px] __big_heading">
-                <span className="text-[#e9e9e9] ">I design and develop </span>
-                <br /> things for the web.
-              </h1>
-            </motion.div>
+        <BotCornerLinks renderedSocialLinks={renderedSocialLinks} email={SITE.email} />
 
+        <div className="__main_section text-md relative flex flex-col text-gray-400 max-w-[1600px] w-full mx-auto px-6 sm:px-[50px] md:px-[100px] lg:px-[150px]">
+          {/* Hero */}
+          <section className={`${SECTION_CLASS} min-h-[85vh] flex flex-col justify-center gap-10 __hero_section`}>
+            <div className="__greetings">
+              <motion.p
+                initial={getHeroInitial(reducedMotion)}
+                animate={getHeroAnimate(reducedMotion)}
+                transition={getHeroTransition(reducedMotion, 0.1)}
+                className="text-[15px] text-cyan-400/90 font-mono mb-4"
+              >
+                {SITE.title}
+              </motion.p>
+              <motion.div
+                initial={getHeroInitial(reducedMotion)}
+                animate={getHeroAnimate(reducedMotion)}
+                transition={getHeroTransition(reducedMotion, 0.2)}
+              >
+                <p className="text-[15px] text-white font-mono mb-6">
+                  Hi, I&apos;m Fedimar Kayl 👋
+                </p>
+                <h1 className="font-bold text-start leading-none md:leading-[4.5rem] mb-6 __big_heading text-[#e9e9e9]">
+                  I build fast storefronts and product UIs that convert.
+                </h1>
+              </motion.div>
+              <motion.p
+                initial={getHeroInitial(reducedMotion)}
+                animate={getHeroAnimate(reducedMotion)}
+                transition={getHeroTransition(reducedMotion, 0.35)}
+                className="lg:max-w-[540px] leading-relaxed"
+              >
+                Senior front-end developer specializing in React, Next.js, Shopify, and API-driven
+                experiences—for startups, agencies, and e-commerce brands. Available for full-time
+                roles and selective freelance projects.
+              </motion.p>
+            </div>
             <motion.div
-              initial={{ x: -1000 }}
-              animate={{ x: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.7,
-                ease: [0, 0.71, 0.2, 1.01],
-              }}
+              initial={getHeroInitial(reducedMotion, false)}
+              animate={getHeroAnimate(reducedMotion)}
+              transition={getHeroTransition(reducedMotion, 0.5)}
+              className="flex flex-wrap gap-3 items-center"
             >
-              <p className="lg:w-[500px]">
-                I am an experienced full-stack web developer specializing in
-                modern, user-friendly websites and web applications. With
-                proficiency in front-end and back-end technologies, I can bring
-                your vision to life with attention to detail and a focus on
-                quality.{" "}
-                <span className="text-white">
-                  Let me help you achieve your business objectives!
-                </span>
-                <span className="text-white">
-                  {/* HTML, CSS, TailwindCSS, Bootstrap, JavaScript, React.JS,
-                Next.JS, AngularJS, TypeScript, Node.JS, Express, PHP Native,
-                Laravel, CodeIgniter, Python and MySQL */}
-
-                  {/* {renderedTechStacks} */}
-                </span>
-              </p>
-            </motion.div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              duration: 0.7,
-              delay: 0.9,
-            }}
-          >
-            <div className="__check_my_work mt-[20px] flex gap-2 items-center flex-wrap">
               <a
                 href="#work"
-                className="border uppercase rounded-full shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px]"
+                className="btn-primary border uppercase rounded-full shadow__btn font-semibold border-cyan-400/40 hover:border-cyan-400 hover:text-white py-3 px-8 text-[13px] text-cyan-400"
               >
-                View my works!
+                View my work
               </a>
-
-              {/* Resume Button */}
               <a
-                href="/files/CV - FEDIMAR KAYL RABANZO.pdf"
+                href={SITE.resumePdf}
                 target="_blank"
-                className="border uppercase rounded-full shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-[2rem] text-[13px] lg:hidden block"
+                rel="noopener noreferrer"
+                className="border uppercase rounded-full shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-8 text-[13px]"
               >
-                View Resume
+                Download resume
               </a>
-            </div>
-          </motion.div>
-        </section>
+              <a
+                href="#contact"
+                className="text-sm text-gray-400 hover:text-cyan-400 transition-colors py-3 px-2"
+              >
+                Hire me →
+              </a>
+            </motion.div>
+          </section>
 
-        <motion.section
-          id="about"
-          className="__about pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: false, amount: 0.2 }}
-        >
-          <motion.div className=""
-            variants={aboutMeVariant}>
+          {/* Work — moved up */}
+          <motion.section
+            id="work"
+            className={SECTION_CLASS}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={defaultViewport}
+            variants={sectionVariant}
+          >
+            <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+              Selected Work
+            </h2>
+            <Works />
+          </motion.section>
+
+          {/* About */}
+          <motion.section
+            id="about"
+            className={SECTION_CLASS}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={defaultViewport}
+            variants={sectionVariant}
+          >
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               About Me
             </h2>
-
-            <div className="__inner grid grid-cols-1 lg:grid-cols-2 gap-7">
-              <div className="flex flex-col">
-                <div>
-                  <p className="mb-[15px]">
-                    Skilled full-stack web developer with <strong className="text-white">6 years of experience</strong> designing, developing, and deploying enterprise-level applications. Proficient in
-                    multiple programming languages, software development methodologies, and database management systems. Strong problem-solving skills and ability to work effectively in a team-based or individual environment.
-                  </p>
-
-                  <p className="mb-[15px]">
-                    Here are a few technologies I’ve been working with recently:
-                  </p>
-                </div>
-
-                <ul className="__tech_stacks grid grid-cols-2 gap-3 mt-[15px] list-none">
-                  {renderedTechStacks}
-                </ul>
-
-                <div></div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+              <div>
+                <p className="mb-4 leading-relaxed">
+                  Full-stack developer with{" "}
+                  <strong className="text-white">6 years of experience</strong> shipping
+                  enterprise web apps, Shopify storefronts, and cross-platform products. I care about
+                  performance, accessibility, and clean handoffs with design and backend teams.
+                </p>
+                <p className="mb-6 leading-relaxed">
+                  Currently building at{" "}
+                  <a
+                    href="https://chykalophia.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-cyan-400/90 hover:text-cyan-400"
+                  >
+                    Chykalophia
+                  </a>
+                  . Here&apos;s what I work with most:
+                </p>
+                <SkillsSection />
               </div>
-
-              <motion.div
-                initial={{ rotate: 0, scale: 0 }}
-                animate={{ rotate: 360, scale: 1 }}
-                transition={{
-                  type: "spring",
-                  stiffness: 100,
-                  damping: 20,
-                }}
-                whileHover={{ scale: 1.1, rotate: 365 }}
-                exit={{ opacity: 0 }}
-              >
-                <div className="__wrapper flex cursor-pointer w-full h-full lg:max-w-[500px] lg:max-h-[450px] max-h-[300px] relative mt-10 lg:mt-0">
-                  <div className="__image_wrapper flex relative">
-                    <div className=" flex justify-center">
-                      <img
-                        src="/images/my-about-pic-1.jpg"
-                        alt="FEDIMAR KAYL RABANZO"
-                        className="__about_me_pic rounded-[26px] hover:scale-105  transition duration-300 ease-in mix-blend-luminosity hover:mix-blend-normal"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <AboutFlipCard />
             </div>
-          </motion.div>
-        </motion.section>
+          </motion.section>
 
-        <motion.section
-          id="experience"
-          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full flex flex-col"
-          // initial={{ opacity: 0 }}
-          // whileInView={{ opacity: 1 }}
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: false, amount: 0.2 }} >
-          <motion.div variants={experienceVariant}>
+          {/* Experience */}
+          <motion.section
+            id="experience"
+            className={`${SECTION_CLASS} flex flex-col`}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={defaultViewport}
+            variants={sectionVariant}
+          >
             <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
-              Where I've Worked
+              Where I&apos;ve Worked
             </h2>
+            <ExperienceTimeline />
+          </motion.section>
 
-            <Tabs />
-          </motion.div>
-        </motion.section>
-
-        <motion.section
-          initial="offscreen"
-          whileInView="onscreen"
-          viewport={{ once: true, amount: 0.2 }}
-          id="work"
-          className="__work pt-20 max-w-[1000px] min-h-screen mx-auto w-full"
-        >
-          <motion.div variants={experienceVariant}>
-            <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
-              Some Things I’ve Built
-            </h2>
-          </motion.div>
-
-          <Works />
-        </motion.section>
-
-        <motion.section
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
-          id="contact"
-          className="pt-20"
-        >
-          <motion.div className="__contact max-w-[640px] mb-[100px] mx-auto text-center py-16 px-6">
-            <h4 className="__numbered_heading __over-line text-[16px] flex items-center justify-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
-              What's Next?
-            </h4>
-
-            <h2 className="font-[900] text-[3em] text-white mb-4">Get In Touch</h2>
-
-            <p className="text-gray-400 mb-12 max-w-[480px] mx-auto">
-              Have a project in mind or want to collaborate? Send me a message
-              below or reach out via email and socials.
-            </p>
-
-            <ContactForm />
-
-            <div className="mt-10 pt-8 border-t border-gray-800">
-              <a
-                href="mailto:frabanzoo@gmail.com"
-                className="text-sm font-mono text-gray-500 hover:text-white transition-colors"
-              >
-                frabanzoo@gmail.com
-              </a>
-              <ul className="flex justify-center gap-4 mt-4">
-                {socialLinks.map((link) => (
-                  <li key={link.name}>
-                    <Link
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-400 hover:text-white p-2 transition-colors hover:-translate-y-0.5"
-                      aria-label={link.name}
-                    >
-                      {link.icon}
-                    </Link>
-                  </li>
-                ))}
+          {/* Contact */}
+          <motion.section
+            id="contact"
+            className={`${SECTION_CLASS} pb-32`}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={defaultViewport}
+            variants={sectionVariant}
+          >
+            <div className="__contact max-w-[640px] mx-auto text-center">
+              <p className="text-cyan-400/90 font-mono text-sm mb-4">What&apos;s next?</p>
+              <h2 className="font-black text-4xl md:text-5xl text-white mb-4">Get In Touch</h2>
+              <p className="text-gray-400 mb-10 max-w-[480px] mx-auto">
+                Have a project in mind or hiring for your team? Send a message or reach out directly.
+              </p>
+              <ContactForm />
+              <div className="mt-10 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a
+                  href={`mailto:${SITE.email}`}
+                  className="text-sm font-mono text-gray-500 hover:text-cyan-400 transition-colors"
+                >
+                  {SITE.email}
+                </a>
+                <a
+                  href={SITE.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+                >
+                  LinkedIn →
+                </a>
+              </div>
+              <ul className="flex justify-center gap-2 mt-6 list-none">
+                {SOCIAL_LINKS.map((link) => {
+                  const Icon = ICON_MAP[link.name];
+                  return (
+                    <li key={link.name}>
+                      <Link
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.name}
+                        className="text-gray-400 hover:text-white p-2 transition-colors"
+                      >
+                        <Icon className="w-5 h-5" />
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
-          </motion.div>
-        </motion.section>
-      </section>
-      <section></section>
-
-      <footer className="text-center flex flex-col text-gray-300">
-        <div className="__social_links_mob flex md:hidden">
-          <ul className="flex gap-[15px] text-gray-400">
-            {renderedSocialLinks}
-          </ul>
+          </motion.section>
         </div>
-        <a href="" className="text-[14px] font-mono hover:text-white">
-          Built by Fedimar Kayl Rabanzo
-        </a>
-      </footer>
-    </main>
+
+        <footer className="text-center flex flex-col gap-4 text-gray-300 py-8">
+          <div className="__social_links_mob flex md:hidden justify-center">
+            <ul className="flex gap-[15px] text-gray-400 list-none">{renderedSocialLinks}</ul>
+          </div>
+          <Link href="/" className="text-[14px] font-mono hover:text-cyan-400 transition-colors">
+            Built by {SITE.name}
+          </Link>
+        </footer>
+      </main>
+    </>
   );
 }
