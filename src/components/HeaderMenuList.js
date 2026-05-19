@@ -14,14 +14,14 @@ export default function HeaderMenuList({
       className={`__menu font-mono transition duration-300 ${parentMenuClassName}`}
     >
       <div
-        className={`__menu_inner lg:gap-[20px] md:flex items-center ${childMenuClassName}`}
+        className={`__menu_inner lg:gap-[20px] md:flex items-start ${childMenuClassName}`}
       >
         {NAV_LINKS.map((menuItem, index) => (
           <a
             key={menuItem.path}
             href={menuItem.path}
             onClick={handleBurgerMenuClick}
-            className="__menut-items hover:text-[#fff] capitalize hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 lg:p-1 lg:px-2 px-5 rounded"
+            className="__menut-items hover:text-[#fff] capitalize hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 lg:p-1 lg:px-2 px-0 rounded"
           >
             <span className="text-[#efefef]">0{index + 1}.</span> {menuItem.name}
           </a>

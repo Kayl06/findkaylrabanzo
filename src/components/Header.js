@@ -55,7 +55,7 @@ export default function Header() {
     : "hidden lg:flex";
 
   const childMenuClassName = isMobile
-    ? "p-10 pt-24 gap-[30px] flex-col fixed flex bg-black/95 backdrop-blur-md h-full w-full top-0 left-0"
+    ? "p-10 pt-24 gap-[30px] flex-col fixed flex bg-black/95 backdrop-blur-md h-full w-full top-0 left-0 h-screen"
     : "";
 
   return (
