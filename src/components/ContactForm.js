@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const initialForm = { name: "", email: "", subject: "", message: "" };
 
@@ -8,8 +8,15 @@ function validateEmail(email) {
 
 export default function ContactForm() {
   const [form, setForm] = useState(initialForm);
-  const [status, setStatus] = useState(null); // "sending" | "success" | "error"
+  const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState({});
+  const successRef = useRef(null);
+
+  useEffect(() => {
+    if (status === "success" && successRef.current) {
+      successRef.current.focus();
+    }
+  }, [status]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -60,7 +67,6 @@ export default function ContactForm() {
           return;
         }
       } else {
-        // Fallback: use API route (e.g. for server-side handling or no Formspree)
         const res = await fetch("/api/contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -70,7 +76,11 @@ export default function ContactForm() {
 
         if (!res.ok) {
           setStatus("error");
-          setErrors({ form: data.message || "Something went wrong. Please try again." });
+          setErrors({
+            form:
+              data.message ||
+              "Contact form is not configured. Please email frabanzoo@gmail.com directly.",
+          });
           return;
         }
       }
@@ -170,7 +180,11 @@ export default function ContactForm() {
       )}
 
       {status === "success" && (
-        <p className="mb-4 text-sm text-green-400 text-center">
+        <p
+          ref={successRef}
+          tabIndex={-1}
+          className="mb-4 text-sm text-green-400 text-center outline-none"
+        >
           Thanks! Your message has been sent. I&apos;ll get back to you soon.
         </p>
       )}

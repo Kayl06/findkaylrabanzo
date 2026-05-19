@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://findkaylrabanzo.vercel.app/sitemap.xml

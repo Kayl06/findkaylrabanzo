@@ -36,7 +36,8 @@ export default async function handler(req, res) {
     }
   }
 
-  // No Formspree ID: log and return success (for local/testing)
-  console.log("Contact form submission:", { name, email, subject, message });
-  return res.status(200).json({ ok: true });
+  return res.status(503).json({
+    message:
+      "Contact form is not configured. Please email frabanzoo@gmail.com directly.",
+  });
 }
