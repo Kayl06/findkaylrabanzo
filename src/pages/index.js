@@ -97,7 +97,7 @@ export default function Home() {
                 transition={getHeroTransition(reducedMotion, 0.35)}
                 className="lg:max-w-[540px] leading-relaxed"
               >
-                Senior front-end developer specializing in React, Next.js, Shopify, and API-driven
+                Front-end developer specializing in React, Next.js, Shopify, and API-driven
                 experiences—for startups, agencies, and e-commerce brands. Available for full-time
                 roles and selective freelance projects.
               </motion.p>
@@ -161,7 +161,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <p className="mb-4 leading-relaxed">
-                  Full-stack developer with{" "}
+                  Full-stack developer (Front-end Solid) with{" "}
                   <strong className="text-white">6 years of experience</strong> shipping
                   enterprise web apps, Shopify storefronts, and cross-platform products. I care about
                   performance, accessibility, and clean handoffs with design and backend teams.

@@ -1,7 +1,7 @@
 /** Resume page content — aligned with FRONTEND ENGINEER CV PDF */
 
 export const RESUME_SUMMARY =
-  "Senior Front-End Developer with 6+ years building responsive, high-performance web and mobile apps using React, Next.js, and Tailwind CSS. Expert in converting Figma designs to pixel-perfect UIs, integrating REST APIs, and optimizing for speed and scalability in agile teams. Proven track record in e-commerce, dashboards, and cross-platform projects at Chykalophia, Playasia, and freelance clients.";
+  "Front-End Developer with 6+ years building responsive, high-performance web and mobile apps using React, Next.js, and Tailwind CSS. Expert in converting Figma designs to pixel-perfect UIs, integrating REST APIs, and optimizing for speed and scalability in agile teams. Proven track record in e-commerce, dashboards, and cross-platform projects at Chykalophia, Playasia, and freelance clients.";
 
 export const RESUME_HIGHLIGHTS = [
   "6+ years front-end & full-stack",
@@ -84,7 +84,7 @@ export const RESUME_ADDITIONAL_SKILLS = [
 export const RESUME_EXPERIENCE = [
   {
     company: "Chykalophia",
-    role: "Senior Front-End Developer",
+    role: "Front-End Developer",
     period: "Feb 2024 – Present",
     current: true,
     bullets: [

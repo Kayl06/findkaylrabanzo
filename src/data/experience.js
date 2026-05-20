@@ -3,7 +3,7 @@ export const EXPERIENCE = [
     id: "chykalophia",
     company: "Chykalophia",
     website: "https://chykalophia.com/",
-    role: "Senior Front-end Developer",
+    role: "Front-end Developer",
     period: "February 2024 – Present",
     current: true,
     bullets: [
