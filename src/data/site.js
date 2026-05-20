@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Fedimar Kayl Rabanzo",
   shortName: "Kayl Rabanzo",
-  title: "Senior Front-end Developer",
-  resumeHeadline: "Senior Frontend Engineer",
+  title: "Front-end Developer",
+  resumeHeadline: "Frontend Engineer",
   location: "Olongapo, Central Luzon, PH",
   email: "frabanzoo@gmail.com",
   phone: "+63 976 040 9290",

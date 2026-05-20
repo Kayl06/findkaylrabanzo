@@ -3,7 +3,7 @@ import { SITE } from "@/data/site";
 
 export default function SiteMeta({
   title = `${SITE.name} — ${SITE.title}`,
-  description = "Portfolio of Fedimar Kayl Rabanzo — Senior Front-end Developer specializing in React, Next.js, Shopify, and full-stack product development.",
+  description = "Portfolio of Fedimar Kayl Rabanzo — Front-end Developer specializing in React, Next.js, Shopify, and full-stack product development.",
   path = "",
 }) {
   const url = `${SITE.url}${path}`;
