@@ -18,6 +18,7 @@ export const SKILLS = {
     "NativeWind",
     "Express.js",
     "PostgreSQL",
+    "Supabase",
     "MySQL",
     "AlpineJS",
     "Prompt Engineering",
@@ -74,7 +75,7 @@ export const RESUME_SKILL_CATEGORIES = [
   },
   {
     title: "Databases & APIs",
-    items: ["Web API / REST API", "MySQL", "MariaDB", "PostgreSQL"],
+    items: ["Web API / REST API", "MySQL", "MariaDB", "PostgreSQL", "Supabase"],
   },
   {
     title: "Tools & Platforms",

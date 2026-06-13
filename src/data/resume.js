@@ -75,6 +75,7 @@ export const RESUME_ADDITIONAL_SKILLS = [
       "REST API",
       "MySQL",
       "PostgreSQL",
+      "Supabase",
       "Git",
       "Postman",
     ],
