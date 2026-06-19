@@ -11,10 +11,102 @@ export const PROJECTS = [
     metric: "600+ US retail stores · 280k+ puzzlers",
     featured: true,
     category: "Shopify",
-    techs: ["Shopify", "Liquid", "JavaScript", "HTML5", "CSS3"],
+    techs: ["Shopify", "Liquid", "JavaScript", "Tailwind CSS", "AlpineJS"],
     links: [
-      { url: "https://oddpieces.com/", name: "External", type: "external" },
+      { url: "https://oddpieces.com/", name: "Live site", type: "external" },
     ],
+    caseStudy: {
+      problem:
+        "Odd Pieces needed a Shopify storefront that matched their story-driven brand—custom gifting flows, mobile-first UX, and performance that could scale as they expanded into 600+ retail locations.",
+      approach: [
+        "Built custom Liquid sections for product storytelling and gift messaging",
+        "Implemented interactive JavaScript features for puzzle discovery and add-to-cart flows",
+        "Optimized theme assets and lazy-loading for fast mobile checkout",
+        "Collaborated on UX patterns that translate the in-store mystery experience online",
+      ],
+      results: [
+        "600+ US retail stores carrying the brand",
+        "280k+ puzzlers in the community",
+        "Custom Shopify theme supporting complex product narratives",
+        "Mobile-optimized checkout and gifting experience",
+      ],
+      gallery: ["/images/ShopifyGiftingPage.png"],
+      role: "Front-End / Shopify Developer",
+      duration: "Ongoing freelance",
+    },
+  },
+  {
+    id: "caredocs",
+    name: "CareDocs System",
+    thumbnailUrl: "/images/CareDocs.png",
+    thumbnailAlt: "CareDocs login — facility administration and care management platform",
+    description:
+      "All-in-one facility operations, staff management, and billing system for healthcare operations—web and mobile with real-time data sync.",
+    metric: "Cross-platform healthcare ops",
+    featured: true,
+    category: "React",
+    techs: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "Next.js",
+      "TanStack Query",
+      "Zustand",
+      "Expo",
+      "NativeWind",
+    ],
+    links: [],
+    caseStudy: {
+      problem:
+        "Healthcare facilities needed a unified platform to manage staff scheduling, facility operations, and billing—replacing fragmented tools with one reliable system across web and mobile.",
+      approach: [
+        "Architected a React / Next.js web app with React Native mobile clients via Expo",
+        "Implemented TanStack Query and Zustand for predictable server state and offline-friendly UX",
+        "Built role-based dashboards for operations, staff, and billing workflows",
+        "Integrated REST APIs for third-party healthcare and billing systems",
+      ],
+      results: [
+        "Unified facility ops, staff management, and billing in one platform",
+        "Cross-platform delivery with shared TypeScript business logic",
+        "Real-time data sync between web and mobile clients",
+        "Reduced manual handoffs between operations and finance teams",
+      ],
+      gallery: ["/images/CareDocs.png"],
+      role: "Full-Stack Developer",
+      duration: "Multi-month engagement",
+    },
+  },
+  {
+    id: "thehopehouse-admin",
+    name: "TheHopeHouse Admin",
+    thumbnailUrl: "/images/TheHopeHouse.png",
+    thumbnailAlt: "TheHopeHouse login — finance dashboard and user management platform",
+    description:
+      "Centralized finance dashboard and user management system with Laravel backend, Dockerized deployment, and Redis caching.",
+    metric: "Finance & user management hub",
+    featured: true,
+    category: "Full-stack",
+    techs: ["React", "Next.js", "TypeScript", "Laravel", "MariaDB", "Docker", "Redis"],
+    links: [],
+    caseStudy: {
+      problem:
+        "TheHopeHouse required a secure admin hub to centralize financial reporting and user management—consolidating scattered spreadsheets and legacy tools into one auditable system.",
+      approach: [
+        "Built a Next.js admin dashboard with TypeScript for type-safe finance views",
+        "Developed Laravel API endpoints for user management, reporting, and permissions",
+        "Dockerized the stack for consistent staging and production deployments",
+        "Added Redis caching for frequently accessed dashboard aggregates",
+      ],
+      results: [
+        "Single source of truth for finance and user administration",
+        "Role-based access control for sensitive financial data",
+        "Faster dashboard loads via Redis-backed caching",
+        "Reliable Docker-based deployment pipeline",
+      ],
+      gallery: ["/images/TheHopeHouse.png"],
+      role: "Full-Stack Developer",
+      duration: "Multi-month engagement",
+    },
   },
   {
     id: "recovery-calculators",
@@ -24,11 +116,11 @@ export const PROJECTS = [
     description:
       "Resource for the addiction recovery community featuring the PAWSS scale for complicated alcohol withdrawal screening, plus education on medical calculators and recovery terminology.",
     metric: "Clinical PAWSS screening tool",
-    featured: true,
+    featured: false,
     category: "React",
     techs: ["Next.js", "React", "TailwindCSS", "WordPress", "JavaScript"],
     links: [
-      { url: "https://alcoholwithdrawalcalc.com/", name: "External", type: "external" },
+      { url: "https://alcoholwithdrawalcalc.com/", name: "Live site", type: "external" },
     ],
   },
   {
@@ -64,7 +156,7 @@ export const PROJECTS = [
     techs: ["React", "TailwindCSS", "JavaScript", "HTML5", "CSS3"],
     links: [
       { url: "https://github.com/Kayl06/figma-to-react", name: "GitHub", type: "github" },
-      { url: "https://figma-to-react-murex.vercel.app/", name: "External", type: "external" },
+      { url: "https://figma-to-react-murex.vercel.app/", name: "Live site", type: "external" },
     ],
   },
   {
@@ -80,7 +172,7 @@ export const PROJECTS = [
     techs: ["React", "TypeScript", "TailwindCSS", "HTML5", "CSS3"],
     links: [
       { url: "https://github.com/Kayl06/only-sweater", name: "GitHub", type: "github" },
-      { url: "https://only-sweater.vercel.app/", name: "External", type: "external" },
+      { url: "https://only-sweater.vercel.app/", name: "Live site", type: "external" },
     ],
   },
   {
@@ -102,12 +194,16 @@ export const PROJECTS = [
       },
       {
         url: "https://fedimarkaylrabanzo-react-news-app.vercel.app",
-        name: "External",
+        name: "Live site",
         type: "external",
       },
     ],
   },
 ];
+
+export function getProjectById(id) {
+  return PROJECTS.find((p) => p.id === id) ?? null;
+}
 
 export const RESUME_PROJECTS = [
   {

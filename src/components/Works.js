@@ -9,7 +9,7 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { PROJECTS, PROJECT_FILTERS } from "@/data/projects";
-import { defaultViewport, getMotionVariant } from "@/lib/motion";
+import { defaultViewport, getMotionVariant, worksGridVariant } from "@/lib/motion";
 import useReducedMotion from "@/hooks/useReducedMotion";
 
 const INITIAL_COUNT = 3;
