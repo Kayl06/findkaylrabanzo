@@ -2,6 +2,7 @@ import { Manrope } from "next/font/google";
 import "@/styles/globals.css";
 import "@/styles/media.css";
 import "@/styles/hamburger.css";
+import "@/styles/v3.css";
 
 const manrope = Manrope({
   subsets: ["latin"],
