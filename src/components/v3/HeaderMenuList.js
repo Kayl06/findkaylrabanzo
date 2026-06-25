@@ -1,5 +1,5 @@
-import { NAV_LINKS, SITE } from "@/data/site";
-import { v3Href, V3_RESUME_PDF } from "@/lib/v3";
+import { SITE } from "@/data/site";
+import { v3Href, V3_NAV_LINKS, V3_RESUME_PDF } from "@/lib/v3";
 import Link from "next/link";
 
 export default function HeaderMenuList({
@@ -18,7 +18,7 @@ export default function HeaderMenuList({
       <div
         className={`__menu_inner lg:gap-1 md:flex items-start ${childMenuClassName}`}
       >
-        {NAV_LINKS.map((menuItem) => (
+        {V3_NAV_LINKS.map((menuItem) => (
           <a
             key={menuItem.path}
             href={v3Href(menuItem.path)}

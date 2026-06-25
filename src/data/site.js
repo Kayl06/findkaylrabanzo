@@ -14,10 +14,8 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { path: "#work", name: "Work" },
-  { path: "#services", name: "Services" },
   { path: "#about", name: "About" },
   { path: "#experience", name: "Experience" },
-  { path: "#proof", name: "Proof" },
   { path: "#contact", name: "Contact" },
 ];
 
