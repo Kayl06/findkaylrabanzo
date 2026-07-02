@@ -46,8 +46,9 @@ export default function Works() {
   });
 
   const filtered = useMemo(() => {
-    if (filter === "All") return PROJECTS;
-    return PROJECTS.filter((p) => p.category === filter);
+    const projects = PROJECTS.filter((p) => !p.v3Only);
+    if (filter === "All") return projects;
+    return projects.filter((p) => p.category === filter);
   }, [filter]);
 
   const projectsToShow = showMore ? filtered : filtered.slice(0, INITIAL_COUNT);
