@@ -1,7 +1,10 @@
 export const V3_BASE = "/v3";
 
+export const V3_TITLE = "Frontend Engineer | Shopify Developer";
+export const V3_RESUME_HEADLINE = "Frontend Engineer | Shopify Developer";
+
 export const V3_RESUME_PDF =
-  "/files/PRODUCT ENGINEER CV - FEDIMAR KAYL RABANZO.pdf";
+  "/files/FRONTEND ENGINEER SHOPIFY DEVELOPER CV - FEDIMAR KAYL RABANZO.pdf";
 
 export const V3_NAV_LINKS = [
   { path: "#work", name: "Work" },

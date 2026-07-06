@@ -1,9 +1,10 @@
 import Head from "next/head";
 import { SITE } from "@/data/site";
+import { V3_TITLE } from "@/lib/v3";
 
 export default function SiteMeta({
-  title = `${SITE.name} — ${SITE.title}`,
-  description = "Portfolio of Fedimar Kayl Rabanzo — Full-Stack Developer specializing in Shopify, React, Next.js, Laravel, and API-driven product development.",
+  title = `${SITE.name} — ${V3_TITLE}`,
+  description = "Portfolio of Fedimar Kayl Rabanzo — Frontend Engineer and Shopify Developer specializing in React, Next.js, Liquid, and API-driven product development.",
   path = "",
 }) {
   const url = `${SITE.url}${path}`;
@@ -15,7 +16,7 @@ export default function SiteMeta({
       <meta name="description" content={description} />
       <meta
         name="keywords"
-        content="Fedimar Kayl Rabanzo, Kayl Rabanzo, Full-Stack Developer, React, Next.js, Shopify, Laravel"
+        content="Fedimar Kayl Rabanzo, Kayl Rabanzo, Frontend Engineer, Shopify Developer, React, Next.js, Liquid"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" href="/images/profile1.png" type="image/png" />

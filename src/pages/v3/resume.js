@@ -15,7 +15,7 @@ import {
   FiExternalLink,
 } from "react-icons/fi";
 import { SITE } from "@/data/site";
-import { V3_BASE, v3Href, V3_RESUME_PDF } from "@/lib/v3";
+import { V3_BASE, v3Href, V3_RESUME_PDF, V3_RESUME_HEADLINE } from "@/lib/v3";
 import V3Layout from "@/layouts/V3Layout";
 import {
   RESUME_SUMMARY,
@@ -53,7 +53,7 @@ export default function ResumeV3() {
   return (
     <V3Layout>
       <SiteMeta
-        title={`${SITE.resumeHeadline} — ${SITE.name}`}
+        title={`${V3_RESUME_HEADLINE} — ${SITE.name}`}
         description={RESUME_SUMMARY.slice(0, 155) + "…"}
         path={`${V3_BASE}/resume`}
       />
@@ -66,7 +66,7 @@ export default function ResumeV3() {
             <p className="text-sm text-[var(--text-secondary)] hidden sm:block">
               <span className="text-[var(--text-primary)] font-medium">{SITE.name}</span>
               <span className="mx-2 text-[var(--text-muted)]">·</span>
-              {SITE.resumeHeadline}
+              {V3_RESUME_HEADLINE}
             </p>
             <Button
               variant="primary"
@@ -87,7 +87,7 @@ export default function ResumeV3() {
             className="mb-12"
           >
             <p className="text-accent font-mono text-sm tracking-widest uppercase mb-3">
-              {SITE.resumeHeadline}
+              {V3_RESUME_HEADLINE}
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-[var(--text-primary)] tracking-tight mb-2">
               {SITE.name}
