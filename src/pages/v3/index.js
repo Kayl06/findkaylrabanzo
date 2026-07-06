@@ -19,7 +19,7 @@ import DockNav from "@/components/v3/DockNav";
 import Button from "@/components/v3/Button";
 import SiteMeta from "@/components/v3/SiteMeta";
 import { SOCIAL_LINKS, SITE, TRUST_METRICS } from "@/data/site";
-import { V3_BASE, V3_RESUME_PDF } from "@/lib/v3";
+import { V3_BASE, V3_RESUME_PDF, V3_TITLE } from "@/lib/v3";
 import V3Layout from "@/layouts/V3Layout";
 import useReducedMotion from "@/hooks/useReducedMotion";
 import {
@@ -82,7 +82,7 @@ export default function HomeV3() {
                 transition={getHeroTransition(reducedMotion, 0.1)}
                 className="text-[13px] text-accent font-mono mb-4 tracking-wide"
               >
-                {SITE.title}
+                {V3_TITLE}
               </motion.p>
               <motion.div
                 initial={getHeroInitial(reducedMotion)}
@@ -102,7 +102,7 @@ export default function HomeV3() {
                 transition={getHeroTransition(reducedMotion, 0.35)}
                 className="lg:max-w-[540px] leading-relaxed text-[17px]"
               >
-                Full-stack developer specializing in Shopify, React, Next.js, Laravel, and
+                Senior front-end developer specializing in Shopify, React, Next.js, and
                 API-driven experiences—for startups, agencies, and e-commerce brands. Available for
                 full-time roles and selective freelance projects.
               </motion.p>
@@ -182,7 +182,7 @@ export default function HomeV3() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <p className="mb-4 leading-relaxed">
-                  Full-stack developer with{" "}
+                  Senior front-end developer with{" "}
                   <strong className="text-[var(--text-primary)]">6+ years of experience</strong>{" "}
                   shipping enterprise web apps, Shopify storefronts, and cross-platform products. I
                   care about performance, accessibility, and clean handoffs with design and backend

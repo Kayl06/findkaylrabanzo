@@ -1,7 +1,7 @@
 /** Resume page content — aligned with FRONTEND ENGINEER CV PDF */
 
 export const RESUME_SUMMARY =
-  "Front-End Developer with 6+ years building responsive, high-performance web and mobile apps using React, Next.js, and Tailwind CSS. Expert in converting Figma designs to pixel-perfect UIs, integrating REST APIs, and optimizing for speed and scalability in agile teams. Proven track record in e-commerce, dashboards, and cross-platform projects at Chykalophia, Playasia, and freelance clients.";
+  "Skilled Senior Front-End Developer with 6+ years of experience building responsive, high-performance web and mobile apps using React, Next.js, and Tailwind CSS. Expert in converting Figma designs to pixel-perfect UIs, integrating REST APIs, and optimizing for speed and scalability in agile teams. Proven track record in e-commerce, dashboards, and cross-platform projects at Chykalophia, Playasia, and freelance clients.";
 
 export const RESUME_HIGHLIGHTS = [
   "6+ years front-end & full-stack",
@@ -75,7 +75,6 @@ export const RESUME_ADDITIONAL_SKILLS = [
       "REST API",
       "MySQL",
       "PostgreSQL",
-      "Supabase",
       "Git",
       "Postman",
     ],
@@ -85,18 +84,18 @@ export const RESUME_ADDITIONAL_SKILLS = [
 export const RESUME_EXPERIENCE = [
   {
     company: "Chykalophia",
-    role: "Front-End Developer",
+    role: "Senior Front-End Developer",
     period: "Feb 2024 – Present",
     current: true,
     bullets: [
-      "Built high-quality, responsive websites and mobile apps for diverse clients using React, React Native, Expo, Zustand, and Tailwind CSS on 2-week agile sprints.",
+      "Built high-quality, responsive websites and mobile apps for diverse clients using React, React Native, Expo, Zustand, and Tailwind CSS, following 2-week agile sprints.",
       "Converted Figma designs into fully responsive web pages and integrated REST / third-party APIs for seamless functionality.",
-      "Maintained and enhanced apps with Laravel/React hybrids, AlpineJS, and Livewire—reducing bugs and improving performance.",
+      "Maintained and enhanced apps with Laravel/React hybrids, AlpineJS, and Livewire, reducing bugs and improving performance.",
     ],
   },
   {
-    company: "Freelancer (Part-Time)",
-    role: "E-Commerce & Full-Stack Development",
+    company: "Freelancer",
+    role: "Part-Time, E-Commerce & Full-Stack",
     period: "Jan 2023 – Present",
     current: false,
     bullets: [
@@ -124,7 +123,8 @@ export const RESUME_EXPERIENCE = [
     bullets: [
       "Developed user-friendly front-end interfaces aligned with brand goals, migrating legacy systems to modern React designs.",
       "Implemented responsive web apps with API sync (e.g. 7-Eleven API), automating processes and enhancing accessibility.",
-      "Designed custom surveys/dashboards and integrated third-party APIs; collaborated on client web systems with leadership.",
+      "Collaborated on client web systems, resolving bugs and brainstorming features with leadership.",
+      "Designed custom surveys/dashboards and integrated third-party APIs to streamline workflows.",
     ],
   },
   {
@@ -189,10 +189,10 @@ export const RESUME_PROJECTS = [
     featured: true,
   },
   {
-    name: "Odd Pieces",
+    name: "Oddpieces",
     description:
-      "Vibrant Shopify puzzle shop offering uniquely crafted jigsaw puzzles—600+ US retail stores.",
-    techs: ["Shopify", "Liquid", "JavaScript", "Tailwind CSS", "AlpineJS"],
+      "A vibrant online puzzle shop built on Shopify, offering uniquely crafted jigsaw puzzles.",
+    techs: ["Shopify", "Liquid", "CSS", "JavaScript", "Tailwind CSS", "AlpineJS"],
     featured: true,
   },
   {

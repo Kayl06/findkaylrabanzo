@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { SITE } from "@/data/site";
-import { V3_RESUME_PDF } from "@/lib/v3";
+import { V3_RESUME_PDF, V3_RESUME_HEADLINE } from "@/lib/v3";
 
 export default function AboutFlipCard() {
   return (
@@ -27,7 +27,7 @@ export default function AboutFlipCard() {
           </div>
           <div className="about-flip-card__face about-flip-card__back rounded-[20px] flex flex-col items-center justify-center p-6 text-center glass-panel">
             <p className="text-accent font-mono text-xs uppercase tracking-widest mb-2">
-              {SITE.resumeHeadline}
+              {V3_RESUME_HEADLINE}
             </p>
             <p className="text-[var(--text-primary)] font-bold text-xl sm:text-2xl mb-1">
               {SITE.name}
