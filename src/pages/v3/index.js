@@ -9,7 +9,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Header from "@/components/v3/Header";
 import Works from "@/components/v3/Works";
-import ContactForm from "@/components/v3/ContactForm";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 import SkillsSection from "@/components/v3/SkillsSection";
 import AboutFlipCard from "@/components/v3/AboutFlipCard";
 import ExperienceTimeline from "@/components/v3/ExperienceTimeline";
@@ -242,16 +242,16 @@ export default function HomeV3() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <div className="__contact max-w-[640px] mx-auto text-center glass-panel p-8 md:p-10">
+            <div className="__contact max-w-[720px] mx-auto text-center glass-panel p-8 md:p-10">
               <p className="text-accent font-mono text-sm mb-4">What&apos;s next?</p>
               <h2 className="font-bold text-3xl md:text-4xl text-[var(--text-primary)] mb-4">
                 Get In Touch
               </h2>
               <p className="text-[var(--text-secondary)] mb-10 max-w-[480px] mx-auto">
-                Have a project in mind or hiring for your team? Send a message or reach out
+                Have a project in mind or hiring for your team? Book a 30-minute call, or reach out
                 directly.
               </p>
-              <ContactForm />
+              <CalendlyEmbed />
               <div className="mt-10 pt-8 border-t border-[var(--glass-border)] flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={`mailto:${SITE.email}`}
