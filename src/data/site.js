@@ -10,6 +10,9 @@ export const SITE = {
   resumePdf: "/files/FRONTEND ENGINEER CV - FEDIMAR KAYL RABANZO.pdf",
   github: "https://github.com/Kayl06",
   linkedin: "https://www.linkedin.com/in/frabanzo/",
+  // Theme matches v3 tokens: --bg-base, --text-primary, --accent-hex
+  calendly:
+    "https://calendly.com/frabanzoo/30min?hide_gdpr_banner=1&background_color=0b0d12&text_color=f5f5f7&primary_color=3b82f6",
 };
 
 export const NAV_LINKS = [
