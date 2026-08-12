@@ -10,7 +10,7 @@ import { motion } from "framer-motion";
 import Header from "../components/Header";
 import BotCornerLinks from "@/components/BotCornerLinks";
 import Works from "@/components/Works";
-import ContactForm from "@/components/ContactForm";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 import SkillsSection from "@/components/SkillsSection";
 import AboutFlipCard from "@/components/AboutFlipCard";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
@@ -208,13 +208,14 @@ export default function Home() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <div className="__contact max-w-[640px] mx-auto text-center">
+            <div className="__contact max-w-[720px] mx-auto text-center">
               <p className="text-cyan-400/90 font-mono text-sm mb-4">What&apos;s next?</p>
               <h2 className="font-black text-4xl md:text-5xl text-white mb-4">Get In Touch</h2>
               <p className="text-gray-400 mb-10 max-w-[480px] mx-auto">
-                Have a project in mind or hiring for your team? Send a message or reach out directly.
+                Have a project in mind or hiring for your team? Book a 30-minute call, or reach out
+                directly.
               </p>
-              <ContactForm />
+              <CalendlyEmbed />
               <div className="mt-10 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={`mailto:${SITE.email}`}
