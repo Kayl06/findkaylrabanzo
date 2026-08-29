@@ -189,6 +189,22 @@ export const RESUME_PROJECTS = [
     featured: true,
   },
   {
+    name: "TimeOff Management",
+    description:
+      "Multi-tenant time-off platform for PTO requests, approvals, and leave balances.",
+    techs: [
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "ShadCN",
+      "TanStack Query",
+      "Supabase",
+      "PostgreSQL",
+      "Multi-tenancy",
+    ],
+    featured: true,
+  },
+  {
     name: "Oddpieces",
     description:
       "A vibrant online puzzle shop built on Shopify, offering uniquely crafted jigsaw puzzles.",
@@ -205,22 +221,6 @@ export const RESUME_PROJECTS = [
     name: "Custom Template (React)",
     description: "HTML/CSS theme template built with React for design-to-code workflows.",
     techs: ["TypeScript", "React", "HTML", "CSS", "Next.js"],
-    featured: false,
-  },
-  {
-    name: "TimeOff Management",
-    description: "Open-source time off management system.",
-    techs: [
-      "React",
-      "TypeScript",
-      "Next.js",
-      "Tailwind CSS",
-      "TanStack Query",
-      "Zustand",
-      "PostgreSQL",
-      "Supabase",
-      "Google Auth",
-    ],
     featured: false,
   },
 ];

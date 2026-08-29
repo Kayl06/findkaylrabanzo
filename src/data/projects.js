@@ -165,6 +165,48 @@ export const PROJECTS = [
     },
   },
   {
+    id: "timeoff-management",
+    name: "TimeOff Management",
+    thumbnailUrl: "/images/timeoff.png",
+    thumbnailAlt:
+      "TimeOff Management dashboard — multi-tenant PTO calendar, leave balances, and approval workflows",
+    description:
+      "Multi-tenant time-off platform for organizations—PTO requests, approval workflows, and leave balances with isolated tenant data on Supabase and PostgreSQL.",
+    metric: "Multi-tenant PTO · approvals & balances",
+    featured: true,
+    category: "Full-stack",
+    techs: [
+      "Next.js",
+      "React",
+      "TailwindCSS",
+      "ShadCN",
+      "TanStack Query",
+      "Supabase",
+      "PostgreSQL",
+      "Multi-tenancy",
+    ],
+    links: [],
+    caseStudy: {
+      problem:
+        "Teams needed a shared PTO system that could serve multiple organizations without leaking data between tenants—spreadsheets and single-tenant tools did not scale.",
+      approach: [
+        "Built a Next.js and React app with a ShadCN and TailwindCSS admin UI for calendars, requests, and balances",
+        "Modeled multi-tenant data in PostgreSQL via Supabase, scoping every query and policy to the active organization",
+        "Used TanStack Query for request, approval, and leave-balance state across the dashboard",
+        "Implemented role-based approval workflows so managers can review time-off without mixing tenant records",
+      ],
+      results: [
+        "Org-scoped data isolation for multi-tenant HR workflows",
+        "PTO request and approval flows with leave-balance tracking",
+        "Team calendar view of who is out and when",
+        "ShadCN dashboard with org switcher, calendar, and request queue",
+      ],
+      gallery: ["/images/timeoff.png"],
+      role: "Full-Stack Developer",
+      duration: "Personal / open-source",
+    },
+  },
+  {
     id: "recovery-calculators",
     name: "Recovery Calculators",
     thumbnailUrl: "/images/alcohol-withdrawal-calc.png",
@@ -285,7 +327,8 @@ export const RESUME_PROJECTS = [
   },
   {
     name: "TimeOff Management",
-    description: "Open source time off management system.",
+    description:
+      "Multi-tenant time-off platform for PTO requests, approvals, and leave balances.",
   },
   {
     name: "Recovery Calculators",
