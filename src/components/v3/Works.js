@@ -118,6 +118,7 @@ export default function Works() {
                   fill
                   sizes="(max-width: 768px) 100vw, 500px"
                   className="object-cover"
+                  quality={90}
                 />
               </div>
               <div className="p-5">
