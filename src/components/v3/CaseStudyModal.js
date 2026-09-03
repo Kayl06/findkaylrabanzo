@@ -1,10 +1,22 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useCallback, useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiX, FiGithub, FiExternalLink, FiLink2 } from "react-icons/fi";
 import Badge from "./Badge";
 import Button from "./Button";
 import useReducedMotion from "@/hooks/useReducedMotion";
+
+function normalizeGallery(project) {
+  const raw = project?.caseStudy?.gallery;
+  if (Array.isArray(raw) && raw.length > 0) {
+    return raw.map((item, i) =>
+      typeof item === "string"
+        ? { src: item, alt: `${project.name} screenshot ${i + 1}` }
+        : item
+    );
+  }
+  return [{ src: project.thumbnailUrl, alt: project.thumbnailAlt }];
+}
 
 function ProjectLink({ link }) {
   const Icon = link.type === "github" ? FiGithub : FiExternalLink;
@@ -25,10 +37,15 @@ export default function CaseStudyModal({ project, onClose }) {
   const reducedMotion = useReducedMotion();
   const closeRef = useRef(null);
   const previousFocusRef = useRef(null);
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const handleClose = useCallback(() => {
     onClose();
   }, [onClose]);
+
+  useEffect(() => {
+    setActiveImageIndex(0);
+  }, [project?.id]);
 
   useEffect(() => {
     if (!project) return;
@@ -49,6 +66,8 @@ export default function CaseStudyModal({ project, onClose }) {
 
   const cs = project?.caseStudy;
   const hasCaseStudy = Boolean(cs);
+  const gallery = project ? normalizeGallery(project) : [];
+  const activeImage = gallery[activeImageIndex] ?? gallery[0];
 
   return (
     <AnimatePresence>
@@ -101,16 +120,54 @@ export default function CaseStudyModal({ project, onClose }) {
             </div>
 
             <div className="overflow-y-auto flex-1 p-5 sm:p-6 space-y-6">
-              <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[var(--bg-elevated)]">
-                <Image
-                  src={project.thumbnailUrl}
-                  alt={project.thumbnailAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 768px"
-                  className="object-cover"
-                  priority
-                />
-              </div>
+              {activeImage && (
+                <div className="space-y-3">
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-[var(--bg-elevated)]">
+                    <Image
+                      src={activeImage.src}
+                      alt={activeImage.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 768px"
+                      className="object-cover object-top"
+                      priority
+                    />
+                  </div>
+                  {gallery.length > 1 && (
+                    <div
+                      className="flex gap-2 overflow-x-auto pb-1"
+                      role="listbox"
+                      aria-label={`${project.name} screenshots`}
+                    >
+                      {gallery.map((image, i) => {
+                        const isActive = i === activeImageIndex;
+                        return (
+                          <button
+                            key={image.src}
+                            type="button"
+                            role="option"
+                            aria-selected={isActive}
+                            onClick={() => setActiveImageIndex(i)}
+                            className={`relative shrink-0 w-[4.5rem] sm:w-24 aspect-video rounded-lg overflow-hidden border transition-colors ${
+                              isActive
+                                ? "border-accent ring-2 ring-accent/40"
+                                : "border-[var(--glass-border)] hover:border-white/30"
+                            }`}
+                          >
+                            <Image
+                              src={image.src}
+                              alt=""
+                              fill
+                              sizes="96px"
+                              className="object-cover object-top"
+                            />
+                            <span className="sr-only">{image.alt}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              )}
 
               <div>
                 <div className="flex flex-wrap items-center gap-2 mb-3">
