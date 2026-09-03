@@ -169,39 +169,67 @@ export const PROJECTS = [
     name: "TimeOff Management",
     thumbnailUrl: "/images/timeoff.png",
     thumbnailAlt:
-      "TimeOff Management dashboard — multi-tenant PTO calendar, leave balances, and approval workflows",
+      "timeoff.hr dashboard overview — leave balances, monthly calendar, and recent approved requests",
     description:
-      "Multi-tenant time-off platform for organizations—PTO requests, approval workflows, and leave balances with isolated tenant data on Supabase and PostgreSQL.",
-    metric: "Multi-tenant PTO · approvals & balances",
+      "Multi-tenant leave management: a company signs itself up, people request and approve leave, remaining days stay live, and one company cannot see another’s data.",
+    metric: "Multi-tenant PTO · live balances · RLS",
     featured: true,
     category: "Full-stack",
     techs: [
       "Next.js",
+      "NextAuth.js",
       "React",
       "TailwindCSS",
-      "ShadCN",
+      "shadcn/ui",
       "TanStack Query",
       "Supabase",
       "PostgreSQL",
-      "Multi-tenancy",
     ],
-    links: [],
+    links: [
+      {
+        url: "https://timeoff-delta.vercel.app/auth/signin",
+        name: "Live site",
+        type: "external",
+      },
+      { url: "https://github.com/Kayl06/timeoff", name: "GitHub", type: "github" },
+    ],
     caseStudy: {
       problem:
-        "Teams needed a shared PTO system that could serve multiple organizations without leaking data between tenants—spreadsheets and single-tenant tools did not scale.",
+        "Teams needed a shared PTO system that could serve multiple companies without leaking data—spreadsheets and single-tenant tools did not scale.",
       approach: [
-        "Built a Next.js and React app with a ShadCN and TailwindCSS admin UI for calendars, requests, and balances",
-        "Modeled multi-tenant data in PostgreSQL via Supabase, scoping every query and policy to the active organization",
-        "Used TanStack Query for request, approval, and leave-balance state across the dashboard",
-        "Implemented role-based approval workflows so managers can review time-off without mixing tenant records",
+        "Built a Next.js 14 App Router app in a Turborepo with shadcn/ui and Tailwind for calendars, requests, and balances",
+        "Used NextAuth credentials (optional Google) for login; tenant APIs mint a short-lived JWT scoped to company_id",
+        "Modeled multi-tenant data in Supabase Postgres with Row Level Security so one company cannot see another’s records",
+        "Shipped request/approve flows, live remaining-day balances, a team calendar, and email invites",
       ],
       results: [
-        "Org-scoped data isolation for multi-tenant HR workflows",
-        "PTO request and approval flows with leave-balance tracking",
-        "Team calendar view of who is out and when",
-        "ShadCN dashboard with org switcher, calendar, and request queue",
+        "Company self-signup with isolated tenant data",
+        "Leave request and approval flows with live remaining balances",
+        "Personal and team calendar views of who is out and when",
+        "Invite-by-email onboarding; deployed on Vercel + Supabase",
       ],
-      gallery: ["/images/timeoff.png"],
+      gallery: [
+        {
+          src: "/images/timeoff.png",
+          alt: "Dashboard overview with leave balances, September calendar, and recent requests",
+        },
+        {
+          src: "/images/timeoff-requests.png",
+          alt: "Requests table with vacation and sick leave rows, status filters, and export",
+        },
+        {
+          src: "/images/timeoff-calendar.png",
+          alt: "Leave calendar month view with color-coded sick and vacation bars",
+        },
+        {
+          src: "/images/timeoff-submit.png",
+          alt: "Submit leave request modal with leave type, dates, half-day toggle, and reason",
+        },
+        {
+          src: "/images/timeoff-invite.png",
+          alt: "Invite teammates modal for adding coworkers by work email",
+        },
+      ],
       role: "Full-Stack Developer",
       duration: "Personal / open-source",
     },
@@ -328,7 +356,7 @@ export const RESUME_PROJECTS = [
   {
     name: "TimeOff Management",
     description:
-      "Multi-tenant time-off platform for PTO requests, approvals, and leave balances.",
+      "Multi-tenant leave management: companies self-signup, request and approve leave, and keep remaining days live—with isolated tenant data.",
   },
   {
     name: "Recovery Calculators",

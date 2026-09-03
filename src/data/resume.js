@@ -191,16 +191,16 @@ export const RESUME_PROJECTS = [
   {
     name: "TimeOff Management",
     description:
-      "Multi-tenant time-off platform for PTO requests, approvals, and leave balances.",
+      "Multi-tenant leave management: companies self-signup, request and approve leave, and keep remaining days live—with isolated tenant data.",
     techs: [
       "Next.js",
+      "NextAuth.js",
       "React",
       "TailwindCSS",
-      "ShadCN",
+      "shadcn/ui",
       "TanStack Query",
       "Supabase",
       "PostgreSQL",
-      "Multi-tenancy",
     ],
     featured: true,
   },
