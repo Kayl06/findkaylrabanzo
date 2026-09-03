@@ -129,6 +129,7 @@ export default function CaseStudyModal({ project, onClose }) {
                       fill
                       sizes="(max-width: 768px) 100vw, 768px"
                       className="object-cover object-top"
+                      quality={90}
                       priority
                     />
                   </div>

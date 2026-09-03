@@ -48,6 +48,58 @@ export const PROJECTS = [
     category: "Shopify",
     techs: ["Shopify", "Liquid", "JavaScript", "HTML5", "CSS3", "Shopify 2.0", "Custom Theme"],
     links: [{ url: "https://agent84.com/", name: "Live site", type: "external" }],
+    caseStudy: {
+      problem:
+        "Agent84 needed a Shopify storefront that could merchandize seasonal drops, shoppable lookbooks, and coordinated sets—without losing a premium, editorial feel from homepage through checkout.",
+      approach: [
+        "Built custom Liquid sections for campaign landings, two-column heroes, and drop-specific carousels",
+        "Implemented shoppable galleries with product hotspots and a Complete the look bundle modal",
+        "Designed collection merchandising with illustrated category tiles, filters, and bestseller carousels",
+        "Polished cart UX with free-shipping progress, cross-sells, and shipping protection",
+      ],
+      results: [
+        "Seasonal drop and campaign landing pages with shoppable photography",
+        "Shop-the-look bundling and cart cross-sell merchandising",
+        "Collection pages with illustrated category navigation",
+        "Premium cart drawer with free-shipping threshold and protection",
+      ],
+      gallery: [
+        {
+          src: "/images/agent84-homepage.jpg",
+          alt: "Agent84 homepage — two-column New Arrivals hero with shop CTA",
+        },
+        {
+          src: "/images/agent84-matcha-latte.jpg",
+          alt: "Matcha Latte campaign landing with lifestyle hero and Shop Now button",
+        },
+        {
+          src: "/images/agent84-bestsellers.png",
+          alt: "Bestsellers collection with illustrated category tiles for Leggings, Tops, Bottoms, and Accessories",
+        },
+        {
+          src: "/images/agent84-bestsellers-carousel.jpg",
+          alt: "Bestsellers carousel with image-masked heading and Hot now product badge",
+        },
+        {
+          src: "/images/agent84-latest-obsessions.jpg",
+          alt: "Latest Obsessions gallery with shoppable hotspot and Lift Short product popup",
+        },
+        {
+          src: "/images/agent84-shoppable-gallery.jpg",
+          alt: "Shoppable lookbook with Click hotspots, Get the Look buttons, and product quick view",
+        },
+        {
+          src: "/images/agent84-complete-the-look.jpg",
+          alt: "Complete the look bundle modal with size selectors and Add to cart",
+        },
+        {
+          src: "/images/agent84-cart.jpg",
+          alt: "Cart drawer with free shipping progress, pairs-great-with upsell, and checkout",
+        },
+      ],
+      role: "Front-End / Shopify Developer",
+      duration: "Freelance",
+    },
   },
   {
     id: "ember-collective",
