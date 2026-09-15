@@ -231,7 +231,7 @@ export default function ResumeV3() {
             className="mb-14"
           >
             <SectionTitle>Selected projects</SectionTitle>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               {featuredProjects.map((proj) => (
                 <GlassPanel key={proj.name} className="p-5 flex flex-col">
                   <h3 className="text-[var(--text-primary)] font-semibold mb-2">{proj.name}</h3>

@@ -1,13 +1,13 @@
 export const SITE = {
   name: "Fedimar Kayl Rabanzo",
   shortName: "Kayl Rabanzo",
-  title: "Full-Stack Developer",
-  resumeHeadline: "Full-Stack Developer",
-  location: "Olongapo, Central Luzon, PH",
+  title: "Software Developer",
+  resumeHeadline: "Software Developer | Full-Stack Engineering",
+  location: "Olongapo City, Philippines",
   email: "frabanzoo@gmail.com",
   phone: "+63 976 040 9290",
   url: "https://findkaylrabanzo.vercel.app",
-  resumePdf: "/files/FRONTEND ENGINEER CV - FEDIMAR KAYL RABANZO.pdf",
+  resumePdf: "/files/SOFTWARE DEVELOPER CV - FEDIMAR KAYL RABANZO.pdf",
   github: "https://github.com/Kayl06",
   linkedin: "https://www.linkedin.com/in/frabanzo/",
   // Theme matches v3 tokens: --bg-base, --text-primary, --accent-hex
@@ -46,7 +46,7 @@ export const TESTIMONIALS = [
 ];
 
 export const TRUST_METRICS = [
-  { value: "6+", label: "Years experience" },
+  { value: "7+", label: "Years experience" },
   { value: "5+", label: "Teams & clients" },
   { value: "10+", label: "Projects shipped" },
 ];

@@ -240,7 +240,7 @@ export default function Resume() {
             className="mb-14"
           >
             <SectionTitle>Selected projects</SectionTitle>
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
               {featuredProjects.map((proj) => (
                 <div
                   key={proj.name}

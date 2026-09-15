@@ -34,7 +34,7 @@ export default function AboutFlipCard() {
             </p>
             <p className="text-[var(--text-muted)] text-sm mb-4">{SITE.location}</p>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed max-w-[240px]">
-              6+ years building React, Next.js & Shopify experiences for teams and clients.
+              7+ years building React, Next.js, and full-stack product experiences for teams and clients.
             </p>
             <a
               href={V3_RESUME_PDF}

@@ -2,7 +2,9 @@ import { useState } from "react";
 import Link from "next/link";
 import { EXPERIENCE } from "@/data/experience";
 export default function ExperienceTimeline() {
-  const [openId, setOpenId] = useState(EXPERIENCE[0]?.id);
+  const [openId, setOpenId] = useState(
+    EXPERIENCE.find((job) => job.current)?.id ?? EXPERIENCE[0]?.id
+  );
 
   return (
     <div className="relative">
