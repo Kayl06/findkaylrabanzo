@@ -4,7 +4,7 @@ import { V3_TITLE } from "@/lib/v3";
 
 export default function SiteMeta({
   title = `${SITE.name} — ${V3_TITLE}`,
-  description = "Portfolio of Fedimar Kayl Rabanzo — Frontend Engineer and Shopify Developer specializing in React, Next.js, Liquid, and API-driven product development.",
+  description = "Portfolio of Fedimar Kayl Rabanzo — Software Developer specializing in full-stack engineering, React, Next.js, and TypeScript.",
   path = "",
 }) {
   const url = `${SITE.url}${path}`;
@@ -16,7 +16,7 @@ export default function SiteMeta({
       <meta name="description" content={description} />
       <meta
         name="keywords"
-        content="Fedimar Kayl Rabanzo, Kayl Rabanzo, Frontend Engineer, Shopify Developer, React, Next.js, Liquid"
+        content="Fedimar Kayl Rabanzo, Kayl Rabanzo, Software Developer, Full-Stack, React, Next.js, TypeScript"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" href="/images/profile1.png" type="image/png" />

@@ -102,8 +102,8 @@ export default function HomeV3() {
                 transition={getHeroTransition(reducedMotion, 0.35)}
                 className="lg:max-w-[540px] leading-relaxed text-[17px]"
               >
-                Senior front-end developer specializing in Shopify, React, Next.js, and
-                API-driven experiences—for startups, agencies, and e-commerce brands. Available for
+                Software developer with 7+ years building web applications, SaaS platforms, and
+                e-commerce solutions in React, Next.js, TypeScript, and REST APIs. Available for
                 full-time roles and selective freelance projects.
               </motion.p>
             </div>
@@ -182,14 +182,15 @@ export default function HomeV3() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <p className="mb-4 leading-relaxed">
-                  Senior front-end developer with{" "}
-                  <strong className="text-[var(--text-primary)]">6+ years of experience</strong>{" "}
-                  shipping enterprise web apps, Shopify storefronts, and cross-platform products. I
-                  care about performance, accessibility, and clean handoffs with design and backend
-                  teams.
+                  Software developer with{" "}
+                  <strong className="text-[var(--text-primary)]">7+ years of experience</strong>{" "}
+                  shipping web applications, SaaS platforms, internal systems, and e-commerce
+                  solutions. I care about performance, accessibility, and clean handoffs with design
+                  and backend teams.
                 </p>
                 <p className="mb-6 leading-relaxed">
-                  Currently building at{" "}
+                  Currently shipping freelance work for e-commerce and SaaS clients, after building
+                  production products at{" "}
                   <a
                     href="https://chykalophia.com/"
                     target="_blank"

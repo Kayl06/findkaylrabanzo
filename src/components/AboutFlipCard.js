@@ -31,7 +31,7 @@ export default function AboutFlipCard() {
             <p className="text-white font-bold text-xl sm:text-2xl mb-1">{SITE.name}</p>
             <p className="text-gray-400 text-sm mb-4">{SITE.location}</p>
             <p className="text-gray-300 text-sm leading-relaxed max-w-[240px]">
-              6+ years building React, Next.js & Shopify experiences for teams and clients.
+              7+ years building React, Next.js, and full-stack product experiences for teams and clients.
             </p>
             <a
               href={SITE.resumePdf}
