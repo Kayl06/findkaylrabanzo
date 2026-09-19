@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { SITE } from "@/data/site";
 import { V3_RESUME_PDF, V3_RESUME_HEADLINE } from "@/lib/v3";
+import Button from "./Button";
 
 export default function AboutFlipCard() {
   return (
@@ -33,17 +34,12 @@ export default function AboutFlipCard() {
               {SITE.name}
             </p>
             <p className="text-[var(--text-muted)] text-sm mb-4">{SITE.location}</p>
-            <p className="text-[var(--text-secondary)] text-sm leading-relaxed max-w-[240px]">
-              7+ years building React, Next.js, and full-stack product experiences for teams and clients.
+            <p className="text-[var(--text-secondary)] text-sm leading-relaxed max-w-[260px]">
+              7+ years building React, Next.js, TypeScript, Shopify, and SaaS products.
             </p>
-            <a
-              href={V3_RESUME_PDF}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-5 text-xs font-semibold uppercase tracking-wider text-accent hover:text-blue-400 border border-accent/40 rounded-full px-4 py-2 transition-colors"
-            >
+            <Button variant="secondary" size="sm" href={V3_RESUME_PDF} className="mt-5">
               View resume
-            </a>
+            </Button>
           </div>
         </div>
       </div>

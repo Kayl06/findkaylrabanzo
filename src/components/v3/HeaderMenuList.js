@@ -1,6 +1,6 @@
-import { SITE } from "@/data/site";
 import { v3Href, V3_NAV_LINKS, V3_RESUME_PDF } from "@/lib/v3";
 import Link from "next/link";
+import Button from "./Button";
 
 export default function HeaderMenuList({
   parentMenuClassName = "hidden lg:flex",
@@ -35,15 +35,15 @@ export default function HeaderMenuList({
         >
           Resume
         </Link>
-        <a
+        <Button
+          variant="primary"
+          size="sm"
           href={V3_RESUME_PDF}
-          target="_blank"
-          rel="noopener noreferrer"
           onClick={handleBurgerMenuClick}
-          className="hidden lg:inline-flex text-[13px] font-semibold text-white bg-accent rounded-lg px-4 py-2 hover:opacity-90 transition-opacity ml-1"
+          className="!hidden lg:!inline-flex ml-1"
         >
-          PDF
-        </a>
+          CV
+        </Button>
       </div>
     </nav>
   );

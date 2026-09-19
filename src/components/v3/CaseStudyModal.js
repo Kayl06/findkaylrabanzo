@@ -21,15 +21,10 @@ function normalizeGallery(project) {
 function ProjectLink({ link }) {
   const Icon = link.type === "github" ? FiGithub : FiExternalLink;
   return (
-    <a
-      href={link.url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 text-sm text-accent hover:text-blue-400 transition-colors"
-    >
+    <Button variant="secondary" size="sm" href={link.url}>
       <Icon className="w-4 h-4" aria-hidden />
       {link.name}
-    </a>
+    </Button>
   );
 }
 
@@ -252,25 +247,19 @@ export default function CaseStudyModal({ project, onClose }) {
               )}
 
               <div className="flex flex-wrap gap-3 pt-4 border-t border-[var(--glass-border)]">
-                <Button
-                  variant="primary"
-                  href="#contact"
-                  onClick={handleClose}
-                  className="!normal-case !tracking-normal"
-                >
+                <Button variant="primary" href="#contact" onClick={handleClose}>
                   Discuss a similar project
                 </Button>
-                <button
-                  type="button"
+                <Button
+                  variant="secondary"
                   onClick={() => {
                     const url = `${window.location.origin}${window.location.pathname}?project=${project.id}`;
                     navigator.clipboard?.writeText(url);
                   }}
-                  className="inline-flex items-center gap-2 text-sm text-[var(--text-muted)] hover:text-white transition-colors"
                 >
                   <FiLink2 className="w-4 h-4" aria-hidden />
                   Copy link
-                </button>
+                </Button>
               </div>
             </div>
           </motion.div>

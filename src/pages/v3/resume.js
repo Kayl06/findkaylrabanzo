@@ -53,11 +53,11 @@ export default function ResumeV3() {
   return (
     <V3Layout>
       <SiteMeta
-        title={`${V3_RESUME_HEADLINE} — ${SITE.name}`}
+        title={`${SITE.shortName} — Resume`}
         description={RESUME_SUMMARY.slice(0, 155) + "…"}
         path={`${V3_BASE}/resume`}
       />
-      <main className="relative flex min-h-screen flex-col __main pb-24 md:pb-28">
+      <main id="main-content" className="relative flex min-h-screen flex-col __main pb-24 md:pb-28">
         <Header />
         <DockNav />
 
@@ -68,12 +68,8 @@ export default function ResumeV3() {
               <span className="mx-2 text-[var(--text-muted)]">·</span>
               {V3_RESUME_HEADLINE}
             </p>
-            <Button
-              variant="primary"
-              href={V3_RESUME_PDF}
-              className="!py-2.5 !px-5 !text-xs w-full sm:w-auto"
-            >
-              <FiDownload className="w-4 h-4 mr-2" />
+            <Button variant="primary" size="sm" href={V3_RESUME_PDF} className="w-full sm:w-auto">
+              <FiDownload className="w-4 h-4" />
               Download PDF
             </Button>
           </div>
@@ -327,11 +323,11 @@ export default function ResumeV3() {
               Download full PDF
             </Button>
             <Button variant="ghost" href={v3Href("#contact")}>
-              Contact for opportunities →
+              Contact for opportunities
             </Button>
-            <Link href={V3_BASE} className="text-[var(--text-muted)] hover:text-white text-sm">
-              ← Portfolio home
-            </Link>
+            <Button variant="ghost" href={V3_BASE}>
+              Portfolio home
+            </Button>
           </div>
         </section>
       </main>

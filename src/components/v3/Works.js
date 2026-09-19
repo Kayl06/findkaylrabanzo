@@ -1,43 +1,155 @@
-import { useMemo, useState, useEffect, useCallback } from "react";
+import { useMemo, useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { PROJECTS, PROJECT_FILTERS, getProjectById } from "@/data/projects";
+import { PROJECTS, PROJECT_FILTERS, sortProjects } from "@/data/projects";
+import { v3WorkHref } from "@/lib/v3";
 import { defaultViewport, getMotionVariant, worksGridVariant } from "@/lib/motion";
 import useReducedMotion from "@/hooks/useReducedMotion";
-import Badge from "./Badge";
-import CaseStudyModal from "./CaseStudyModal";
+import Button from "./Button";
 
-const INITIAL_COUNT = 6;
+const INITIAL_COUNT = 4;
+const ICON_SIZE = 64;
+const FOLLOW_EASE = 0.14;
 
-function sortFeaturedFirst(projects) {
-  return [...projects].sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    return 0;
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+
+function ProjectCard({ project, index, reducedMotion, worksVariant }) {
+  const cardRef = useRef(null);
+  const stageRef = useRef(null);
+  const iconRef = useRef(null);
+  const motionRef = useRef({
+    x: 0,
+    y: 0,
+    scale: 0.7,
+    tx: 0,
+    ty: 0,
+    tScale: 0.7,
+    raf: 0,
   });
+
+  useEffect(() => {
+    const card = cardRef.current;
+    const stage = stageRef.current;
+    const icon = iconRef.current;
+    if (!card || !stage || !icon || reducedMotion) return;
+
+    const state = motionRef.current;
+
+    const applyTransform = (x, y, scale) => {
+      icon.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%) scale(${scale})`;
+    };
+
+    const pointFromEvent = (event) => {
+      const rect = stage.getBoundingClientRect();
+      const half = ICON_SIZE / 2;
+      return {
+        x: Math.max(half, Math.min(rect.width - half, event.clientX - rect.left)),
+        y: Math.max(half, Math.min(rect.height - half, event.clientY - rect.top)),
+      };
+    };
+
+    const tick = () => {
+      state.x = lerp(state.x, state.tx, FOLLOW_EASE);
+      state.y = lerp(state.y, state.ty, FOLLOW_EASE);
+      state.scale = lerp(state.scale, state.tScale, FOLLOW_EASE);
+      applyTransform(state.x, state.y, state.scale);
+
+      const stillMoving =
+        Math.abs(state.tx - state.x) > 0.15 ||
+        Math.abs(state.ty - state.y) > 0.15 ||
+        Math.abs(state.tScale - state.scale) > 0.004;
+
+      state.raf = stillMoving ? requestAnimationFrame(tick) : 0;
+    };
+
+    const startTick = () => {
+      if (!state.raf) state.raf = requestAnimationFrame(tick);
+    };
+
+    const onEnter = (event) => {
+      const point = pointFromEvent(event);
+      state.x = point.x;
+      state.y = point.y;
+      state.tx = point.x;
+      state.ty = point.y;
+      state.scale = 0.7;
+      state.tScale = 1;
+      applyTransform(point.x, point.y, 0.7);
+      startTick();
+    };
+
+    const onMove = (event) => {
+      const point = pointFromEvent(event);
+      state.tx = point.x;
+      state.ty = point.y;
+      state.tScale = 1;
+      startTick();
+    };
+
+    const onLeave = () => {
+      state.tScale = 0.7;
+      startTick();
+    };
+
+    card.addEventListener("pointerenter", onEnter);
+    card.addEventListener("pointermove", onMove);
+    card.addEventListener("pointerleave", onLeave);
+
+    return () => {
+      card.removeEventListener("pointerenter", onEnter);
+      card.removeEventListener("pointermove", onMove);
+      card.removeEventListener("pointerleave", onLeave);
+      if (state.raf) cancelAnimationFrame(state.raf);
+      state.raf = 0;
+    };
+  }, [reducedMotion]);
+
+  return (
+    <motion.article
+      initial="offscreen"
+      whileInView="onscreen"
+      viewport={defaultViewport}
+      variants={worksVariant}
+    >
+      <Link
+        ref={cardRef}
+        href={v3WorkHref(project.id)}
+        className="__project-grid-card group block"
+      >
+        <div ref={stageRef} className="relative mb-4">
+          <div className="__project-grid-image relative aspect-[3/2] w-full">
+            <Image
+              src={project.thumbnailUrl}
+              alt={project.thumbnailAlt}
+              fill
+              sizes="(max-width: 768px) 100vw, 480px"
+              className="object-cover object-top"
+              quality={85}
+              priority={index < 2}
+            />
+          </div>
+          <span ref={iconRef} className="__project-grid-hover-icon" aria-hidden>
+            <FiArrowUpRight />
+          </span>
+        </div>
+        <p className="text-sm text-[var(--text-muted)] mb-1">{project.category}</p>
+        <h3 className="text-lg font-semibold text-[var(--text-primary)] leading-snug group-hover:text-white transition-colors">
+          {project.name}
+        </h3>
+      </Link>
+    </motion.article>
+  );
 }
 
 export default function Works() {
   const [showMore, setShowMore] = useState(false);
   const [filter, setFilter] = useState("All");
-  const [activeProject, setActiveProject] = useState(null);
   const reducedMotion = useReducedMotion();
   const worksVariant = getMotionVariant(reducedMotion, worksGridVariant);
-
-  const openProject = useCallback((project) => {
-    setActiveProject(project);
-    const url = new URL(window.location.href);
-    url.searchParams.set("project", project.id);
-    window.history.replaceState({}, "", url);
-  }, []);
-
-  const closeProject = useCallback(() => {
-    setActiveProject(null);
-    const url = new URL(window.location.href);
-    url.searchParams.delete("project");
-    window.history.replaceState({}, "", url.pathname + url.hash);
-  }, []);
 
   useEffect(() => {
     const readParams = () => {
@@ -45,11 +157,6 @@ export default function Works() {
       const filterParam = params.get("filter");
       if (filterParam && PROJECT_FILTERS.includes(filterParam)) {
         setFilter(filterParam);
-      }
-      const projectId = params.get("project");
-      if (projectId) {
-        const project = getProjectById(projectId);
-        if (project) setActiveProject(project);
       }
     };
 
@@ -67,105 +174,67 @@ export default function Works() {
     };
   }, []);
 
+  const setFilterAndUrl = (nextFilter) => {
+    setFilter(nextFilter);
+    setShowMore(false);
+    const url = new URL(window.location.href);
+    if (nextFilter === "All") {
+      url.searchParams.delete("filter");
+    } else {
+      url.searchParams.set("filter", nextFilter);
+    }
+    window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+  };
+
   const filtered = useMemo(() => {
     const list =
       filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
-    return sortFeaturedFirst(list);
+    return sortProjects(list);
   }, [filter]);
 
   const projectsToShow = showMore ? filtered : filtered.slice(0, INITIAL_COUNT);
 
   return (
     <>
-      <div className="flex flex-wrap gap-2 mb-8" role="group" aria-label="Filter projects">
+      <p className="mb-8 max-w-[42ch] text-[15px] leading-relaxed text-[var(--text-muted)]">
+        Shopify storefronts, SaaS products, and full-stack applications.
+      </p>
+
+      <div
+        className="flex flex-wrap gap-2 mb-10"
+        role="group"
+        aria-label="Filter projects"
+      >
         {PROJECT_FILTERS.map((f) => (
-          <button
+          <Button
             key={f}
-            type="button"
-            onClick={() => setFilter(f)}
-            className={`rounded-full px-4 py-1.5 text-xs font-medium border transition-colors ${
-              filter === f
-                ? "border-accent/50 bg-accent/10 text-accent"
-                : "border-[var(--border)] text-[var(--text-secondary)] hover:border-white/20 hover:text-white"
-            }`}
+            size="sm"
+            variant={filter === f ? "primary" : "secondary"}
+            onClick={() => setFilterAndUrl(f)}
+            aria-pressed={filter === f}
           >
             {f}
-          </button>
+          </Button>
         ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-10">
-        {projectsToShow.map((project) => (
-          <motion.article
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-10 mb-10">
+        {projectsToShow.map((project, index) => (
+          <ProjectCard
             key={project.id}
-            initial="offscreen"
-            whileInView="onscreen"
-            viewport={defaultViewport}
-            variants={worksVariant}
-          >
-            <button
-              type="button"
-              onClick={() => openProject(project)}
-              className={`__project-grid-card glass-panel w-full text-left overflow-hidden ${
-                project.featured ? "md:col-span-1" : ""
-              }`}
-              aria-label={`View case study: ${project.name}`}
-            >
-              <div className="__project-grid-image relative aspect-video w-full">
-                <Image
-                  src={project.thumbnailUrl}
-                  alt={project.thumbnailAlt}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  className="object-cover"
-                  quality={90}
-                />
-              </div>
-              <div className="p-5">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  {project.category === "Shopify" && <Badge variant="shopify">Shopify</Badge>}
-                  {project.featured && <Badge variant="accent">Featured</Badge>}
-                </div>
-                <h3 className="text-lg font-semibold text-white mb-1">{project.name}</h3>
-                {project.metric && (
-                  <p className="text-accent/90 font-mono text-xs mb-2">{project.metric}</p>
-                )}
-                <p className="text-sm text-[var(--text-secondary)] line-clamp-2 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  {project.techs.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-[11px] font-mono text-[var(--text-muted)]"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.techs.length > 4 && (
-                    <span className="text-[11px] font-mono text-[var(--text-muted)]">
-                      +{project.techs.length - 4}
-                    </span>
-                  )}
-                </div>
-              </div>
-            </button>
-          </motion.article>
+            project={project}
+            index={index}
+            reducedMotion={reducedMotion}
+            worksVariant={worksVariant}
+          />
         ))}
       </div>
 
       {filtered.length > INITIAL_COUNT && (
-        <button
-          type="button"
-          onClick={() => setShowMore(!showMore)}
-          className="btn-secondary-v3 mx-auto flex items-center gap-2"
-        >
-          {showMore ? "Show less" : "Show more projects"}
-          {showMore ? <FiChevronUp className="w-4 h-4" /> : <FiChevronDown className="w-4 h-4" />}
-        </button>
+        <Button variant="secondary" onClick={() => setShowMore(!showMore)}>
+          {showMore ? "Show less" : "See all projects"}
+        </Button>
       )}
-
-      <CaseStudyModal project={activeProject} onClose={closeProject} />
     </>
   );
 }
