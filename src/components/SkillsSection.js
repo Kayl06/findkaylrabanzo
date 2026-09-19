@@ -1,4 +1,4 @@
-import { SKILLS } from "@/data/skills";
+import { SKILL_CATEGORIES } from "@/data/skills";
 
 function Pill({ children, size = "md" }) {
   const sizes = {
@@ -19,52 +19,24 @@ function Pill({ children, size = "md" }) {
 export default function SkillsSection() {
   return (
     <div className="space-y-8">
-      <div>
-        <h3 className="text-xs font-semibold uppercase tracking-widest text-cyan-400/90 mb-3">
-          Core stack
-        </h3>
-        <ul className="flex flex-wrap gap-2 list-none">
-          {SKILLS.core.map((skill) => (
-            <Pill key={skill} size="lg">
-              {skill}
-            </Pill>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-500 mb-3">
-          Also proficient
-        </h3>
-        <ul className="flex flex-wrap gap-2 list-none">
-          {SKILLS.proficient.map((skill) => (
-            <Pill key={skill}>{skill}</Pill>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-600 mb-3">
-          Familiar
-        </h3>
-        <ul className="flex flex-wrap gap-2 list-none">
-          {SKILLS.familiar.map((skill) => (
-            <Pill key={skill} size="sm">
-              {skill}
-            </Pill>
-          ))}
-        </ul>
-      </div>
-      <div>
-        <h3 className="text-xs font-semibold uppercase tracking-widest text-gray-600 mb-3">
-          Tools
-        </h3>
-        <ul className="flex flex-wrap gap-2 list-none">
-          {SKILLS.tools.map((tool) => (
-            <Pill key={tool} size="sm">
-              {tool}
-            </Pill>
-          ))}
-        </ul>
-      </div>
+      {SKILL_CATEGORIES.map((group, index) => (
+        <div key={group.id}>
+          <h3
+            className={`text-xs font-semibold uppercase tracking-widest mb-3 ${
+              index === 0 ? "text-cyan-400/90" : "text-gray-500"
+            }`}
+          >
+            {group.title}
+          </h3>
+          <ul className="flex flex-wrap gap-2 list-none">
+            {group.items.map((skill) => (
+              <Pill key={skill} size={index === 0 ? "lg" : "md"}>
+                {skill}
+              </Pill>
+            ))}
+          </ul>
+        </div>
+      ))}
     </div>
   );
 }

@@ -1,18 +1,24 @@
 const variants = {
   primary: "btn-primary-v3",
   secondary: "btn-secondary-v3",
-  ghost:
-    "inline-flex items-center justify-center text-sm text-[var(--text-secondary)] hover:text-accent transition-colors py-3 px-2",
+  ghost: "btn-ghost-v3",
 };
 
 export default function Button({
   variant = "primary",
+  size = "md",
   className = "",
   children,
   href,
   ...props
 }) {
-  const classes = `${variants[variant] || variants.primary} ${className}`.trim();
+  const classes = [
+    variants[variant] || variants.primary,
+    size === "sm" ? "btn-sm-v3" : "",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   if (href) {
     const isExternal = href.startsWith("http") || href.endsWith(".pdf");

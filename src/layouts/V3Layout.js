@@ -1,4 +1,5 @@
 import { Inter, JetBrains_Mono } from "next/font/google";
+import CursorFollower from "@/components/v3/CursorFollower";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -18,6 +19,7 @@ export default function V3Layout({ children }) {
   return (
     <div className={`v3-root ${inter.className} ${inter.variable} ${jetbrainsMono.variable}`}>
       {children}
+      <CursorFollower />
     </div>
   );
 }

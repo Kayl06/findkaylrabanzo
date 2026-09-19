@@ -24,7 +24,7 @@ export default function CalendlyEmbed({ url = EMBED_URL }) {
       title="Schedule a 30-minute call"
       loading="lazy"
       className="w-full border-0 block"
-      style={{ minWidth: "320px", height: "700px" }}
+      style={{ width: "100%", maxWidth: "100%", height: "700px" }}
     />
   );
 }

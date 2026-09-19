@@ -1,18 +1,29 @@
 /** Resume page content — aligned with SOFTWARE DEVELOPER CV PDF */
 
 export const RESUME_SUMMARY =
-  "Software Developer with 7+ years of experience building web applications, SaaS platforms, internal systems, and e-commerce solutions. Skilled in React, Next.js, TypeScript, Node.js, Laravel/PHP, REST APIs, and SQL. Experienced in full software development lifecycle, from architecture and implementation to deployment and production support. Proficient in AI-assisted development using Cursor and Claude to improve engineering efficiency and code quality.";
+  "Senior Frontend & Shopify Developer with 7+ years of experience building production web applications, SaaS products, and e-commerce experiences. Strongest in React, Next.js, TypeScript, Shopify, and API-driven applications, with backend experience across Laravel, Node.js, and SQL when the work spans the stack. Uses Cursor, Claude Code, GitHub Copilot, Codex, and ChatGPT to move faster, then reviews the output before shipping.";
 
 export const RESUME_HIGHLIGHTS = [
   "7+ years software development",
+  "3+ years Shopify development",
   "React · Next.js · TypeScript",
-  "Full-stack engineering",
+  "Shopify · Liquid · OS 2.0",
   "SaaS & e-commerce",
-  "REST APIs · SQL",
-  "AI-assisted development",
+  "AI-augmented development",
 ];
 
 export const RESUME_EXPERTISE = [
+  {
+    title: "Shopify Development",
+    items: [
+      "Shopify",
+      "Liquid",
+      "Online Store 2.0",
+      "Shopify APIs",
+      "Custom Themes",
+      "Reusable Sections",
+    ],
+  },
   {
     title: "Frontend Engineering",
     items: [
@@ -68,11 +79,11 @@ export const RESUME_EXPERTISE = [
     title: "AI-Assisted Engineering",
     items: [
       "Cursor",
-      "Claude",
-      "LLM-Assisted Development",
-      "Code Analysis",
-      "Implementation Planning",
-      "Workflow Automation",
+      "Claude Code",
+      "GitHub Copilot",
+      "Codex",
+      "ChatGPT",
+      "Code review of AI-generated output",
     ],
   },
 ];

@@ -1,69 +1,69 @@
-import { FiShoppingBag, FiLayers, FiLink } from "react-icons/fi";
+import { FiCode, FiShoppingBag, FiLayers } from "react-icons/fi";
 import GlassPanel from "./GlassPanel";
+import Button from "./Button";
 
-const SERVICES = [
+const CAPABILITIES = [
+  {
+    id: "frontend",
+    icon: FiCode,
+    title: "Frontend Engineering",
+    description:
+      "React, Next.js, TypeScript, responsive interfaces, component architecture, accessibility, performance, and API integration.",
+    filter: "React",
+  },
   {
     id: "shopify",
     icon: FiShoppingBag,
     title: "Shopify Development",
     description:
-      "Custom Liquid themes, storefront performance, and conversion-focused UX for merchants who need more than a template.",
+      "Shopify Online Store 2.0, Liquid, custom themes, reusable sections, storefront features, performance, and conversion-focused UX.",
     filter: "Shopify",
-    anchor: "#work",
   },
   {
-    id: "react",
+    id: "fullstack",
     icon: FiLayers,
-    title: "React & Next.js Products",
+    title: "Full-Stack & SaaS",
     description:
-      "Dashboards, SaaS interfaces, and cross-platform apps with React, Next.js, and React Native—pixel-perfect from Figma.",
-    filter: "React",
-    anchor: "#work",
-  },
-  {
-    id: "api",
-    icon: FiLink,
-    title: "API Integrations & Laravel",
-    description:
-      "Reliable third-party integrations, Laravel backends, and full-stack handoffs that keep your product shipping on schedule.",
+      "Laravel, Node.js, REST APIs, databases, authentication, integrations, and multi-tenant SaaS applications.",
     filter: "Full-stack",
-    anchor: "#work",
   },
 ];
 
 export default function ServicesSection() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {SERVICES.map((service) => {
-        const Icon = service.icon;
+      {CAPABILITIES.map((capability) => {
+        const Icon = capability.icon;
         return (
           <GlassPanel
-            key={service.id}
-            className="p-6 flex flex-col gap-4 hover:border-white/20 transition-colors group"
+            key={capability.id}
+            className="p-6 flex flex-col gap-4 hover:border-white/20 transition-colors"
           >
             <div className="flex items-center gap-3">
               <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 text-accent">
                 <Icon className="w-5 h-5" aria-hidden />
               </span>
-              <h3 className="text-white font-semibold text-lg">{service.title}</h3>
+              <h3 className="text-white font-semibold text-lg">{capability.title}</h3>
             </div>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed flex-1">
-              {service.description}
+              {capability.description}
             </p>
-            <a
+            <Button
+              variant="ghost"
+              size="sm"
               href="#work"
+              className="mt-auto self-start"
               onClick={() => {
                 const url = new URL(window.location.href);
-                url.searchParams.set("filter", service.filter);
-                window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+                url.searchParams.set("filter", capability.filter);
+                window.history.replaceState({}, "", url.pathname + url.search + "#work");
                 window.dispatchEvent(
-                  new CustomEvent("portfolio-filter", { detail: service.filter })
+                  new CustomEvent("portfolio-filter", { detail: capability.filter })
                 );
               }}
-              className="text-sm font-medium text-accent hover:text-blue-400 transition-colors inline-flex items-center gap-1 mt-auto"
             >
-              View {service.filter} work →
-            </a>
+              View {capability.filter} work
+            </Button>
           </GlassPanel>
         );
       })}

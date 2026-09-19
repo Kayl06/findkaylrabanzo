@@ -14,7 +14,7 @@ const DOCK_ITEMS = [
   { href: SITE.github, label: "GitHub", icon: FiGithub, external: true },
   { href: SITE.linkedin, label: "LinkedIn", icon: FiLinkedin, external: true },
   { href: `mailto:${SITE.email}`, label: "Email", icon: FiMail, external: true },
-  { href: V3_RESUME_PDF, label: "Resume PDF", icon: FiFileText, external: true },
+  { href: V3_RESUME_PDF, label: "Download CV", icon: FiFileText, external: true },
 ];
 
 export default function DockNav() {

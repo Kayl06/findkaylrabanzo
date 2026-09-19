@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Link from "next/link";
 import { EXPERIENCE } from "@/data/experience";
+import Button from "./Button";
 export default function ExperienceTimeline() {
   const [openId, setOpenId] = useState(
     EXPERIENCE.find((job) => job.current)?.id ?? EXPERIENCE[0]?.id
@@ -84,11 +84,11 @@ export default function ExperienceTimeline() {
           );
         })}
       </ul>
-      <p className="mt-6 text-sm text-gray-500">
-        <Link href="/v3/resume" className="text-accent hover:text-blue-400 transition-colors">
-          View full resume →
-        </Link>
-      </p>
+      <div className="mt-6">
+        <Button variant="ghost" size="sm" href="/v3/resume">
+          View full resume
+        </Button>
+      </div>
     </div>
   );
 }

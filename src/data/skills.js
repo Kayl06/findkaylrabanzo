@@ -1,31 +1,28 @@
 export const SKILLS = {
-  core: [
+  frontend: [
     "React",
     "Next.js",
     "TypeScript",
-    "JavaScript (ES6+)",
+    "JavaScript",
+    "HTML",
+    "CSS",
     "Tailwind CSS",
-    "Node.js",
-    "Laravel",
-    "REST APIs",
   ],
-  proficient: [
-    "React Native",
-    "Expo",
-    "Zustand",
-    "RTK Query",
-    "TanStack Query",
-    "Express.js",
-    "PostgreSQL",
-    "Supabase",
-    "MySQL",
-    "Shopify / Liquid",
-    "Cursor",
-    "Claude",
-  ],
-  familiar: ["jQuery", "PHP", "Firebase", "Redis", "GraphQL"],
-  tools: ["Git", "GitHub", "Figma", "Docker", "AWS", "Vercel", "CI/CD"],
+  shopify: ["Shopify", "Liquid", "Online Store 2.0", "Shopify APIs"],
+  backend: ["Node.js", "Express.js", "Laravel", "PHP", "REST APIs"],
+  database: ["PostgreSQL", "MySQL", "Supabase"],
+  tools: ["Git", "GitHub", "Docker", "Vercel", "Figma"],
+  ai: ["Cursor", "Claude Code", "GitHub Copilot", "Codex", "ChatGPT"],
 };
+
+export const SKILL_CATEGORIES = [
+  { id: "frontend", title: "Frontend", items: SKILLS.frontend },
+  { id: "shopify", title: "Shopify", items: SKILLS.shopify },
+  { id: "backend", title: "Backend", items: SKILLS.backend },
+  { id: "database", title: "Database", items: SKILLS.database },
+  { id: "tools", title: "Tools", items: SKILLS.tools },
+  { id: "ai", title: "AI Development", items: SKILLS.ai },
+];
 
 export const RESUME_SKILL_CATEGORIES = [
   {

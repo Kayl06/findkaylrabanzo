@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import {
   FiGithub,
   FiLinkedin,
@@ -14,12 +16,14 @@ import SkillsSection from "@/components/v3/SkillsSection";
 import AboutFlipCard from "@/components/v3/AboutFlipCard";
 import ExperienceTimeline from "@/components/v3/ExperienceTimeline";
 import ServicesSection from "@/components/v3/ServicesSection";
-import SocialProofSection from "@/components/v3/SocialProofSection";
+import SelectedExperience from "@/components/v3/SelectedExperience";
+import AiSection from "@/components/v3/AiSection";
 import DockNav from "@/components/v3/DockNav";
 import Button from "@/components/v3/Button";
 import SiteMeta from "@/components/v3/SiteMeta";
-import { SOCIAL_LINKS, SITE, TRUST_METRICS } from "@/data/site";
-import { V3_BASE, V3_RESUME_PDF, V3_TITLE } from "@/lib/v3";
+import { SOCIAL_LINKS, SITE } from "@/data/site";
+import { getProjectById } from "@/data/projects";
+import { V3_BASE, V3_RESUME_PDF, V3_TITLE, v3WorkHref } from "@/lib/v3";
 import V3Layout from "@/layouts/V3Layout";
 import useReducedMotion from "@/hooks/useReducedMotion";
 import {
@@ -41,8 +45,17 @@ const ICON_MAP = {
 const SECTION_CLASS = "py-16 md:py-24 max-w-[1000px] mx-auto w-full";
 
 export default function HomeV3() {
+  const router = useRouter();
   const reducedMotion = useReducedMotion();
   const sectionVariant = getMotionVariant(reducedMotion);
+
+  useEffect(() => {
+    if (!router.isReady) return;
+    const projectId = router.query.project;
+    if (typeof projectId === "string" && getProjectById(projectId)) {
+      router.replace(v3WorkHref(projectId));
+    }
+  }, [router.isReady, router.query.project, router]);
 
   const renderedSocialLinks = SOCIAL_LINKS.map((link) => {
     const Icon = ICON_MAP[link.name];
@@ -93,18 +106,17 @@ export default function HomeV3() {
                   Hi, I&apos;m Fedimar Kayl
                 </p>
                 <h1 className="font-bold text-start leading-tight md:leading-[1.1] mb-6 __big_heading text-[var(--text-primary)]">
-                  I build fast storefronts and product UIs that convert.
+                  I build fast, scalable storefronts and SaaS products.
                 </h1>
               </motion.div>
               <motion.p
                 initial={getHeroInitial(reducedMotion)}
                 animate={getHeroAnimate(reducedMotion)}
                 transition={getHeroTransition(reducedMotion, 0.35)}
-                className="lg:max-w-[540px] leading-relaxed text-[17px]"
+                className="lg:max-w-[560px] leading-relaxed text-[17px]"
               >
-                Software developer with 7+ years building web applications, SaaS platforms, and
-                e-commerce solutions in React, Next.js, TypeScript, and REST APIs. Available for
-                full-time roles and selective freelance projects.
+                7+ years building production web applications, Shopify storefronts, SaaS
+                platforms, and internal tools with React, Next.js, TypeScript, and modern APIs.
               </motion.p>
             </div>
 
@@ -115,28 +127,14 @@ export default function HomeV3() {
               className="flex flex-wrap gap-3 items-center"
             >
               <Button variant="primary" href="#work">
-                View my work
+                View My Work
               </Button>
               <Button variant="secondary" href={V3_RESUME_PDF}>
-                Download resume
+                Download CV
               </Button>
               <Button variant="ghost" href="#contact">
-                Hire me →
+                Contact
               </Button>
-            </motion.div>
-
-            <motion.div
-              initial={getHeroInitial(reducedMotion, false)}
-              animate={getHeroAnimate(reducedMotion)}
-              transition={getHeroTransition(reducedMotion, 0.65)}
-              className="flex flex-wrap gap-x-6 gap-y-2 pt-2"
-            >
-              {TRUST_METRICS.map((m) => (
-                <span key={m.label} className="text-xs font-mono text-[var(--text-muted)]">
-                  <span className="text-[var(--text-primary)] font-semibold">{m.value}</span>{" "}
-                  {m.label.toLowerCase()}
-                </span>
-              ))}
             </motion.div>
           </section>
 
@@ -155,7 +153,7 @@ export default function HomeV3() {
           </motion.section>
 
           <motion.section
-            id="services"
+            id="what-i-do"
             className={SECTION_CLASS}
             initial="offscreen"
             whileInView="onscreen"
@@ -163,9 +161,12 @@ export default function HomeV3() {
             variants={sectionVariant}
           >
             <h2 className="__numbered_heading flex items-center font-bold after:ml-[10px] after:w-[120px] md:after:w-[200px] after:bg-[var(--glass-border)] after:h-px">
-              What I Build
+              What I Do
             </h2>
             <ServicesSection />
+            <div className="mt-6">
+              <AiSection />
+            </div>
           </motion.section>
 
           <motion.section
@@ -182,24 +183,30 @@ export default function HomeV3() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <p className="mb-4 leading-relaxed">
-                  Software developer with{" "}
-                  <strong className="text-[var(--text-primary)]">7+ years of experience</strong>{" "}
-                  shipping web applications, SaaS platforms, internal systems, and e-commerce
-                  solutions. I care about performance, accessibility, and clean handoffs with design
-                  and backend teams.
+                  I&apos;m a{" "}
+                  <strong className="text-[var(--text-primary)]">
+                    Senior Frontend &amp; Shopify Developer
+                  </strong>{" "}
+                  with 7+ years of experience building production web applications, SaaS products,
+                  and e-commerce experiences.
+                </p>
+                <p className="mb-4 leading-relaxed">
+                  My strongest areas are React, Next.js, TypeScript, Shopify, and modern API-driven
+                  applications. I also have backend experience with Laravel, Node.js, and SQL, so I
+                  can work across the stack when the product needs it.
                 </p>
                 <p className="mb-6 leading-relaxed">
-                  Currently shipping freelance work for e-commerce and SaaS clients, after building
-                  production products at{" "}
+                  Recently I&apos;ve been shipping freelance work for e-commerce and SaaS clients,
+                  after building production products at{" "}
                   <a
                     href="https://chykalophia.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:text-blue-400 transition-colors"
+                    className="text-accent hover:text-white transition-colors"
                   >
                     Chykalophia
                   </a>
-                  . Here&apos;s what I work with most:
+                  .
                 </p>
                 <SkillsSection />
               </div>
@@ -218,11 +225,17 @@ export default function HomeV3() {
             <h2 className="__numbered_heading flex items-center font-bold after:ml-[10px] after:w-[120px] md:after:w-[200px] after:bg-[var(--glass-border)] after:h-px">
               Where I&apos;ve Worked
             </h2>
+            <p className="mb-8 text-[15px] leading-relaxed max-w-[62ch]">
+              <strong className="text-[var(--text-primary)]">7+ years</strong> of software
+              development ·{" "}
+              <strong className="text-[var(--text-primary)]">3+ years</strong> of Shopify
+              development · production SaaS, e-commerce, and internal applications.
+            </p>
             <ExperienceTimeline />
           </motion.section>
 
           <motion.section
-            id="proof"
+            id="highlights"
             className={SECTION_CLASS}
             initial="offscreen"
             whileInView="onscreen"
@@ -230,9 +243,9 @@ export default function HomeV3() {
             variants={sectionVariant}
           >
             <h2 className="__numbered_heading flex items-center font-bold after:ml-[10px] after:w-[120px] md:after:w-[200px] after:bg-[var(--glass-border)] after:h-px">
-              Results & Proof
+              Selected Experience
             </h2>
-            <SocialProofSection />
+            <SelectedExperience />
           </motion.section>
 
           <motion.section
@@ -244,14 +257,24 @@ export default function HomeV3() {
             variants={sectionVariant}
           >
             <div className="__contact max-w-[720px] mx-auto text-center glass-panel p-8 md:p-10">
-              <p className="text-accent font-mono text-sm mb-4">What&apos;s next?</p>
+              <p className="text-accent font-mono text-sm mb-4">Let&apos;s work together</p>
               <h2 className="font-bold text-3xl md:text-4xl text-[var(--text-primary)] mb-4">
-                Get In Touch
+                Open to opportunities
               </h2>
-              <p className="text-[var(--text-secondary)] mb-10 max-w-[480px] mx-auto">
-                Have a project in mind or hiring for your team? Book a 30-minute call, or reach out
-                directly.
+              <p className="text-[var(--text-secondary)] mb-8 max-w-[480px] mx-auto">
+                I&apos;m open to remote Frontend, Shopify, and Software Engineering opportunities.
               </p>
+              <div className="flex flex-wrap gap-3 items-center justify-center mb-10">
+                <Button variant="primary" href={V3_RESUME_PDF}>
+                  Download CV
+                </Button>
+                <Button variant="secondary" href={SITE.linkedin}>
+                  LinkedIn
+                </Button>
+                <Button variant="secondary" href={`mailto:${SITE.email}`}>
+                  Email Me
+                </Button>
+              </div>
               <CalendlyEmbed />
               <div className="mt-10 pt-8 border-t border-[var(--glass-border)] flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
