@@ -196,10 +196,6 @@ export default function Works() {
 
   return (
     <>
-      <p className="mb-8 max-w-[42ch] text-[15px] leading-relaxed text-[var(--text-muted)]">
-        Shopify storefronts, SaaS products, and full-stack applications.
-      </p>
-
       <div
         className="flex flex-wrap gap-2 mb-10"
         role="group"
