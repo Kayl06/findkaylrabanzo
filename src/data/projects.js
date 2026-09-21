@@ -325,8 +325,8 @@ export const PROJECTS = [
   {
     id: "agent84",
     name: "Agent84",
-    thumbnailUrl: "/images/agent84.png",
-    thumbnailAlt: "Agent84 Shopify storefront for premium activewear and seasonal drops",
+    thumbnailUrl: "/images/agent84-homepage.jpg",
+    thumbnailAlt: "Agent84 homepage with two-column New Arrivals hero and shop CTA",
     tagline: "Premium activewear storefront with seasonal drops and shop-the-look merchandising.",
     description:
       "Custom Shopify storefront for premium activewear—seasonal drops, shoppable lookbooks, bundle merchandising, and cart UX built with Liquid and JavaScript.",
@@ -414,8 +414,8 @@ export const PROJECTS = [
   {
     id: "ember-collective",
     name: "Ember Collective",
-    thumbnailUrl: "/images/ember-collective.jpg",
-    thumbnailAlt: "Ember Collective Shopify storefront for handmade porcelain and home goods",
+    thumbnailUrl: "/images/ember-collective-homepage.jpg",
+    thumbnailAlt: "Ember Collective homepage with Hand-crafted by artisans hero and Shop New CTA",
     tagline: "Artisan home goods storefront with collection-driven navigation and trade flows.",
     description:
       "Shopify storefront for handcrafted porcelain, textiles, and lighting—formerly The Bright Angle—with collection-driven navigation and trade program flows.",
@@ -451,8 +451,28 @@ export const PROJECTS = [
       results: ["Production Shopify storefront with collection navigation and trade program flows"],
       gallery: [
         {
-          src: "/images/ember-collective.jpg",
-          alt: "Ember Collective Shopify storefront for handmade porcelain and home goods",
+          src: "/images/ember-collective-homepage.jpg",
+          alt: "Ember Collective homepage with Hand-crafted by artisans hero and Shop New CTA",
+        },
+        {
+          src: "/images/ember-collective-shop-all.jpg",
+          alt: "Shop All mega menu with product, room, material, and collection links",
+        },
+        {
+          src: "/images/ember-collective-new-in.jpg",
+          alt: "New In merchandising with The Surface Edit lifestyle tile and product cards",
+        },
+        {
+          src: "/images/ember-collective-categories.jpg",
+          alt: "Illustrated category tiles for Plates & Bowls, Tabletop, Drinkware, and Vases",
+        },
+        {
+          src: "/images/ember-collective-textiles.jpg",
+          alt: "Textiles mega menu with product links, lifestyle tiles, and Shop Towels CTAs",
+        },
+        {
+          src: "/images/ember-collective-filters.jpg",
+          alt: "Counter & Tabletop collection with filter drawer for availability, price, and color",
         },
       ],
       duration: "Freelance",
@@ -461,8 +481,8 @@ export const PROJECTS = [
   {
     id: "blossomdale",
     name: "Blossomdale",
-    thumbnailUrl: "/images/blossomdale.png",
-    thumbnailAlt: "Blossomdale Shopify storefront for plant nursery and garden e-commerce",
+    thumbnailUrl: "/images/blossomdale-homepage.jpg",
+    thumbnailAlt: "Blossomdale homepage with Belgian and Yoder Mum collection hero and bestsellers merchandising",
     tagline: "Plant nursery storefront with growing-zone personalization and seasonal shipping.",
     description:
       "Plant nursery Shopify store with growing-zone personalization, seasonal shipping, and a catalog spanning edibles, houseplants, landscape plants, seeds, and farm-grown honey.",
@@ -500,8 +520,24 @@ export const PROJECTS = [
       ],
       gallery: [
         {
-          src: "/images/blossomdale.png",
-          alt: "Blossomdale Shopify storefront for plant nursery and garden e-commerce",
+          src: "/images/blossomdale-homepage.jpg",
+          alt: "Blossomdale homepage with Belgian and Yoder Mum collection hero and bestsellers merchandising",
+        },
+        {
+          src: "/images/blossomdale-quick-add.jpg",
+          alt: "Quick-add modal for Coral Honeysuckle with size, pack quantity, and add to cart",
+        },
+        {
+          src: "/images/blossomdale-cart.jpg",
+          alt: "Cart drawer with free-shipping progress, pack discount, cross-sells, and shipping protection",
+        },
+        {
+          src: "/images/blossomdale-mobile-quick-add.jpg",
+          alt: "Mobile quick-add sheet with growing zones, in-stock status, and ship-by date",
+        },
+        {
+          src: "/images/blossomdale-mobile-menu.jpg",
+          alt: "Mobile menu with Shopify login, Google sign-in, and collection navigation",
         },
       ],
       duration: "Freelance",
@@ -510,8 +546,8 @@ export const PROJECTS = [
   {
     id: "skivys",
     name: "SKiVYS Femme",
-    thumbnailUrl: "/images/skivys.jpg",
-    thumbnailAlt: "SKiVYS Femme Shopify storefront for lounge and sleepwear",
+    thumbnailUrl: "/images/skivys-homepage.jpg",
+    thumbnailAlt: "SKiVYS homepage with Malibu Goddess Gown hero and Pre-Order Yours CTA",
     tagline: "Lounge and sleepwear storefront with collection merchandising and pre-order flows.",
     description:
       "Feminine lounge and sleepwear Shopify brand featuring built-in Femme Fit support, collection-based merchandising, pre-order flows, and size-inclusive goddess gowns and slip dresses.",
@@ -547,8 +583,20 @@ export const PROJECTS = [
       results: ["Production storefront with collection merchandising and pre-order flows"],
       gallery: [
         {
-          src: "/images/skivys.jpg",
-          alt: "SKiVYS Femme Shopify storefront for lounge and sleepwear",
+          src: "/images/skivys-homepage.jpg",
+          alt: "SKiVYS homepage with Malibu Goddess Gown hero and Pre-Order Yours CTA",
+        },
+        {
+          src: "/images/skivys-product.jpg",
+          alt: "Goddess Gown V2 Malibu product page with color swatches, size, length, and pre-order",
+        },
+        {
+          src: "/images/skivys-benefits.jpg",
+          alt: "What Makes It a Goddess Gown benefits, reviews, and Claim Yours From the Next Batch",
+        },
+        {
+          src: "/images/skivys-story.jpg",
+          alt: "Brand story sections for Femme Fit origin and the Malibu colorway",
         },
       ],
       duration: "Freelance",
