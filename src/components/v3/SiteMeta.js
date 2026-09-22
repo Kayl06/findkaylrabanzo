@@ -16,7 +16,7 @@ export default function SiteMeta({
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" href="/images/profile1.png" type="image/png" />
+      <link rel="icon" href="/images/logo.png" type="image/png" />
       <link rel="canonical" href={url} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content={SITE.shortName} />

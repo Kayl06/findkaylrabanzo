@@ -18,7 +18,7 @@ export default function SiteMeta({
         content="Fedimar Kayl Rabanzo, Kayl Rabanzo, Software Developer, React, Next.js, TypeScript, Full Stack"
       />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <link rel="icon" href="/images/profile1.png" type="image/png" />
+      <link rel="icon" href="/images/logo.png" type="image/png" />
       <meta property="og:type" content="website" />
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />

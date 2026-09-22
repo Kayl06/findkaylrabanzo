@@ -5,10 +5,14 @@ export default function Logo({ onNavigate }) {
     <Link
       href="/"
       onClick={onNavigate}
-      className="__logo relative rounded-sm font-bold text-[#CED4DA] h-[45px] w-[50px] flex items-center bg-[#313131] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform cursor-pointer"
+      className="__logo relative h-12 w-12 overflow-hidden rounded-sm flex items-center justify-center transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform cursor-pointer"
       aria-label="Home"
     >
-      <span className="text-[1.2rem] absolute bottom-2 right-[0.35em]">KR</span>
+      <img
+        src="/images/logo.png"
+        alt=""
+        className="h-full w-full object-cover"
+      />
     </Link>
   );
 }
