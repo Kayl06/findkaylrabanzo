@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Logo from "./Logo";
+import ThemeToggle from "./ThemeToggle";
 import useToggle from "@/hooks/useToggle";
 import HeaderMenuList from "./HeaderMenuList";
 import { motion, useScroll } from "framer-motion";
@@ -55,13 +56,13 @@ export default function Header() {
     : "hidden lg:flex";
 
   const childMenuClassName = isMobile
-    ? "p-10 pt-24 gap-[30px] flex-col fixed flex bg-black/95 backdrop-blur-md h-full w-full top-0 left-0 h-screen"
+    ? "p-10 pt-24 gap-[30px] flex-col fixed flex bg-canvas/95 backdrop-blur-md h-full w-full top-0 left-0 h-screen"
     : "";
 
   return (
     <>
       <header
-        className={`sticky top-0 z-[11] __header w-full py-2 items-center justify-between text-sm flex text-gray-400 font-light lg:px-[50px] px-[20px] transition-shadow ${
+        className={`sticky top-0 z-[11] __header w-full py-2 items-center justify-between text-sm flex text-muted font-light lg:px-[50px] px-[20px] transition-shadow ${
           scrolled ? "shadow-lg shadow-black/20" : ""
         }`}
       >
@@ -74,19 +75,22 @@ export default function Header() {
           handleBurgerMenuClick={closeMenu}
         />
 
-        <button
-          ref={burgerRef}
-          type="button"
-          className={`${isMenuOpen ? "__open" : "__close"} __hamburger lg:hidden flex cursor-pointer`}
-          onClick={toggleMenu}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        >
-          <span className="__hamburger_box">
-            <span className="__hamburger_box_inner" />
-          </span>
-        </button>
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
+          <button
+            ref={burgerRef}
+            type="button"
+            className={`${isMenuOpen ? "__open" : "__close"} __hamburger lg:hidden flex cursor-pointer`}
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            <span className="__hamburger_box">
+              <span className="__hamburger_box_inner" />
+            </span>
+          </button>
+        </div>
       </header>
       <motion.div
         className="progress-bar"

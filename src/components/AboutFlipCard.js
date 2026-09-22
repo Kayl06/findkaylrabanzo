@@ -28,9 +28,9 @@ export default function AboutFlipCard() {
             <p className="text-cyan-400/90 font-mono text-xs uppercase tracking-widest mb-2">
               {SITE.resumeHeadline}
             </p>
-            <p className="text-white font-bold text-xl sm:text-2xl mb-1">{SITE.name}</p>
-            <p className="text-gray-400 text-sm mb-4">{SITE.location}</p>
-            <p className="text-gray-300 text-sm leading-relaxed max-w-[240px]">
+            <p className="text-ink font-bold text-xl sm:text-2xl mb-1">{SITE.name}</p>
+            <p className="text-muted text-sm mb-4">{SITE.location}</p>
+            <p className="text-muted text-sm leading-relaxed max-w-[240px]">
               7+ years building React, Next.js, and full-stack product experiences for teams and clients.
             </p>
             <a

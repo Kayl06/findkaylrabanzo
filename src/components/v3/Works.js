@@ -137,7 +137,7 @@ function ProjectCard({ project, index, reducedMotion, worksVariant }) {
           </span>
         </div>
         <p className="text-sm text-[var(--text-muted)] mb-1">{project.category}</p>
-        <h3 className="text-lg font-semibold text-[var(--text-primary)] leading-snug group-hover:text-white transition-colors">
+        <h3 className="text-lg font-semibold text-[var(--text-primary)] leading-snug group-hover:text-ink transition-colors">
           {project.name}
         </h3>
       </Link>

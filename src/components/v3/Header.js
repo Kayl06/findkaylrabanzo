@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import Logo from "./Logo";
+import ThemeToggle from "@/components/ThemeToggle";
 import useToggle from "@/hooks/useToggle";
 import HeaderMenuList from "./HeaderMenuList";
 import { motion, useScroll } from "framer-motion";
@@ -63,19 +64,22 @@ export default function Header() {
 
         <HeaderMenuList variant="desktop" handleBurgerMenuClick={closeMenu} />
 
-        <button
-          ref={burgerRef}
-          type="button"
-          className={`${isMenuOpen ? "__open" : "__close"} __hamburger lg:hidden flex cursor-pointer min-h-[44px] min-w-[44px] items-center justify-center`}
-          onClick={toggleMenu}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-        >
-          <span className="__hamburger_box">
-            <span className="__hamburger_box_inner" />
-          </span>
-        </button>
+        <div className="flex items-center gap-1">
+          <ThemeToggle />
+          <button
+            ref={burgerRef}
+            type="button"
+            className={`${isMenuOpen ? "__open" : "__close"} __hamburger lg:hidden flex cursor-pointer min-h-[44px] min-w-[44px] items-center justify-center`}
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
+            <span className="__hamburger_box">
+              <span className="__hamburger_box_inner" />
+            </span>
+          </button>
+        </div>
       </header>
 
       <HeaderMenuList

@@ -14,7 +14,7 @@ export default function SelectedExperience() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {TRUST_METRICS.map((metric) => (
           <GlassPanel key={metric.label} className="p-6 text-center">
-            <p className="text-3xl md:text-4xl font-bold text-white mb-1">{metric.value}</p>
+            <p className="text-3xl md:text-4xl font-bold text-ink mb-1">{metric.value}</p>
             <p className="text-sm text-[var(--text-muted)] font-mono uppercase tracking-wider">
               {metric.label}
             </p>
@@ -28,7 +28,7 @@ export default function SelectedExperience() {
           {FEATURED.map((project) => (
             <GlassPanel key={project.id} className="p-5 flex flex-col gap-3">
               <div>
-                <h4 className="text-white font-semibold">{project.name}</h4>
+                <h4 className="text-ink font-semibold">{project.name}</h4>
                 <p className="text-xs font-mono text-accent mt-1">{project.role}</p>
               </div>
               <p className="text-sm text-[var(--text-secondary)] leading-relaxed flex-1">

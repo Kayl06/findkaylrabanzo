@@ -24,7 +24,7 @@ function ProjectLinks({ links }) {
         aria-label={`${link.name} for project`}
         rel="noopener noreferrer"
         target="_blank"
-        className="hover:text-white p-2.5 inline-flex"
+        className="hover:text-ink p-2.5 inline-flex"
       >
         <Icon className="w-5 h-5" />
       </a>
@@ -64,7 +64,7 @@ export default function Works() {
             className={`rounded-full px-4 py-1.5 text-xs font-medium border transition-colors ${
               filter === f
                 ? "border-cyan-400/50 bg-cyan-500/10 text-cyan-400"
-                : "border-[var(--border)] text-gray-400 hover:border-white/20 hover:text-white"
+                : "border-[var(--border)] text-muted hover:border-line/20 hover:text-ink"
             }`}
           >
             {f}
@@ -89,13 +89,13 @@ export default function Works() {
           >
             <div className="__project_content rounded-[10px] relative">
               <div className="leading-5 mb-[2em]">
-                <p className="__project_overline text-[.8em] mb-[.5em] text-slate-300 lg:text-slate-400">
+                <p className="__project_overline text-[.8em] mb-[.5em] text-muted">
                   {isFeatured ? "Featured Project" : "Project"}
                 </p>
                 {project.metric && (
-                  <p className="text-cyan-400/80 text-xs font-mono mb-2">{project.metric}</p>
+                  <p className="text-[rgb(var(--accent))] text-xs font-mono mb-2">{project.metric}</p>
                 )}
-                <h3 className="font-bold text-[1.4em] text-white z-[2] relative">
+                <h3 className="font-bold text-[1.4em] text-ink z-[2] relative">
                   {primaryUrl ? (
                     <Link href={primaryUrl} target="_blank" rel="noopener noreferrer">
                       {project.name}
@@ -106,7 +106,7 @@ export default function Works() {
                 </h3>
               </div>
               <div className="__project_description p-[25px] rounded z-[2] relative shadow-0 lg:shadow-lg">
-                <p className="text-white text-sm font-normal">{project.description}</p>
+                <p className="text-ink text-sm font-normal">{project.description}</p>
               </div>
               <div
                 className={`flex ${
@@ -127,7 +127,7 @@ export default function Works() {
             <div className="__project_image z-[1] w-full h-full align-middle rounded-[10px] relative min-h-[200px] md:min-h-[280px]">
               {primaryUrl ? (
                 <Link href={primaryUrl} target="_blank" rel="noopener noreferrer">
-                  <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden before:w-full before:h-full before:mix-blend-screen before:bg-slate-900 before:absolute before:inset-0 before:z-[3]">
+                  <div className="__image_wrapper rounded-[10px] cursor-pointer w-full max-w-full relative overflow-hidden">
                     <div className="relative w-full aspect-video max-w-[700px]">
                       <Image
                         src={project.thumbnailUrl}
@@ -159,7 +159,7 @@ export default function Works() {
         <button
           type="button"
           onClick={() => setShowMore(!showMore)}
-          className="text-center mx-auto text-sm flex items-center gap-2 border rounded shadow__btn font-normal border-gray-300 hover:border-white hover:text-white py-3 px-[2rem]"
+          className="text-center mx-auto text-sm flex items-center gap-2 border rounded shadow__btn font-normal border-line/40 hover:border-ink hover:text-ink py-3 px-[2rem]"
         >
           {showMore ? "Show less" : "Show more projects"}
           {showMore ? <FiChevronUp className="w-4 h-4" /> : <FiChevronDown className="w-4 h-4" />}

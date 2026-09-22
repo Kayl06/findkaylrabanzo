@@ -76,7 +76,7 @@ export default function CaseStudyModal({ project, onClose }) {
           role="presentation"
         >
           <motion.div
-            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            className="absolute inset-0 bg-canvas/70 backdrop-blur-sm"
             onClick={handleClose}
             aria-hidden
             initial={{ opacity: 0 }}
@@ -107,7 +107,7 @@ export default function CaseStudyModal({ project, onClose }) {
                 ref={closeRef}
                 type="button"
                 onClick={handleClose}
-                className="p-2 rounded-lg text-[var(--text-muted)] hover:text-white hover:bg-white/10 transition-colors"
+                className="p-2 rounded-lg text-[var(--text-muted)] hover:text-ink hover:bg-line/10 transition-colors"
                 aria-label="Close case study"
               >
                 <FiX className="w-5 h-5" />
@@ -146,7 +146,7 @@ export default function CaseStudyModal({ project, onClose }) {
                             className={`relative shrink-0 w-[4.5rem] sm:w-24 aspect-video rounded-lg overflow-hidden border transition-colors ${
                               isActive
                                 ? "border-accent ring-2 ring-accent/40"
-                                : "border-[var(--glass-border)] hover:border-white/30"
+                                : "border-[var(--glass-border)] hover:border-line/30"
                             }`}
                           >
                             <Image
@@ -170,7 +170,7 @@ export default function CaseStudyModal({ project, onClose }) {
                   {project.category === "Shopify" && <Badge variant="shopify">Shopify</Badge>}
                   {project.featured && <Badge variant="accent">Featured</Badge>}
                 </div>
-                <h2 id="case-study-title" className="text-2xl font-bold text-white mb-2">
+                <h2 id="case-study-title" className="text-2xl font-bold text-ink mb-2">
                   {project.name}
                 </h2>
                 {project.metric && (

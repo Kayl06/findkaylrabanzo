@@ -21,9 +21,9 @@ export default function HeaderMenuList({
             key={menuItem.path}
             href={menuItem.path}
             onClick={handleBurgerMenuClick}
-            className="__menut-items hover:text-[#fff] capitalize hover:bg-[#373737b4] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 lg:p-1 lg:px-2 px-0 rounded"
+            className="__menut-items hover:text-ink capitalize hover:bg-line/10 transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform flex items-center justify-center gap-2 p-5 lg:p-1 lg:px-2 px-0 rounded"
           >
-            <span className="text-[#efefef]">0{index + 1}.</span> {menuItem.name}
+            <span className="text-muted">0{index + 1}.</span> {menuItem.name}
           </a>
         ))}
         <a
@@ -31,7 +31,7 @@ export default function HeaderMenuList({
           target="_blank"
           rel="noopener noreferrer"
           onClick={handleBurgerMenuClick}
-          className="text-center border rounded shadow__btn font-normal w-1/2 lg:w-full border-gray-300 hover:border-white hover:text-white py-3 lg:py-2 px-[1rem] text-[13px]"
+          className="text-center border rounded shadow__btn font-normal w-1/2 lg:w-full border-line/40 hover:border-ink hover:text-ink py-3 lg:py-2 px-[1rem] text-[13px]"
         >
           Resume
         </a>

@@ -9,7 +9,7 @@ export default function ExperienceTimeline() {
   return (
     <div className="relative">
       <div
-        className="absolute left-[7px] top-2 bottom-2 w-px bg-white/10 hidden md:block"
+        className="absolute left-[7px] top-2 bottom-2 w-px bg-line/10 hidden md:block"
         aria-hidden
       />
       <ul className="space-y-4 list-none">
@@ -21,7 +21,7 @@ export default function ExperienceTimeline() {
                 className={`absolute left-0 top-6 hidden md:block h-3.5 w-3.5 rounded-full border-2 ${
                   job.current
                     ? "border-accent bg-accent/20"
-                    : "border-gray-600 bg-[var(--bg-base)]"
+                    : "border-line/40 bg-[var(--bg-base)]"
                 }`}
                 aria-hidden
               />
@@ -29,7 +29,7 @@ export default function ExperienceTimeline() {
                 className={`glass-panel !rounded-xl p-5 sm:p-6 transition-colors ${
                   job.current
                     ? "border-accent/30 ring-1 ring-accent/10"
-                    : "hover:border-white/15"
+                    : "hover:border-line/15"
                 }`}
               >
                 <button
@@ -40,8 +40,8 @@ export default function ExperienceTimeline() {
                 >
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
                     <div>
-                      <h3 className="text-white font-semibold text-lg">{job.role}</h3>
-                      <p className="text-gray-500 text-sm mt-0.5">
+                      <h3 className="text-ink font-semibold text-lg">{job.role}</h3>
+                      <p className="text-muted text-sm mt-0.5">
                         {job.website ? (
                           <a
                             href={job.website}
@@ -62,13 +62,13 @@ export default function ExperienceTimeline() {
                         )}
                       </p>
                     </div>
-                    <span className="text-xs text-gray-500 font-medium tabular-nums shrink-0">
+                    <span className="text-xs text-muted font-medium tabular-nums shrink-0">
                       {job.period}
                     </span>
                   </div>
                 </button>
                 <ul
-                  className={`mt-4 space-y-2 text-gray-400 text-sm leading-relaxed list-none ${
+                  className={`mt-4 space-y-2 text-muted text-sm leading-relaxed list-none ${
                     isOpen ? "block" : "hidden md:block"
                   }`}
                 >

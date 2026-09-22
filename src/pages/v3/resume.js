@@ -197,7 +197,7 @@ export default function ResumeV3() {
                       </div>
                       <p className="text-[var(--text-muted)] text-sm mt-0.5">{exp.company}</p>
                     </div>
-                    <time className="text-xs text-[var(--text-muted)] font-mono tabular-nums shrink-0 bg-white/[0.04] px-2.5 py-1 rounded-md border border-[var(--glass-border)]">
+                    <time className="text-xs text-[var(--text-muted)] font-mono tabular-nums shrink-0 bg-line/[0.04] px-2.5 py-1 rounded-md border border-[var(--glass-border)]">
                       {exp.period}
                     </time>
                   </div>

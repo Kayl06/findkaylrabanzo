@@ -66,7 +66,7 @@ export default function HomeV3() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={link.name}
-          className="hover:text-white flex items-center p-[10px] transition ease-in-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none text-[var(--text-secondary)]"
+          className="hover:text-ink flex items-center p-[10px] transition ease-in-out hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none text-[var(--text-secondary)]"
         >
           <Icon className="text-[22px]" />
         </Link>
@@ -202,7 +202,7 @@ export default function HomeV3() {
                     href="https://chykalophia.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-accent hover:text-white transition-colors"
+                    className="text-accent hover:text-ink transition-colors"
                   >
                     Chykalophia
                   </a>
@@ -302,7 +302,7 @@ export default function HomeV3() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={link.name}
-                        className="text-[var(--text-muted)] hover:text-white p-2 transition-colors"
+                        className="text-[var(--text-muted)] hover:text-ink p-2 transition-colors"
                       >
                         <Icon className="w-5 h-5" />
                       </Link>

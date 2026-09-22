@@ -3,7 +3,7 @@ import Link from "next/link";
 import Button from "./Button";
 
 const DESKTOP_LINK =
-  "text-[13px] font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors px-3 py-2 rounded-lg hover:bg-white/[0.04] motion-reduce:transition-none capitalize";
+  "text-[13px] font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors px-3 py-2 rounded-lg hover:bg-line/[0.04] motion-reduce:transition-none capitalize";
 
 function handleNavClick(event, closeMenu) {
   closeMenu?.();

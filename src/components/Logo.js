@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function Logo({ onNavigate }) {
+  const { isLight } = useTheme();
+
   return (
     <Link
       href="/"
@@ -9,7 +12,7 @@ export default function Logo({ onNavigate }) {
       aria-label="Home"
     >
       <img
-        src="/images/logo.png"
+        src={isLight ? "/images/logo-light.jpg" : "/images/logo.png"}
         alt=""
         className="h-full w-full object-cover"
       />

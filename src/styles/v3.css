@@ -14,12 +14,31 @@
   --foreground-rgb: 245, 245, 247;
   --background-start-rgb: 11, 13, 18;
   --background-end-rgb: 11, 13, 18;
+  --ink: 245 245 247;
+  --canvas: 11 13 18;
+  --muted: 161 161 170;
+  --line: 255 255 255;
   --header-height: 64px;
+  --header-bg: rgba(11, 13, 18, 0.72);
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
   --surface: rgba(255, 255, 255, 0.04);
   --border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+  --btn-hover-bg: rgba(255, 255, 255, 0.04);
+  --btn-hover-border: rgba(255, 255, 255, 0.25);
+  --hover-icon-bg: rgba(11, 13, 18, 0.24);
+  --hover-icon-border: rgba(255, 255, 255, 0.22);
+  --hover-icon-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  --cursor-bg: rgba(244, 244, 244, 0.24);
+  --cursor-border: rgba(255, 255, 255, 0.22);
+  --cursor-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  --input-bg: rgba(255, 255, 255, 0.04);
+  --ambient-1: rgba(59, 130, 246, 0.12);
+  --ambient-2: rgba(34, 211, 238, 0.06);
+  --ambient-3: rgba(59, 130, 246, 0.05);
+  --hamburger-color: #f5f5f7;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 16px;
@@ -35,6 +54,43 @@
   background-color: var(--bg-base);
   font-feature-settings: "ss01" on;
   overflow-x: clip;
+}
+
+html[data-theme="light"] .v3-root {
+  --bg-base: #f4f6f8;
+  --bg-elevated: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(15, 23, 42, 0.1);
+  --text-primary: #111318;
+  --text-secondary: #3f3f46;
+  --text-muted: #71717a;
+  --accent: 37, 99, 235;
+  --accent-hex: #2563eb;
+  --accent-glow: rgba(37, 99, 235, 0.2);
+  --foreground-rgb: 17, 19, 24;
+  --background-start-rgb: 244, 246, 248;
+  --background-end-rgb: 244, 246, 248;
+  --ink: 17 19 24;
+  --canvas: 244 246 248;
+  --muted: 63 63 70;
+  --line: 0 0 0;
+  --header-bg: rgba(244, 246, 248, 0.8);
+  --surface: rgba(0, 0, 0, 0.04);
+  --border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+  --btn-hover-bg: rgba(15, 23, 42, 0.04);
+  --btn-hover-border: rgba(15, 23, 42, 0.18);
+  --hover-icon-bg: rgba(255, 255, 255, 0.72);
+  --hover-icon-border: rgba(15, 23, 42, 0.12);
+  --hover-icon-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  --cursor-bg: rgba(17, 19, 24, 0.12);
+  --cursor-border: rgba(15, 23, 42, 0.16);
+  --cursor-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+  --input-bg: rgba(255, 255, 255, 0.9);
+  --ambient-1: rgba(37, 99, 235, 0.16);
+  --ambient-2: rgba(14, 165, 233, 0.1);
+  --ambient-3: rgba(37, 99, 235, 0.08);
+  --hamburger-color: #111318;
 }
 
 @media (max-width: 768px) {
@@ -60,9 +116,9 @@
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(59, 130, 246, 0.12), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(34, 211, 238, 0.06), transparent 45%),
-    radial-gradient(ellipse 50% 30% at 50% 100%, rgba(59, 130, 246, 0.05), transparent 50%);
+    radial-gradient(ellipse 80% 50% at 20% -10%, var(--ambient-1), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, var(--ambient-2), transparent 45%),
+    radial-gradient(ellipse 50% 30% at 50% 100%, var(--ambient-3), transparent 50%);
 }
 
 .v3-root .__main > * {
@@ -87,8 +143,8 @@
   overflow-y: auto;
   background-color: var(--bg-base);
   background-image:
-    radial-gradient(ellipse 80% 50% at 20% -10%, rgba(59, 130, 246, 0.12), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(34, 211, 238, 0.06), transparent 45%);
+    radial-gradient(ellipse 80% 50% at 20% -10%, var(--ambient-1), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 90% 10%, var(--ambient-2), transparent 45%);
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -152,7 +208,7 @@
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   border: 1px solid var(--glass-border);
   border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
+  box-shadow: var(--glass-shadow);
 }
 
 @supports not (backdrop-filter: blur(1px)) {
@@ -230,8 +286,8 @@
 .v3-root .btn-ghost-v3:hover {
   transform: translateY(-1px);
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.25);
+  background: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
 }
 
 .v3-root .btn-ghost-v3:hover {
@@ -296,7 +352,7 @@
   height: var(--header-height);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-  background: rgba(11, 13, 18, 0.72);
+  background: var(--header-bg);
   border-bottom: 1px solid var(--glass-border);
 }
 
@@ -474,11 +530,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: rgba(11, 13, 18, 0.24);
+  background: var(--hover-icon-bg);
   backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--hover-icon-border);
+  box-shadow: var(--hover-icon-shadow);
   color: var(--text-primary);
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.7);
@@ -523,7 +579,7 @@
 }
 
 .v3-root .__input-glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--input-bg);
   border: 1px solid var(--glass-border);
   border-radius: 10px;
   color: var(--text-primary);
@@ -549,11 +605,11 @@
   height: 18px;
   border-radius: 9999px;
   pointer-events: none;
-  background: rgba(244, 244, 244, 0.24);
+  background: var(--cursor-bg);
   backdrop-filter: blur(var(--glass-blur)) saturate(180%);
   -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--cursor-border);
+  box-shadow: var(--cursor-shadow);
   opacity: 0;
   will-change: transform, opacity;
   transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);

@@ -48,7 +48,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={link.name}
-          className="hover:text-[#fafafa] flex items-center p-[10px] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform"
+          className="hover:text-ink flex items-center p-[10px] transition ease-in-out delay-100 hover:-translate-y-1 motion-reduce:transition motion-reduce:hover:transform"
         >
           <Icon className="text-[24px]" />
         </Link>
@@ -67,7 +67,7 @@ export default function Home() {
 
         <BotCornerLinks renderedSocialLinks={renderedSocialLinks} email={SITE.email} />
 
-        <div className="__main_section text-md relative flex flex-col text-gray-400 max-w-[1600px] w-full mx-auto px-6 sm:px-[50px] md:px-[100px] lg:px-[150px]">
+        <div className="__main_section text-md relative flex flex-col text-muted max-w-[1600px] w-full mx-auto px-6 sm:px-[50px] md:px-[100px] lg:px-[150px]">
           {/* Hero */}
           <section className={`${SECTION_CLASS} min-h-[85vh] flex flex-col justify-center gap-10 __hero_section`}>
             <div className="__greetings">
@@ -84,10 +84,10 @@ export default function Home() {
                 animate={getHeroAnimate(reducedMotion)}
                 transition={getHeroTransition(reducedMotion, 0.2)}
               >
-                <p className="text-[15px] text-white font-mono mb-6">
+                <p className="text-[15px] text-ink font-mono mb-6">
                   Hi, I&apos;m Fedimar Kayl 👋
                 </p>
-                <h1 className="font-bold text-start leading-none md:leading-[4.5rem] mb-6 __big_heading text-[#e9e9e9]">
+                <h1 className="font-bold text-start leading-none md:leading-[4.5rem] mb-6 __big_heading text-ink">
                   I build fast storefronts and product UIs that convert.
                 </h1>
               </motion.div>
@@ -110,7 +110,7 @@ export default function Home() {
             >
               <a
                 href="#work"
-                className="btn-primary border uppercase rounded-full shadow__btn font-semibold border-cyan-400/40 hover:border-cyan-400 hover:text-white py-3 px-8 text-[13px] text-cyan-400"
+                className="btn-primary border uppercase rounded-full shadow__btn font-semibold border-cyan-400/40 hover:border-cyan-400 hover:text-ink py-3 px-8 text-[13px] text-cyan-400"
               >
                 View my work
               </a>
@@ -118,13 +118,13 @@ export default function Home() {
                 href={SITE.resumePdf}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border uppercase rounded-full shadow__btn font-semibold border-gray-300 hover:border-white hover:text-white py-3 px-8 text-[13px]"
+                className="border uppercase rounded-full shadow__btn font-semibold border-line/40 hover:border-ink hover:text-ink py-3 px-8 text-[13px]"
               >
                 Download resume
               </a>
               <a
                 href="#contact"
-                className="text-sm text-gray-400 hover:text-cyan-400 transition-colors py-3 px-2"
+                className="text-sm text-muted hover:text-cyan-400 transition-colors py-3 px-2"
               >
                 Hire me →
               </a>
@@ -140,7 +140,7 @@ export default function Home() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               Selected Work
             </h2>
             <Works />
@@ -155,14 +155,14 @@ export default function Home() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               About Me
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <p className="mb-4 leading-relaxed">
                   Software developer with{" "}
-                  <strong className="text-white">7+ years of experience</strong> shipping
+                  <strong className="text-ink">7+ years of experience</strong> shipping
                   web applications, SaaS platforms, internal systems, and e-commerce solutions. I care about
                   performance, accessibility, and clean handoffs with design and backend teams.
                 </p>
@@ -194,7 +194,7 @@ export default function Home() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <h2 className="__numbered_heading flex items-center font-bold text-white after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
               Where I&apos;ve Worked
             </h2>
             <ExperienceTimeline />
@@ -211,16 +211,16 @@ export default function Home() {
           >
             <div className="__contact max-w-[720px] mx-auto text-center">
               <p className="text-cyan-400/90 font-mono text-sm mb-4">What&apos;s next?</p>
-              <h2 className="font-black text-4xl md:text-5xl text-white mb-4">Get In Touch</h2>
-              <p className="text-gray-400 mb-10 max-w-[480px] mx-auto">
+              <h2 className="font-black text-4xl md:text-5xl text-ink mb-4">Get In Touch</h2>
+              <p className="text-muted mb-10 max-w-[480px] mx-auto">
                 Have a project in mind or hiring for your team? Book a 30-minute call, or reach out
                 directly.
               </p>
               <CalendlyEmbed />
-              <div className="mt-10 pt-8 border-t border-gray-800 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="mt-10 pt-8 border-t border-line/20 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-sm font-mono text-gray-500 hover:text-cyan-400 transition-colors"
+                  className="text-sm font-mono text-muted hover:text-cyan-400 transition-colors"
                 >
                   {SITE.email}
                 </a>
@@ -228,7 +228,7 @@ export default function Home() {
                   href={SITE.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-gray-400 hover:text-cyan-400 transition-colors"
+                  className="text-sm text-muted hover:text-cyan-400 transition-colors"
                 >
                   LinkedIn →
                 </a>
@@ -243,7 +243,7 @@ export default function Home() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={link.name}
-                        className="text-gray-400 hover:text-white p-2 transition-colors"
+                        className="text-muted hover:text-ink p-2 transition-colors"
                       >
                         <Icon className="w-5 h-5" />
                       </Link>
@@ -255,9 +255,9 @@ export default function Home() {
           </motion.section>
         </div>
 
-        <footer className="text-center flex flex-col gap-4 text-gray-300 py-8">
+        <footer className="text-center flex flex-col gap-4 text-muted py-8">
           <div className="__social_links_mob flex md:hidden justify-center">
-            <ul className="flex gap-[15px] text-gray-400 list-none">{renderedSocialLinks}</ul>
+            <ul className="flex gap-[15px] text-muted list-none">{renderedSocialLinks}</ul>
           </div>
           <Link href="/" className="text-[14px] font-mono hover:text-cyan-400 transition-colors">
             Built by {SITE.name}

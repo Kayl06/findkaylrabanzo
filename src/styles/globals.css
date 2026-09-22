@@ -5,6 +5,10 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
+  --ink: 255 255 255;
+  --canvas: 0 0 0;
+  --muted: 156 163 175;
+  --line: 255 255 255;
   --header-height: 80px;
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
@@ -12,15 +16,34 @@
   --accent: 34, 211, 238;
   --surface: rgba(255, 255, 255, 0.03);
   --border: rgba(255, 255, 255, 0.06);
+  --header-bg: linear-gradient(
+    112.83deg,
+    hsla(0, 0%, 9%, 0.489),
+    hsla(0, 0%, 0%, 0.523) 110.84%
+  );
+  --shadow-btn-bg: rgb(0, 0, 0);
+  --hamburger-color: #ffffff;
+  --fz-xs: 13px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-    --fz-xs: 13px;
-  }
+html[data-theme="light"] {
+  --foreground-rgb: 17, 17, 17;
+  --background-start-rgb: 250, 250, 250;
+  --background-end-rgb: 250, 250, 250;
+  --ink: 17 17 17;
+  --canvas: 250 250 250;
+  --muted: 82 82 91;
+  --line: 0 0 0;
+  --accent: 14, 116, 144;
+  --surface: rgba(0, 0, 0, 0.04);
+  --border: rgba(0, 0, 0, 0.08);
+  --header-bg: linear-gradient(
+    112.83deg,
+    hsla(0, 0%, 100%, 0.82),
+    hsla(210, 20%, 96%, 0.88) 110.84%
+  );
+  --shadow-btn-bg: rgb(250, 250, 250);
+  --hamburger-color: #111111;
 }
 
 html {
@@ -42,11 +65,7 @@ body {
   height: var(--header-height);
   -webkit-backdrop-filter: blur(10.5px);
   backdrop-filter: blur(10.5px);
-  background: linear-gradient(
-    112.83deg,
-    hsla(0, 0%, 9%, 0.489),
-    hsla(0, 0%, 0%, 0.523) 110.84%
-  );
+  background: var(--header-bg);
 }
 
 .__main {
@@ -57,6 +76,10 @@ body {
   background-size: 500px 500px;
 }
 
+html[data-theme="light"] .__main {
+  background-image: none;
+}
+
 .shadow__btn {
   transition: 0.5s;
   transition-property: box-shadow;
@@ -64,7 +87,7 @@ body {
 }
 
 .shadow__btn {
-  background: rgb(0, 0, 0);
+  background: var(--shadow-btn-bg);
   box-shadow: 0 0 20px rgb(127, 127, 127);
 }
 
@@ -96,8 +119,8 @@ body {
   overflow: hidden;
   z-index: 10000;
   padding: 0.75rem 1rem;
-  background: #000;
-  color: #fff;
+  background: rgb(var(--canvas));
+  color: rgb(var(--ink));
   border: 1px solid rgb(var(--accent));
   border-radius: 4px;
 }
@@ -207,13 +230,13 @@ body {
   font-size: clamp(16px, 3vw, 20px);
   font-family: var(--font-mono);
   font-weight: 400;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
+  color: rgb(var(--muted));
 }
 
 .__over-line {
   display: block;
   margin-bottom: 20px;
-  color: white;
+  color: rgb(var(--ink));
   font-size: 16px;
   font-weight: 400;
   text-align: center;
@@ -240,7 +263,7 @@ body {
   font-size: var(--fz-xs);
   white-space: nowrap;
   z-index: 2;
-  color: white;
+  color: rgb(var(--ink));
   /* background: #111926; */
   /* border-radius: 44% 56% 78% 22% / 26% 33% 67% 74%; */
 }
@@ -272,6 +295,11 @@ body {
   object-fit: cover;
 }
 
+.__project_card .__project_image .__image_wrapper {
+  border: 1px solid rgb(var(--line) / 0.1);
+  background: rgb(var(--canvas));
+}
+
 .__project_card .__project_image .__image_wrapper::before {
   content: "";
   position: absolute;
@@ -279,9 +307,23 @@ body {
   height: 100%;
   inset: 0px;
   z-index: 3;
-  transition: var(--transition);
-  background-color: black;
-  mix-blend-mode: screen;
+  transition: opacity 0.25s ease, background-color 0.25s ease;
+  background-color: rgba(34, 211, 238, 0.28);
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  opacity: 1;
+}
+
+html[data-theme="light"] .__project_card .__project_image .__image_wrapper::before {
+  /* Screen + light canvas washed images out — drop blend in light mode */
+  background-color: transparent;
+  mix-blend-mode: normal;
+  opacity: 0;
+}
+
+.__project_card .__project_image .__image_wrapper:hover::before,
+.__project_card .__project_image .__image_wrapper:focus-within::before {
+  opacity: 0;
 }
 
 .__project_card:nth-of-type(2n + 1) .__project_image {
@@ -319,4 +361,14 @@ body {
   background: linear-gradient(112.83deg,#101318b4,#131822 110.84%);
   /* border: 1.5px solid rgb(211, 211, 211); */
   /* box-shadow: 0 7px 23px rgba(17, 17, 17, 0.217); */
+}
+
+html[data-theme="light"] .__project_card .__project_description {
+  background: linear-gradient(
+    112.83deg,
+    rgba(255, 255, 255, 0.96),
+    rgba(244, 246, 248, 0.98) 110.84%
+  );
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.1);
 }

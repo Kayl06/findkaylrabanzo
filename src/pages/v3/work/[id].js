@@ -142,7 +142,7 @@ export default function CaseStudyPage({ project, related }) {
                         className={`relative shrink-0 w-[4.5rem] sm:w-24 aspect-video rounded-lg overflow-hidden border transition-colors ${
                           isActive
                             ? "border-accent ring-2 ring-accent/40"
-                            : "border-[var(--glass-border)] hover:border-white/30"
+                            : "border-[var(--glass-border)] hover:border-line/30"
                         }`}
                       >
                         <Image
@@ -268,9 +268,9 @@ export default function CaseStudyPage({ project, related }) {
                   <Link
                     key={item.id}
                     href={v3WorkHref(item.id)}
-                    className="glass-panel p-4 hover:border-white/20 transition-colors block"
+                    className="glass-panel p-4 hover:border-line/20 transition-colors block"
                   >
-                    <p className="text-white font-medium mb-1">{item.name}</p>
+                    <p className="text-ink font-medium mb-1">{item.name}</p>
                     <p className="text-xs text-[var(--text-muted)] leading-relaxed">
                       {item.tagline || item.description}
                     </p>

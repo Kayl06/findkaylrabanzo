@@ -8,7 +8,7 @@ function Pill({ children, size = "md" }) {
   };
   return (
     <li
-      className={`flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-white/90 transition-colors hover:border-cyan-400/30 hover:bg-cyan-500/5 ${sizes[size]}`}
+      className={`flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] text-ink/90 transition-colors hover:border-cyan-400/30 hover:bg-cyan-500/5 ${sizes[size]}`}
     >
       <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-cyan-400/70" aria-hidden />
       <span>{children}</span>
@@ -23,7 +23,7 @@ export default function SkillsSection() {
         <div key={group.id}>
           <h3
             className={`text-xs font-semibold uppercase tracking-widest mb-3 ${
-              index === 0 ? "text-cyan-400/90" : "text-gray-500"
+              index === 0 ? "text-cyan-400/90" : "text-muted"
             }`}
           >
             {group.title}

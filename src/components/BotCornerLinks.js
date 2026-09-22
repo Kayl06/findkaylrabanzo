@@ -11,9 +11,9 @@ export default function BotCornerLinks({ renderedSocialLinks, email }) {
           delay: 1.2,
           ease: [0, 0.71, 0.2, 1.01],
         }}
-        className="__social_links fixed left-[20px] lg:left-[40px] right-auto bottom-0 after:content-[''] after:h-[90px] z-10 after:mx-auto after:w-[1px] after:bg-white after:block"
+        className="__social_links fixed left-[20px] lg:left-[40px] right-auto bottom-0 after:content-[''] after:h-[90px] z-10 after:mx-auto after:w-[1px] after:bg-ink after:block"
       >
-        <ul className="flex flex-col gap-[15px] text-gray-400">
+        <ul className="flex flex-col gap-[15px] text-muted">
           {renderedSocialLinks}
         </ul>
       </motion.div>
@@ -24,7 +24,7 @@ export default function BotCornerLinks({ renderedSocialLinks, email }) {
           duration: 1,
           delay: 1.1,
           ease: [0, 0.71, 0.2, 1.01],
-        }} className="__mail fixed right-[40px] left-auto bottom-0 after:content-[''] after:h-[90px] z-10 after:mx-auto after:w-[1px] after:bg-white after:block">
+        }} className="__mail fixed right-[40px] left-auto bottom-0 after:content-[''] after:h-[90px] z-10 after:mx-auto after:w-[1px] after:bg-ink after:block">
         <div className="flex flex-col items-center">
           <a
             href="mailto:frabanzoo@gmail.com"

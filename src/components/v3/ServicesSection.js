@@ -37,13 +37,13 @@ export default function ServicesSection() {
         return (
           <GlassPanel
             key={capability.id}
-            className="p-6 flex flex-col gap-4 hover:border-white/20 transition-colors"
+            className="p-6 flex flex-col gap-4 hover:border-line/20 transition-colors"
           >
             <div className="flex items-center gap-3">
               <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-accent/10 text-accent">
                 <Icon className="w-5 h-5" aria-hidden />
               </span>
-              <h3 className="text-white font-semibold text-lg">{capability.title}</h3>
+              <h3 className="text-ink font-semibold text-lg">{capability.title}</h3>
             </div>
             <p className="text-[var(--text-secondary)] text-sm leading-relaxed flex-1">
               {capability.description}
