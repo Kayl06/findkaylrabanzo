@@ -3,7 +3,7 @@ import { SITE } from "@/data/site";
 const EMBED_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL ||
   SITE.calendly ||
-  "https://calendly.com/frabanzoo/30min?hide_gdpr_banner=1&background_color=0b0d12&text_color=f5f5f7&primary_color=3b82f6";
+  "https://calendly.com/frabanzoo/30min?hide_gdpr_banner=1&background_color=0d0e10&text_color=f8fafa&primary_color=c5c6c8";
 
 export default function CalendlyEmbed({ url = EMBED_URL }) {
   if (!url) {

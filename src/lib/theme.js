@@ -3,8 +3,8 @@ export const THEME_DARK = "dark";
 export const THEME_LIGHT = "light";
 
 export const THEME_COLORS = {
-  dark: "#0b0d12",
-  light: "#f4f6f8",
+  dark: "#0d0e10",
+  light: "#f8fafa",
 };
 
 export function getStoredTheme() {

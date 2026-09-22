@@ -17,8 +17,8 @@ export const SKILLS = {
 
 export const SKILL_CATEGORIES = [
   { id: "frontend", title: "Frontend", items: SKILLS.frontend },
-  { id: "shopify", title: "Shopify", items: SKILLS.shopify },
   { id: "backend", title: "Backend", items: SKILLS.backend },
+  { id: "shopify", title: "Shopify", items: SKILLS.shopify },
   { id: "database", title: "Database", items: SKILLS.database },
   { id: "tools", title: "Tools", items: SKILLS.tools },
   { id: "ai", title: "AI Development", items: SKILLS.ai },

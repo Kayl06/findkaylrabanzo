@@ -106,7 +106,7 @@ export default function HomeV3() {
                   Hi, I&apos;m Fedimar Kayl
                 </p>
                 <h1 className="font-bold text-start leading-tight md:leading-[1.1] mb-6 __big_heading text-[var(--text-primary)]">
-                  I build fast, scalable storefronts and SaaS products.
+                  I build full-stack web apps and Shopify storefronts.
                 </h1>
               </motion.div>
               <motion.p
@@ -115,8 +115,8 @@ export default function HomeV3() {
                 transition={getHeroTransition(reducedMotion, 0.35)}
                 className="lg:max-w-[560px] leading-relaxed text-[17px]"
               >
-                7+ years building production web applications, Shopify storefronts, SaaS
-                platforms, and internal tools with React, Next.js, TypeScript, and modern APIs.
+                7+ years building production web applications across React, Next.js, TypeScript,
+                and Laravel, including Shopify storefronts, SaaS platforms, and internal tools.
               </motion.p>
             </div>
 
@@ -184,16 +184,14 @@ export default function HomeV3() {
               <div>
                 <p className="mb-4 leading-relaxed">
                   I&apos;m a{" "}
-                  <strong className="text-[var(--text-primary)]">
-                    Senior Frontend &amp; Shopify Developer
-                  </strong>{" "}
-                  with 7+ years of experience building production web applications, SaaS products,
-                  and e-commerce experiences.
+                  <strong className="text-[var(--text-primary)]">{V3_TITLE}</strong> with 7+ years
+                  of experience building production web applications, SaaS products, and e-commerce
+                  experiences.
                 </p>
                 <p className="mb-4 leading-relaxed">
-                  My strongest areas are React, Next.js, TypeScript, Shopify, and modern API-driven
-                  applications. I also have backend experience with Laravel, Node.js, and SQL, so I
-                  can work across the stack when the product needs it.
+                  I build across the stack: React, Next.js, and TypeScript on the frontend, Laravel,
+                  Node.js, and SQL on the backend, with a specialization in Shopify themes, Online
+                  Store 2.0, and storefronts.
                 </p>
                 <p className="mb-6 leading-relaxed">
                   Recently I&apos;ve been shipping freelance work for e-commerce and SaaS clients,
@@ -226,8 +224,7 @@ export default function HomeV3() {
               Where I&apos;ve Worked
             </h2>
             <p className="mb-8 text-[15px] leading-relaxed max-w-[62ch]">
-              <strong className="text-[var(--text-primary)]">7+ years</strong> of software
-              development ·{" "}
+              <strong className="text-[var(--text-primary)]">7+ years</strong> of web development ·{" "}
               <strong className="text-[var(--text-primary)]">3+ years</strong> of Shopify
               development · production SaaS, e-commerce, and internal applications.
             </p>
@@ -262,7 +259,8 @@ export default function HomeV3() {
                 Open to opportunities
               </h2>
               <p className="text-[var(--text-secondary)] mb-8 max-w-[480px] mx-auto">
-                I&apos;m open to remote Frontend, Shopify, and Software Engineering opportunities.
+                I&apos;m open to remote full-stack, frontend, Shopify, and software engineering
+                roles.
               </p>
               <div className="flex flex-wrap gap-3 items-center justify-center mb-10">
                 <Button variant="primary" href={V3_RESUME_PDF}>

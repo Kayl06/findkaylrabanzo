@@ -1,12 +1,15 @@
 export const V3_BASE = "/v3";
 
-export const V3_TITLE = "Senior Frontend & Shopify Developer";
-export const V3_RESUME_HEADLINE = "Senior Frontend & Shopify Developer";
+export const V3_TITLE = "Mid-Senior Full-Stack Web Developer & Shopify Developer";
+export const V3_RESUME_HEADLINE = "Mid-Senior Full-Stack Web Developer & Shopify Developer";
 
 export const V3_DESCRIPTION =
-  "Senior Frontend & Shopify Developer with 7+ years of experience building React, Next.js, TypeScript, Shopify, SaaS, and full-stack web applications.";
+  "Mid-Senior Full-Stack Web Developer & Shopify Developer with 7+ years building React, Next.js, TypeScript, Laravel, SaaS products, and Shopify storefronts.";
 
-export const V3_RESUME_PDF = "/files/Fedimar_Kayl_Rabanzo_Front_End_Engineer_CV.pdf";
+export const V3_KEYWORDS =
+  "Kayl Rabanzo, Fedimar Kayl Rabanzo, Full-Stack Web Developer, Full Stack Developer, Senior Frontend Developer, Shopify Developer, Shopify Theme Developer, E-commerce Developer, React, Next.js, Laravel";
+
+export const V3_RESUME_PDF = "/files/Fedimar_Kayl_Rabanzo_Fullstack.pdf";
 
 export const V3_NAV_LINKS = [
   { path: "#work", name: "Work" },

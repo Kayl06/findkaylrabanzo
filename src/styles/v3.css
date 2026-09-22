@@ -1,44 +1,44 @@
 /* V3 design system — scoped so legacy routes at / stay unchanged */
 .v3-root {
-  --bg-base: #0b0d12;
-  --bg-elevated: #12151c;
-  --glass-bg: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --text-primary: #f5f5f7;
-  --text-secondary: #a1a1aa;
-  --text-muted: #71717a;
-  --accent: 59, 130, 246;
-  --accent-hex: #3b82f6;
-  --accent-secondary: 34, 211, 238;
-  --accent-glow: rgba(59, 130, 246, 0.25);
-  --foreground-rgb: 245, 245, 247;
-  --background-start-rgb: 11, 13, 18;
-  --background-end-rgb: 11, 13, 18;
-  --ink: 245 245 247;
-  --canvas: 11 13 18;
-  --muted: 161 161 170;
-  --line: 255 255 255;
+  --bg-base: #0d0e10;
+  --bg-elevated: #282728;
+  --glass-bg: rgba(248, 250, 250, 0.06);
+  --glass-border: rgba(248, 250, 250, 0.1);
+  --text-primary: #f8fafa;
+  --text-secondary: #c5c6c8;
+  --text-muted: #818283;
+  --accent: 197, 198, 200;
+  --accent-hex: #c5c6c8;
+  --accent-secondary: 129, 130, 131;
+  --accent-glow: rgba(197, 198, 200, 0.22);
+  --foreground-rgb: 248, 250, 250;
+  --background-start-rgb: 13, 14, 16;
+  --background-end-rgb: 13, 14, 16;
+  --ink: 248 250 250;
+  --canvas: 13 14 16;
+  --muted: 129 130 131;
+  --line: 248 250 250;
   --header-height: 64px;
-  --header-bg: rgba(11, 13, 18, 0.72);
+  --header-bg: rgba(13, 14, 16, 0.78);
   --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
   --font-mono: var(--font-jetbrains), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
-  --surface: rgba(255, 255, 255, 0.04);
-  --border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.24);
-  --btn-hover-bg: rgba(255, 255, 255, 0.04);
-  --btn-hover-border: rgba(255, 255, 255, 0.25);
-  --hover-icon-bg: rgba(11, 13, 18, 0.24);
-  --hover-icon-border: rgba(255, 255, 255, 0.22);
-  --hover-icon-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
-  --cursor-bg: rgba(244, 244, 244, 0.24);
-  --cursor-border: rgba(255, 255, 255, 0.22);
-  --cursor-shadow: 0 8px 20px rgba(0, 0, 0, 0.28);
-  --input-bg: rgba(255, 255, 255, 0.04);
-  --ambient-1: rgba(59, 130, 246, 0.12);
-  --ambient-2: rgba(34, 211, 238, 0.06);
-  --ambient-3: rgba(59, 130, 246, 0.05);
-  --hamburger-color: #f5f5f7;
+  --surface: rgba(248, 250, 250, 0.04);
+  --border: rgba(248, 250, 250, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
+  --btn-hover-bg: rgba(248, 250, 250, 0.06);
+  --btn-hover-border: rgba(197, 198, 200, 0.35);
+  --hover-icon-bg: rgba(13, 14, 16, 0.4);
+  --hover-icon-border: rgba(197, 198, 200, 0.28);
+  --hover-icon-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --cursor-bg: rgba(197, 198, 200, 0.28);
+  --cursor-border: rgba(248, 250, 250, 0.22);
+  --cursor-shadow: 0 8px 20px rgba(0, 0, 0, 0.32);
+  --input-bg: rgba(248, 250, 250, 0.04);
+  --ambient-1: rgba(197, 198, 200, 0.08);
+  --ambient-2: rgba(79, 80, 82, 0.18);
+  --ambient-3: rgba(40, 39, 40, 0.45);
+  --hamburger-color: #f8fafa;
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 16px;
@@ -57,40 +57,40 @@
 }
 
 html[data-theme="light"] .v3-root {
-  --bg-base: #f4f6f8;
+  --bg-base: #f8fafa;
   --bg-elevated: #ffffff;
-  --glass-bg: rgba(255, 255, 255, 0.72);
-  --glass-border: rgba(15, 23, 42, 0.1);
-  --text-primary: #111318;
-  --text-secondary: #3f3f46;
-  --text-muted: #71717a;
-  --accent: 37, 99, 235;
-  --accent-hex: #2563eb;
-  --accent-glow: rgba(37, 99, 235, 0.2);
-  --foreground-rgb: 17, 19, 24;
-  --background-start-rgb: 244, 246, 248;
-  --background-end-rgb: 244, 246, 248;
-  --ink: 17 19 24;
-  --canvas: 244 246 248;
-  --muted: 63 63 70;
-  --line: 0 0 0;
-  --header-bg: rgba(244, 246, 248, 0.8);
-  --surface: rgba(0, 0, 0, 0.04);
-  --border: rgba(0, 0, 0, 0.08);
-  --glass-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
-  --btn-hover-bg: rgba(15, 23, 42, 0.04);
-  --btn-hover-border: rgba(15, 23, 42, 0.18);
-  --hover-icon-bg: rgba(255, 255, 255, 0.72);
-  --hover-icon-border: rgba(15, 23, 42, 0.12);
-  --hover-icon-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
-  --cursor-bg: rgba(17, 19, 24, 0.12);
-  --cursor-border: rgba(15, 23, 42, 0.16);
-  --cursor-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
-  --input-bg: rgba(255, 255, 255, 0.9);
-  --ambient-1: rgba(37, 99, 235, 0.16);
-  --ambient-2: rgba(14, 165, 233, 0.1);
-  --ambient-3: rgba(37, 99, 235, 0.08);
-  --hamburger-color: #111318;
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(13, 14, 16, 0.1);
+  --text-primary: #0d0e10;
+  --text-secondary: #4f5052;
+  --text-muted: #818283;
+  --accent: 79, 80, 82;
+  --accent-hex: #4f5052;
+  --accent-glow: rgba(79, 80, 82, 0.18);
+  --foreground-rgb: 13, 14, 16;
+  --background-start-rgb: 248, 250, 250;
+  --background-end-rgb: 248, 250, 250;
+  --ink: 13 14 16;
+  --canvas: 248 250 250;
+  --muted: 79 80 82;
+  --line: 13 14 16;
+  --header-bg: rgba(248, 250, 250, 0.86);
+  --surface: rgba(13, 14, 16, 0.04);
+  --border: rgba(13, 14, 16, 0.08);
+  --glass-shadow: 0 8px 32px rgba(13, 14, 16, 0.08);
+  --btn-hover-bg: rgba(13, 14, 16, 0.04);
+  --btn-hover-border: rgba(13, 14, 16, 0.18);
+  --hover-icon-bg: rgba(255, 255, 255, 0.78);
+  --hover-icon-border: rgba(13, 14, 16, 0.12);
+  --hover-icon-shadow: 0 8px 24px rgba(13, 14, 16, 0.1);
+  --cursor-bg: rgba(13, 14, 16, 0.12);
+  --cursor-border: rgba(13, 14, 16, 0.16);
+  --cursor-shadow: 0 8px 20px rgba(13, 14, 16, 0.1);
+  --input-bg: rgba(255, 255, 255, 0.92);
+  --ambient-1: rgba(197, 198, 200, 0.35);
+  --ambient-2: rgba(129, 130, 131, 0.12);
+  --ambient-3: rgba(79, 80, 82, 0.08);
+  --hamburger-color: #0d0e10;
 }
 
 @media (max-width: 768px) {
@@ -261,9 +261,16 @@ html[data-theme="light"] .v3-root {
 }
 
 .v3-root .btn-primary-v3 {
-  background: var(--accent-hex);
-  color: #fff;
+  background: #0d0e10;
+  color: #f8fafa;
+  border-color: #c5c6c8;
   box-shadow: 0 0 0 0 var(--accent-glow);
+}
+
+html[data-theme="light"] .v3-root .btn-primary-v3 {
+  background: #0d0e10;
+  color: #f8fafa;
+  border-color: #0d0e10;
 }
 
 .v3-root .btn-secondary-v3 {
@@ -309,10 +316,17 @@ html[data-theme="light"] .v3-root {
 
 .v3-root .btn-primary-v3[aria-pressed="true"],
 .v3-root .btn-secondary-v3[aria-pressed="true"] {
-  background: var(--accent-hex);
-  color: #fff;
-  border-color: transparent;
+  background: #0d0e10;
+  color: #f8fafa;
+  border-color: #c5c6c8;
   box-shadow: none;
+}
+
+html[data-theme="light"] .v3-root .btn-primary-v3[aria-pressed="true"],
+html[data-theme="light"] .v3-root .btn-secondary-v3[aria-pressed="true"] {
+  background: #0d0e10;
+  color: #f8fafa;
+  border-color: #0d0e10;
 }
 
 .v3-root .btn-primary-v3:disabled,

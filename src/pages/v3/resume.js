@@ -15,7 +15,7 @@ import {
   FiExternalLink,
 } from "react-icons/fi";
 import { SITE } from "@/data/site";
-import { V3_BASE, v3Href, V3_RESUME_PDF, V3_RESUME_HEADLINE } from "@/lib/v3";
+import { V3_BASE, v3Href, V3_RESUME_PDF, V3_RESUME_HEADLINE, V3_DESCRIPTION } from "@/lib/v3";
 import V3Layout from "@/layouts/V3Layout";
 import {
   RESUME_SUMMARY,
@@ -53,8 +53,8 @@ export default function ResumeV3() {
   return (
     <V3Layout>
       <SiteMeta
-        title={`${SITE.shortName} — Resume`}
-        description={RESUME_SUMMARY.slice(0, 155) + "…"}
+        title={`${SITE.shortName} — ${V3_RESUME_HEADLINE}`}
+        description={V3_DESCRIPTION}
         path={`${V3_BASE}/resume`}
       />
       <main id="main-content" className="relative flex min-h-screen flex-col __main pb-24 md:pb-28">

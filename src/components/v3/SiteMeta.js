@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { SITE } from "@/data/site";
-import { V3_TITLE, V3_DESCRIPTION } from "@/lib/v3";
+import { V3_TITLE, V3_DESCRIPTION, V3_KEYWORDS } from "@/lib/v3";
 
 export default function SiteMeta({
   title = `${SITE.shortName} — ${V3_TITLE}`,
@@ -15,6 +15,7 @@ export default function SiteMeta({
     <Head>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="keywords" content={V3_KEYWORDS} />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="icon" href="/images/logo.png" type="image/png" />
       <link rel="canonical" href={url} />

@@ -10,12 +10,12 @@ module.exports = {
     extend: {
       colors: {
         accent: {
-          DEFAULT: "#3b82f6",
-          glow: "rgba(59, 130, 246, 0.25)",
+          DEFAULT: "rgb(var(--accent) / <alpha-value>)",
+          glow: "rgba(var(--accent), 0.22)",
         },
         surface: {
-          base: "#0b0d12",
-          elevated: "#12151c",
+          base: "#0d0e10",
+          elevated: "#282728",
         },
         ink: "rgb(var(--ink) / <alpha-value>)",
         canvas: "rgb(var(--canvas) / <alpha-value>)",

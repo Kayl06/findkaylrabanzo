@@ -4,6 +4,14 @@ import Button from "./Button";
 
 const CAPABILITIES = [
   {
+    id: "fullstack",
+    icon: FiLayers,
+    title: "Full-Stack Development",
+    description:
+      "React and Next.js applications with Laravel, Node.js, REST APIs, databases, authentication, and integrations, including SaaS and internal tools.",
+    filter: "Full-stack",
+  },
+  {
     id: "frontend",
     icon: FiCode,
     title: "Frontend Engineering",
@@ -18,14 +26,6 @@ const CAPABILITIES = [
     description:
       "Shopify Online Store 2.0, Liquid, custom themes, reusable sections, storefront features, performance, and conversion-focused UX.",
     filter: "Shopify",
-  },
-  {
-    id: "fullstack",
-    icon: FiLayers,
-    title: "Full-Stack & SaaS",
-    description:
-      "Laravel, Node.js, REST APIs, databases, authentication, integrations, and multi-tenant SaaS applications.",
-    filter: "Full-stack",
   },
 ];
 

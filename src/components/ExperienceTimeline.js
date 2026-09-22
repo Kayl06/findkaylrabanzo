@@ -20,7 +20,7 @@ export default function ExperienceTimeline() {
               <span
                 className={`absolute left-0 top-6 hidden md:block h-3.5 w-3.5 rounded-full border-2 ${
                   job.current
-                    ? "border-cyan-400 bg-cyan-400/20"
+                    ? "border-accent bg-accent/20"
                     : "border-line/40 bg-canvas"
                 }`}
                 aria-hidden
@@ -28,7 +28,7 @@ export default function ExperienceTimeline() {
               <article
                 className={`rounded-xl border p-5 sm:p-6 transition-colors ${
                   job.current
-                    ? "border-cyan-400/30 bg-cyan-500/5"
+                    ? "border-accent/30 bg-accent/5"
                     : "border-[var(--border)] bg-[var(--surface)] hover:border-line/10"
                 }`}
               >
@@ -47,7 +47,7 @@ export default function ExperienceTimeline() {
                             href={job.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="hover:text-cyan-400 transition-colors"
+                            className="hover:text-accent transition-colors"
                             onClick={(e) => e.stopPropagation()}
                           >
                             {job.company}
@@ -56,7 +56,7 @@ export default function ExperienceTimeline() {
                           job.company
                         )}
                         {job.current && (
-                          <span className="ml-2 text-xs text-cyan-400/90 uppercase tracking-wide">
+                          <span className="ml-2 text-xs text-accent/90 uppercase tracking-wide">
                             Current
                           </span>
                         )}
@@ -74,7 +74,7 @@ export default function ExperienceTimeline() {
                 >
                   {job.bullets.map((bullet, i) => (
                     <li key={i} className="flex gap-2 pl-0">
-                      <span className="text-cyan-500/70 shrink-0">▹</span>
+                      <span className="text-accent/70 shrink-0">▹</span>
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -85,7 +85,7 @@ export default function ExperienceTimeline() {
         })}
       </ul>
       <p className="mt-6 text-sm text-muted">
-        <Link href="/resume" className="text-cyan-400/90 hover:text-cyan-400 transition-colors">
+        <Link href="/resume" className="text-accent/90 hover:text-accent transition-colors">
           View full resume →
         </Link>
       </p>

@@ -33,8 +33,8 @@ const sectionVariant = {
 
 function SectionTitle({ children }) {
   return (
-    <h2 className="text-xs font-semibold text-cyan-400 uppercase tracking-[0.2em] mb-5 flex items-center gap-3">
-      <span className="h-px flex-1 max-w-[40px] bg-cyan-400/40" aria-hidden />
+    <h2 className="text-xs font-semibold text-accent uppercase tracking-[0.2em] mb-5 flex items-center gap-3">
+      <span className="h-px flex-1 max-w-[40px] bg-accent/40" aria-hidden />
       {children}
     </h2>
   );
@@ -48,7 +48,7 @@ export default function Resume() {
     <>
       <SiteMeta
         title={`${SITE.resumeHeadline} — ${SITE.name}`}
-        description={RESUME_SUMMARY.slice(0, 155) + "…"}
+        description={SITE.description}
         path="/resume"
       />
       <main className="relative flex min-h-screen flex-col __main">
@@ -66,7 +66,7 @@ export default function Resume() {
               href={SITE.resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-500 text-black hover:bg-cyan-400 font-semibold py-2.5 px-5 text-xs uppercase tracking-wider transition-colors w-full sm:w-auto justify-center"
+              className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas hover:bg-ink/90 font-semibold py-2.5 px-5 text-xs uppercase tracking-wider transition-colors w-full sm:w-auto justify-center"
             >
               <FiDownload className="w-4 h-4" /> Download PDF
             </a>
@@ -81,7 +81,7 @@ export default function Resume() {
             transition={{ duration: 0.4 }}
             className="mb-12"
           >
-            <p className="text-cyan-400 font-mono text-sm tracking-widest uppercase mb-3">
+            <p className="text-accent font-mono text-sm tracking-widest uppercase mb-3">
               {SITE.resumeHeadline}
             </p>
             <h1 className="text-3xl sm:text-4xl font-bold text-ink tracking-tight mb-2">
@@ -96,7 +96,7 @@ export default function Resume() {
               {RESUME_HIGHLIGHTS.map((tag) => (
                 <span
                   key={tag}
-                  className="text-xs font-medium px-3 py-1.5 rounded-full border border-cyan-400/25 bg-cyan-500/10 text-cyan-300/90"
+                  className="text-xs font-medium px-3 py-1.5 rounded-full border border-accent/25 bg-accent/10 text-accent/90"
                 >
                   {tag}
                 </span>
@@ -106,7 +106,7 @@ export default function Resume() {
             <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm">
               <a
                 href={`mailto:${SITE.email}`}
-                className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
               >
                 <FiMail className="text-muted" /> {SITE.email}
               </a>
@@ -114,7 +114,7 @@ export default function Resume() {
                 href={SITE.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
               >
                 <FiGlobe className="text-muted" /> Portfolio
               </a>
@@ -122,13 +122,13 @@ export default function Resume() {
                 href={SITE.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 hover:text-cyan-400 transition-colors"
+                className="inline-flex items-center gap-2 hover:text-accent transition-colors"
               >
                 <FiGithub className="text-muted" /> GitHub
               </a>
               <Link
                 href="/#work"
-                className="inline-flex items-center gap-1 hover:text-cyan-400 transition-colors"
+                className="inline-flex items-center gap-1 hover:text-accent transition-colors"
               >
                 View live work <FiExternalLink className="w-3.5 h-3.5" />
               </Link>
@@ -141,7 +141,7 @@ export default function Resume() {
             initial="offscreen"
             whileInView="onscreen"
             viewport={defaultViewport}
-            className="mb-14 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-cyan-500/5 to-transparent p-6 sm:p-8"
+            className="mb-14 rounded-2xl border border-[var(--border)] bg-gradient-to-br from-accent/5 to-transparent p-6 sm:p-8"
           >
             <SectionTitle>Professional summary</SectionTitle>
             <p className="text-muted leading-[1.8] text-[17px] max-w-[70ch]">
@@ -196,7 +196,7 @@ export default function Resume() {
                   key={i}
                   className={`rounded-xl border p-5 sm:p-6 transition-colors ${
                     exp.current
-                      ? "border-cyan-400/35 bg-cyan-500/[0.06] ring-1 ring-cyan-400/10"
+                      ? "border-accent/35 bg-accent/[0.06] ring-1 ring-accent/10"
                       : "border-[var(--border)] bg-[var(--surface)] hover:border-line/10"
                   }`}
                 >
@@ -205,7 +205,7 @@ export default function Resume() {
                       <div className="flex items-center gap-2 flex-wrap">
                         <h3 className="text-ink font-semibold text-lg">{exp.role}</h3>
                         {exp.current && (
-                          <span className="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-cyan-400 text-black">
+                          <span className="text-[10px] uppercase tracking-wider font-bold px-2 py-0.5 rounded-full bg-accent text-canvas">
                             Current
                           </span>
                         )}
@@ -219,7 +219,7 @@ export default function Resume() {
                   <ul className="space-y-2.5 list-none">
                     {exp.bullets.map((bullet, j) => (
                       <li key={j} className="flex gap-3 text-[15px] leading-relaxed text-muted">
-                        <span className="text-cyan-400 mt-1.5 shrink-0 text-[8px]" aria-hidden>
+                        <span className="text-accent mt-1.5 shrink-0 text-[8px]" aria-hidden>
                           ●
                         </span>
                         <span>{bullet}</span>
@@ -244,7 +244,7 @@ export default function Resume() {
               {featuredProjects.map((proj) => (
                 <div
                   key={proj.name}
-                  className="rounded-xl border border-cyan-400/20 bg-[var(--surface)] p-5 flex flex-col"
+                  className="rounded-xl border border-accent/20 bg-[var(--surface)] p-5 flex flex-col"
                 >
                   <h3 className="text-ink font-semibold mb-2">{proj.name}</h3>
                   <p className="text-sm text-muted leading-relaxed mb-4 flex-1">
@@ -254,7 +254,7 @@ export default function Resume() {
                     {proj.techs.map((t) => (
                       <span
                         key={t}
-                        className="text-[10px] uppercase tracking-wide px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400/90 border border-cyan-400/15"
+                        className="text-[10px] uppercase tracking-wide px-2 py-0.5 rounded bg-accent/10 text-accent/90 border border-accent/15"
                       >
                         {t}
                       </span>
@@ -267,7 +267,7 @@ export default function Resume() {
               <details className="group rounded-xl border border-[var(--border)] bg-[var(--surface)]">
                 <summary className="cursor-pointer px-5 py-4 text-sm font-medium text-muted hover:text-ink list-none flex items-center justify-between">
                   More projects
-                  <span className="text-cyan-400/80 group-open:rotate-180 transition-transform text-xs">
+                  <span className="text-accent/80 group-open:rotate-180 transition-transform text-xs">
                     ▼
                   </span>
                 </summary>
@@ -344,13 +344,13 @@ export default function Resume() {
               href={SITE.resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-cyan-500 text-black hover:bg-cyan-400 font-semibold py-3.5 px-8 text-sm uppercase tracking-wider transition-colors"
+              className="inline-flex items-center gap-2 rounded-full bg-ink text-canvas hover:bg-ink/90 font-semibold py-3.5 px-8 text-sm uppercase tracking-wider transition-colors"
             >
               <FiDownload /> Download full PDF
             </a>
             <Link
               href="/#contact"
-              className="text-muted hover:text-cyan-400 transition-colors text-sm font-medium"
+              className="text-muted hover:text-accent transition-colors text-sm font-medium"
             >
               Contact for opportunities →
             </Link>

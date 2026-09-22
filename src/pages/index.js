@@ -75,7 +75,7 @@ export default function Home() {
                 initial={getHeroInitial(reducedMotion)}
                 animate={getHeroAnimate(reducedMotion)}
                 transition={getHeroTransition(reducedMotion, 0.1)}
-                className="text-[15px] text-cyan-400/90 font-mono mb-4"
+                className="text-[15px] text-accent/90 font-mono mb-4"
               >
                 {SITE.title}
               </motion.p>
@@ -88,7 +88,7 @@ export default function Home() {
                   Hi, I&apos;m Fedimar Kayl 👋
                 </p>
                 <h1 className="font-bold text-start leading-none md:leading-[4.5rem] mb-6 __big_heading text-ink">
-                  I build fast storefronts and product UIs that convert.
+                  I build full-stack products and Shopify storefronts.
                 </h1>
               </motion.div>
               <motion.p
@@ -97,9 +97,9 @@ export default function Home() {
                 transition={getHeroTransition(reducedMotion, 0.35)}
                 className="lg:max-w-[540px] leading-relaxed"
               >
-                Software developer with 7+ years building web applications, SaaS platforms, and
-                e-commerce solutions in React, Next.js, TypeScript, and REST APIs. Available for
-                full-time roles and selective freelance projects.
+                Full-stack web developer with 7+ years building web applications, SaaS platforms,
+                and Shopify storefronts in React, Next.js, TypeScript, Laravel, and REST APIs.
+                Available for full-time roles and selective freelance projects.
               </motion.p>
             </div>
             <motion.div
@@ -110,7 +110,7 @@ export default function Home() {
             >
               <a
                 href="#work"
-                className="btn-primary border uppercase rounded-full shadow__btn font-semibold border-cyan-400/40 hover:border-cyan-400 hover:text-ink py-3 px-8 text-[13px] text-cyan-400"
+                className="btn-primary border uppercase rounded-full shadow__btn font-semibold border-accent/40 hover:border-accent hover:text-ink py-3 px-8 text-[13px] text-accent"
               >
                 View my work
               </a>
@@ -124,7 +124,7 @@ export default function Home() {
               </a>
               <a
                 href="#contact"
-                className="text-sm text-muted hover:text-cyan-400 transition-colors py-3 px-2"
+                className="text-sm text-muted hover:text-accent transition-colors py-3 px-2"
               >
                 Hire me →
               </a>
@@ -140,7 +140,7 @@ export default function Home() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#8182839d] after:h-[1px]">
               Selected Work
             </h2>
             <Works />
@@ -155,16 +155,17 @@ export default function Home() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#8182839d] after:h-[1px]">
               About Me
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
               <div>
                 <p className="mb-4 leading-relaxed">
-                  Software developer with{" "}
-                  <strong className="text-ink">7+ years of experience</strong> shipping
-                  web applications, SaaS platforms, internal systems, and e-commerce solutions. I care about
-                  performance, accessibility, and clean handoffs with design and backend teams.
+                  Full-stack web developer with{" "}
+                  <strong className="text-ink">7+ years of experience</strong> shipping web
+                  applications, SaaS platforms, internal systems, and Shopify storefronts. I care
+                  about performance, accessibility, and working closely with design and product
+                  teams.
                 </p>
                 <p className="mb-6 leading-relaxed">
                   Currently shipping freelance work for e-commerce and SaaS clients, after building
@@ -173,11 +174,11 @@ export default function Home() {
                     href="https://chykalophia.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-cyan-400/90 hover:text-cyan-400"
+                    className="text-accent/90 hover:text-accent"
                   >
                     Chykalophia
                   </a>
-                  . Here&apos;s what I work with most:
+                  . Here&apos;s what I work with across the stack:
                 </p>
                 <SkillsSection />
               </div>
@@ -194,7 +195,7 @@ export default function Home() {
             viewport={defaultViewport}
             variants={sectionVariant}
           >
-            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#9898989d] after:h-[1px]">
+            <h2 className="__numbered_heading flex items-center font-bold text-ink after:ml-[10px] after:w-[200px] after:bg-[#8182839d] after:h-[1px]">
               Where I&apos;ve Worked
             </h2>
             <ExperienceTimeline />
@@ -210,7 +211,7 @@ export default function Home() {
             variants={sectionVariant}
           >
             <div className="__contact max-w-[720px] mx-auto text-center">
-              <p className="text-cyan-400/90 font-mono text-sm mb-4">What&apos;s next?</p>
+              <p className="text-accent/90 font-mono text-sm mb-4">What&apos;s next?</p>
               <h2 className="font-black text-4xl md:text-5xl text-ink mb-4">Get In Touch</h2>
               <p className="text-muted mb-10 max-w-[480px] mx-auto">
                 Have a project in mind or hiring for your team? Book a 30-minute call, or reach out
@@ -220,7 +221,7 @@ export default function Home() {
               <div className="mt-10 pt-8 border-t border-line/20 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={`mailto:${SITE.email}`}
-                  className="text-sm font-mono text-muted hover:text-cyan-400 transition-colors"
+                  className="text-sm font-mono text-muted hover:text-accent transition-colors"
                 >
                   {SITE.email}
                 </a>
@@ -228,7 +229,7 @@ export default function Home() {
                   href={SITE.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-muted hover:text-cyan-400 transition-colors"
+                  className="text-sm text-muted hover:text-accent transition-colors"
                 >
                   LinkedIn →
                 </a>
@@ -259,7 +260,7 @@ export default function Home() {
           <div className="__social_links_mob flex md:hidden justify-center">
             <ul className="flex gap-[15px] text-muted list-none">{renderedSocialLinks}</ul>
           </div>
-          <Link href="/" className="text-[14px] font-mono hover:text-cyan-400 transition-colors">
+          <Link href="/" className="text-[14px] font-mono hover:text-accent transition-colors">
             Built by {SITE.name}
           </Link>
         </footer>

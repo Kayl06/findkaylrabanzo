@@ -119,7 +119,7 @@ export const PROJECTS = [
     featured: true,
     priority: 2,
     category: "Shopify",
-    role: "Front-End / Shopify Developer",
+    role: "Shopify Developer",
     privateSource: true,
     techs: ["Shopify", "Liquid", "JavaScript", "Online Store 2.0", "Tailwind CSS", "AlpineJS"],
     keyWork: [
@@ -134,7 +134,7 @@ export const PROJECTS = [
         "E-commerce storefront for Odd Pieces, a mystery-puzzle brand with story-driven jigsaw puzzles, hidden clues, and secret endings. The live store supports a brand carried in 600+ US retail stores with a community of 280k+ puzzlers.",
       problem:
         "Odd Pieces needed a Shopify storefront that matched their story-driven brand—custom gifting flows, mobile-first UX, and a theme that could carry complex product narratives rather than a generic catalog layout.",
-      role: "Front-End / Shopify Developer. Implemented custom theme work, gifting UX, and storefront interactions.",
+      role: "Shopify Developer. Implemented custom theme work, gifting UX, and storefront interactions.",
       whatIBuilt: [
         "Custom Liquid sections for product storytelling and gift messaging",
         "Interactive JavaScript features for puzzle discovery and add-to-cart flows",
@@ -335,7 +335,7 @@ export const PROJECTS = [
     priority: 5,
     v3Only: true,
     category: "Shopify",
-    role: "Front-End / Shopify Developer",
+    role: "Shopify Developer",
     privateSource: true,
     techs: ["Shopify", "Liquid", "JavaScript", "Online Store 2.0", "Custom Theme"],
     keyWork: [
@@ -350,7 +350,7 @@ export const PROJECTS = [
         "Premium activewear Shopify store with seasonal drops, shop-the-look bundles, fabric education, and multi-currency checkout for leggings, bras, and lifestyle apparel.",
       problem:
         "Agent84 needed a Shopify storefront that could merchandize seasonal drops, shoppable lookbooks, and coordinated sets without losing a premium, editorial feel from homepage through checkout.",
-      role: "Front-End / Shopify Developer. Implemented custom theme sections, merchandising UI, and cart interactions.",
+      role: "Shopify Developer. Implemented custom theme sections, merchandising UI, and cart interactions.",
       whatIBuilt: [
         "Custom Liquid sections for campaign landings, two-column heroes, and drop-specific carousels",
         "Shoppable galleries with product hotspots and a Complete the look bundle modal",
@@ -424,7 +424,7 @@ export const PROJECTS = [
     priority: 6,
     v3Only: true,
     category: "Shopify",
-    role: "Front-End / Shopify Developer",
+    role: "Shopify Developer",
     privateSource: true,
     techs: ["Shopify", "Liquid", "JavaScript", "Online Store 2.0", "Custom Theme"],
     keyWork: [
@@ -439,7 +439,7 @@ export const PROJECTS = [
         "Artisan home and tabletop e-commerce for handcrafted porcelain, textiles, and lighting—formerly The Bright Angle—with collection-driven navigation and trade program flows.",
       problem:
         "The brand needed a Shopify storefront that could present handcrafted collections clearly and support trade customers alongside retail shoppers.",
-      role: "Front-End / Shopify Developer.",
+      role: "Shopify Developer.",
       whatIBuilt: [
         "Collection-driven navigation for porcelain, textiles, and lighting",
         "Trade program storefront flows",
@@ -491,7 +491,7 @@ export const PROJECTS = [
     priority: 7,
     v3Only: true,
     category: "Shopify",
-    role: "Front-End / Shopify Developer",
+    role: "Shopify Developer",
     privateSource: true,
     techs: ["Shopify", "Liquid", "JavaScript", "Online Store 2.0", "Custom Theme"],
     keyWork: [
@@ -506,7 +506,7 @@ export const PROJECTS = [
         "Plant nursery Shopify store with growing-zone personalization, seasonal shipping, and a broad catalog spanning edibles, houseplants, landscape plants, seeds, and farm-grown honey.",
       problem:
         "A live-plant catalog needs more than a generic product grid—shoppers need zone-aware merchandising and shipping that respects growing seasons.",
-      role: "Front-End / Shopify Developer.",
+      role: "Shopify Developer.",
       whatIBuilt: [
         "Growing-zone personalization",
         "Seasonal shipping storefront behavior",
@@ -556,7 +556,7 @@ export const PROJECTS = [
     priority: 8,
     v3Only: true,
     category: "Shopify",
-    role: "Front-End / Shopify Developer",
+    role: "Shopify Developer",
     privateSource: true,
     techs: ["Shopify", "Liquid", "JavaScript", "Online Store 2.0", "Custom Theme"],
     keyWork: [
@@ -571,7 +571,7 @@ export const PROJECTS = [
         "Feminine lounge and sleepwear Shopify brand featuring built-in Femme Fit support, collection-based merchandising, pre-order flows, and size-inclusive goddess gowns and slip dresses.",
       problem:
         "The brand needed collection merchandising and pre-order behavior that matched a fit-focused sleepwear line rather than a generic apparel theme.",
-      role: "Front-End / Shopify Developer.",
+      role: "Shopify Developer.",
       whatIBuilt: [
         "Collection-based merchandising",
         "Pre-order storefront flows",

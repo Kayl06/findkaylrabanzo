@@ -1,29 +1,18 @@
 /** Resume page content — aligned with SOFTWARE DEVELOPER CV PDF */
 
 export const RESUME_SUMMARY =
-  "Senior Frontend & Shopify Developer with 7+ years of experience building production web applications, SaaS products, and e-commerce experiences. Strongest in React, Next.js, TypeScript, Shopify, and API-driven applications, with backend experience across Laravel, Node.js, and SQL when the work spans the stack. Uses Cursor, Claude Code, GitHub Copilot, Codex, and ChatGPT to move faster, then reviews the output before shipping.";
+  "Mid-Senior Full-Stack Web Developer & Shopify Developer with 7+ years of experience building production web applications, SaaS products, and e-commerce experiences. Strong frontend work in React, Next.js, and TypeScript, backend work in Laravel, Node.js, and SQL, and 3+ years specializing in Shopify themes and storefronts. Uses Cursor, Claude Code, GitHub Copilot, Codex, and ChatGPT to move faster, then reviews the output before shipping.";
 
 export const RESUME_HIGHLIGHTS = [
-  "7+ years software development",
-  "3+ years Shopify development",
+  "7+ years web development",
+  "Full-stack web development",
   "React · Next.js · TypeScript",
+  "Laravel · Node.js · SQL",
+  "3+ years Shopify development",
   "Shopify · Liquid · OS 2.0",
-  "SaaS & e-commerce",
-  "AI-augmented development",
 ];
 
 export const RESUME_EXPERTISE = [
-  {
-    title: "Shopify Development",
-    items: [
-      "Shopify",
-      "Liquid",
-      "Online Store 2.0",
-      "Shopify APIs",
-      "Custom Themes",
-      "Reusable Sections",
-    ],
-  },
   {
     title: "Frontend Engineering",
     items: [
@@ -52,6 +41,17 @@ export const RESUME_EXPERTISE = [
       "Authentication & Authorization",
       "Third-Party Integrations",
       "Payment Integrations",
+    ],
+  },
+  {
+    title: "Shopify Development",
+    items: [
+      "Shopify",
+      "Liquid",
+      "Online Store 2.0",
+      "Shopify APIs",
+      "Custom Themes",
+      "Reusable Sections",
     ],
   },
   {
@@ -155,7 +155,7 @@ export const RESUME_EXPERIENCE = [
   },
   {
     company: "E-Commerce and SaaS Clients",
-    role: "Freelance Front-End, Full-Stack & Shopify Developer",
+    role: "Freelance Full-Stack & Shopify Developer",
     period: "Jan 2023 – Present",
     current: true,
     bullets: [

@@ -21,7 +21,7 @@ export const EXPERIENCE = [
     id: "freelancer",
     company: "E-Commerce and SaaS Clients",
     website: null,
-    role: "Freelance Front-End, Full-Stack & Shopify Developer",
+    role: "Freelance Full-Stack & Shopify Developer",
     period: "January 2023 – Present",
     current: true,
     bullets: [

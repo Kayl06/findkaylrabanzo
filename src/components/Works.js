@@ -63,7 +63,7 @@ export default function Works() {
             onClick={() => setFilter(f)}
             className={`rounded-full px-4 py-1.5 text-xs font-medium border transition-colors ${
               filter === f
-                ? "border-cyan-400/50 bg-cyan-500/10 text-cyan-400"
+                ? "border-accent/50 bg-accent/10 text-accent"
                 : "border-[var(--border)] text-muted hover:border-line/20 hover:text-ink"
             }`}
           >
